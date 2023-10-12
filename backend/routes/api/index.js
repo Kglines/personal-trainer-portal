@@ -2,8 +2,14 @@ const router = require('express').Router();
 const { setTokenCookie } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
 const { restoreUser } = require('../../utils/auth.js');
+const sessionRouter = require('./session.js');
+const usersRouter = require('./users.js')
 
 router.use(restoreUser);
+
+// ************************* Routes *************************
+router.use('/session', sessionRouter);
+router.use('/users', usersRouter);
 
 // ************************* Test Middleware *************************
 // GET /api/set-token-cookie
@@ -38,5 +44,7 @@ router.get(
     return res.json(req.user);
   }
 );
+
+
 
 module.exports = router;
