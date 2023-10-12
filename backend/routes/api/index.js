@@ -3,17 +3,7 @@ const { setTokenCookie } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
 const { restoreUser } = require('../../utils/auth.js');
 
-// router.use(restoreUser);
-
-// GET /api/restore-user
-router.get('/restore-user', (req, res) => {
-  return res.json(req.user);
-});
-
-// ************************* TEST ROUTE *************************
-router.post('/test', function (req, res) {
-  res.json({ requestBody: req.body });
-});
+router.use(restoreUser);
 
 // ************************* Test Middleware *************************
 // GET /api/set-token-cookie
@@ -27,6 +17,18 @@ router.get('/set-token-cookie', async (_req, res) => {
   return res.json({ user: user });
 });
 
+// GET /api/restore-user
+router.get('/restore-user', (req, res) => {
+  return res.json(req.user);
+});
+
+// ************************* TEST ROUTE *************************
+router.post('/test', function (req, res) {
+  res.json({ requestBody: req.body });
+});
+
+
+
 // GET /api/require-auth
 const { requireAuth } = require('../../utils/auth.js');
 router.get(
@@ -36,7 +38,5 @@ router.get(
     return res.json(req.user);
   }
 );
-
-router.use(restoreUser);
 
 module.exports = router;
