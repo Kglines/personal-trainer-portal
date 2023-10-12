@@ -56,5 +56,28 @@ router.delete(
     }
 );
 
+// ************************* Restore Session User *************************
+router.get(
+    '/',
+    (req, res) => {
+        const { user } = req;
+        if(user){
+            const safeUser = {
+                id: user.id,
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                profileImg: user.profileImg,
+                isAdmin: user.isAdmin,
+                isMechanic: user.isMechanic,
+            };
+
+            return res.json({
+                user: safeUser
+            })
+        } else return res.json({ user: null });
+    }
+);
 
 module.exports = router;
