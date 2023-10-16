@@ -3,11 +3,13 @@ const { Op } = require('sequelize');
 const bcrypt = require('bcryptjs');
 const { setTokenCookie, restoreUser } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
+const { validateLogin } = require('../../utils/validation.js');
 const router = express.Router();
 
 // ************************* Log In *************************
 router.post(
     '/',
+    validateLogin,
     async (req, res, next) => {
         const { credential, password } = req.body;
 
