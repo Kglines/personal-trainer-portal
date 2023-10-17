@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
-import * as sessionActions from '../../store/session';
+import * as sessionActions from '../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const sessionUser = useSelector((state) => state.session.user);
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
 
-    if (sessionUser) return <Redirect to='/' />;
+    if(sessionUser) {
+        return navigate("/home")
+    } else {
+        return navigate("/login")
+    };
+
+    // if (!sessionUser) {
+    //     return redirect("/login")
+    // } else {
+    //     return redirect("/");
+    // }
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -34,6 +46,9 @@ const LoginForm = () => {
             onChange={(e) => setCredential(e.target.value)}
             required
           />
+          {/* {errors && errors?.map(error => (
+            <p key={error}>{error}</p>
+          ))} */}
         </label>
         <label>
           Password
