@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as sessionActions from '../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { redirect, useNavigate } from 'react-router-dom';
@@ -12,11 +12,14 @@ const LoginForm = () => {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
 
-    if(sessionUser) {
-        return navigate("/home")
-    } else {
-        return navigate("/login")
-    };
+    useEffect(() => {
+        if(!sessionUser) {
+            return navigate("/login")
+        } else {
+            return navigate("/home")
+        };
+
+    }, [navigate, sessionUser])
 
     // if (!sessionUser) {
     //     return redirect("/login")
