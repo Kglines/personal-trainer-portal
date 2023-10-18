@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar isLoaded={isLoaded} />
       {isLoaded && (
         <Routes>
           <Route path="/signup" element={<SignupForm />} />
