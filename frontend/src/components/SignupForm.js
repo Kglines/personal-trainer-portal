@@ -1,12 +1,15 @@
 // frontend/src/components/SignupFormPage/index.js
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { redirect } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 import * as sessionActions from '../store/session';
 
 function SignupForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const sessionUser = useSelector((state) => state.session.user);
+
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -15,7 +18,13 @@ function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
 
-  if (sessionUser) return redirect('/home');
+  if(sessionUser){
+    navigate("/home");
+  } else {
+    navigate("/signup");
+  }
+
+//   if (sessionUser) return redirect('/home');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,9 +52,9 @@ function SignupForm() {
   };
 
   return (
-    <>
+    <React.Fragment>
       <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex flex-col">
         <label>
           Email
           <input
@@ -108,7 +117,7 @@ function SignupForm() {
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         <button type='submit'>Sign Up</button>
       </form>
-    </>
+    </React.Fragment>
   );
 }
 
