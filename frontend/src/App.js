@@ -5,6 +5,7 @@ import './App.css';
 import Login from './pages/Login';
 import * as sessionActions from './store/session';
 import Home from './pages/Home';
+import NavBar from './components/NavBar';
 
 function App() {
 
@@ -15,12 +16,15 @@ function App() {
   }, [dispatch]);
 
   return (
-    isLoaded && (
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-      </Routes>
-    )
+    <>
+      <NavBar />
+      {isLoaded && (
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      )}
+    </>
   );
 }
 
