@@ -40,7 +40,7 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <nav className='h-8 w-full bg-white border border-black'>
+    <nav className='flex h-32 w-full bg-primary'>
       <ul>
         <li>
           <NavLink exact to='/home' className='text-white'>
