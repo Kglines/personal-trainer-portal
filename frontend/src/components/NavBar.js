@@ -82,7 +82,8 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <nav className='flex h-18 w-full bg-primary px-24 py-4'>
+    <nav className='flex h-18 w-full bg-primary py-4'>
+    <div className="w-4/5 mx-auto">
       <ul className='flex flex-1 justify-between'>
         {/* <li className='flex gap-4'>
           <NavLink
@@ -95,6 +96,7 @@ function Navigation({ isLoaded }) {
         </li> */}
         {isLoaded && sessionLinks}
       </ul>
+    </div>
     </nav>
   );
 }
