@@ -53,23 +53,46 @@ function Navigation({ isLoaded }) {
     );
   } else {
     sessionLinks = (
-      <li className='flex gap-4 justify-between'>
-        <NavLink to='/login' className='text-white border border-secondary rounded-sm px-2 hover:bg-secondary'>
-          Log In
-        </NavLink>
-        <NavLink to='/signup' className='text-white border border-secondary rounded-sm px-2 hover:bg-secondary'>
-          Sign Up
-        </NavLink>
-      </li>
+      <>
+        <li className='flex gap-4'>
+          <NavLink
+            exact
+            to='/'
+            className='text-white hover:text-secondary hover:underline'
+          >
+            Home
+          </NavLink>
+        </li>
+        <li className='flex gap-4 justify-between'>
+          <NavLink
+            to='/login'
+            className='text-white border border-secondary rounded-sm px-2 hover:bg-secondary'
+          >
+            Log In
+          </NavLink>
+          <NavLink
+            to='/signup'
+            className='text-white border border-secondary rounded-sm px-2 hover:bg-secondary'
+          >
+            Sign Up
+          </NavLink>
+        </li>
+      </>
     );
   }
 
   return (
     <nav className='flex h-18 w-full bg-primary px-24 py-4'>
       <ul className='flex flex-1 justify-between'>
-        <li className='flex gap-4'>
-          
-        </li>
+        {/* <li className='flex gap-4'>
+          <NavLink
+            exact
+            to='/'
+            className='text-white hover:text-secondary hover:underline'
+          >
+            Home
+          </NavLink>
+        </li> */}
         {isLoaded && sessionLinks}
       </ul>
     </nav>

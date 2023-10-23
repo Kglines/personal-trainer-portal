@@ -7,6 +7,7 @@ import * as sessionActions from './store/session';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import SignupForm from './components/SignupForm';
+import Landing from './pages/Landing';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Landing />} />
         </Routes>
       )}
     </React.Fragment>
