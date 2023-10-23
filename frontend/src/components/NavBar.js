@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import ProfileButton from './ProfileButton';
+import ProfileButton from './ProfileButton';
 import * as sessionActions from '../store/session';
 
 function Navigation({ isLoaded }) {
@@ -19,20 +19,45 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <li className='text-white flex justify-around'>
-        {/* <ProfileButton user={sessionUser} /> */}
-        <button onClick={logout} className="bg-black">
-          Log Out
-        </button>
-      </li>
+      <ul className='flex flex-1 justify-between'>
+        <li className='flex gap-4'>
+          <NavLink
+            exact
+            to='/home'
+            className='text-white hover:text-secondary hover:underline'
+          >
+            Home
+          </NavLink>
+          <NavLink
+            exact
+            to='/clients'
+            className='text-white hover:text-secondary hover:underline'
+          >
+            Clients
+          </NavLink>
+          <NavLink
+            exact
+            to='/maintenance'
+            className='text-white hover:text-secondary hover:underline'
+          >
+            Maintenance
+          </NavLink>
+        </li>
+        <li className='text-white'>
+          <ProfileButton user={sessionUser} />
+          <button onClick={logout} className='bg-secondary rounded px-2'>
+            Log Out
+          </button>
+        </li>
+      </ul>
     );
   } else {
     sessionLinks = (
-      <li>
-        <NavLink to='/login' className='text-white'>
+      <li className='flex gap-4 justify-between'>
+        <NavLink to='/login' className='text-white border border-secondary rounded-sm px-2 hover:bg-secondary'>
           Log In
         </NavLink>
-        <NavLink to='/signup' className='text-white'>
+        <NavLink to='/signup' className='text-white border border-secondary rounded-sm px-2 hover:bg-secondary'>
           Sign Up
         </NavLink>
       </li>
@@ -40,12 +65,10 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <nav className='flex h-32 w-full bg-primary'>
-      <ul>
-        <li>
-          <NavLink exact to='/home' className='text-white'>
-            Home
-          </NavLink>
+    <nav className='flex h-18 w-full bg-primary px-24 py-4'>
+      <ul className='flex flex-1 justify-between'>
+        <li className='flex gap-4'>
+          
         </li>
         {isLoaded && sessionLinks}
       </ul>

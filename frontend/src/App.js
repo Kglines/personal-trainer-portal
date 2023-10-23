@@ -17,7 +17,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <React.Fragment>
       <NavBar isLoaded={isLoaded} />
       {isLoaded && (
         <Routes>
@@ -26,7 +26,7 @@ function App() {
           <Route path="/home" element={<Home />} />
         </Routes>
       )}
-    </>
+    </React.Fragment>
   );
 }
 

@@ -38,34 +38,48 @@ const LoginForm = () => {
       );
     };
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-          {/* {errors && errors?.map(error => (
-            <p key={error}>{error}</p>
-          ))} */}
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
+    <div className='flex flex-col mx-auto pt-12 pb-16 text-center mt-8  text-white border border-collapse rounded-sm w-1/2 bg-dark'>
+      <h1 className='text-3xl'>Log In</h1>
+      <form
+        onSubmit={handleSubmit}
+        className='flex-col mx-auto border border-secondary rounded-md p-4 shadow-lg mt-8 bg-dark'
+      >
+        <div>
+          <label className='flex justify-end my-4'>
+            Username or Email
+            <input
+              type='text'
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+              className='border-2 border-black rounded-md bg-light px-2 mx-2'
+            />
+            {/* {errors && errors?.map(error => (
+              <p key={error}>{error}</p>
+            ))} */}
+          </label>
+        </div>
+        <div className='flex justify-end'>
+          <label className='flex'>
+            Password
+            <input
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className='border-2 border-black rounded-md bg-light px-2 mx-2'
+            />
+          </label>
+        </div>
         {errors.credential && <p>{errors.credential}</p>}
-        <button type="submit">Log In</button>
+        <button
+          type='submit'
+          className='bg-secondary text-white shadow-sm px-4 py-2 mt-4 rounded-md hover:bg-secondaryLight'
+        >
+          Log In
+        </button>
       </form>
-    </>
+    </div>
   );
 };
 

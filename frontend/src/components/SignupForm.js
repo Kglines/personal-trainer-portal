@@ -1,7 +1,6 @@
-// frontend/src/components/SignupFormPage/index.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as sessionActions from '../store/session';
 
 function SignupForm() {
@@ -18,13 +17,14 @@ function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
 
-  if(sessionUser){
-    navigate("/home");
-  } else {
-    navigate("/signup");
-  }
+  useEffect(() => {
+    if(sessionUser){
+      navigate("/home");
+    } else {
+      navigate("/signup");
+    }
+  }, [navigate, sessionUser])
 
-//   if (sessionUser) return redirect('/home');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,72 +52,88 @@ function SignupForm() {
   };
 
   return (
-    <React.Fragment>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col">
-        <label>
-          Email
-          <input
-            type='text'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label>
-          Username
-          <input
-            type='text'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        {errors.username && <p>{errors.username}</p>}
-        <label>
-          First Name
-          <input
-            type='text'
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-        </label>
-        {errors.firstName && <p>{errors.firstName}</p>}
-        <label>
-          Last Name
-          <input
-            type='text'
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
-        </label>
-        {errors.lastName && <p>{errors.lastName}</p>}
-        <label>
-          Password
-          <input
-            type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        {errors.password && <p>{errors.password}</p>}
-        <label>
-          Confirm Password
-          <input
-            type='password'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-        <button type='submit'>Sign Up</button>
-      </form>
-    </React.Fragment>
+    <div className='border border-white w-2/5 rounded-sm mx-auto my-8 bg-dark'>
+      <h1 className='text-center text-3xl py-12 text-white'>Sign Up</h1>
+      <section className='flex flex-col mx-auto w-3/4 text-white justify-end text-right'>
+        <form
+          onSubmit={handleSubmit}
+          className='flex flex-col justify-end text-right'
+        >
+          <label className='flex gap-4 justify-end py-2 h-12'>
+            Email
+            <input
+              type='text'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className='w-64 p-2'
+            />
+          </label>
+          {errors.email && <p>{errors.email}</p>}
+          <label className='flex gap-4 justify-end py-2 h-12'>
+            Username
+            <input
+              type='text'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className='w-64 p-2'
+            />
+          </label>
+          {errors.username && <p>{errors.username}</p>}
+          <label className='flex gap-4 justify-end py-2 h-12'>
+            First Name
+            <input
+              type='text'
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              className='w-64 p-2'
+            />
+          </label>
+          {errors.firstName && <p>{errors.firstName}</p>}
+          <label className='flex gap-4 justify-end py-2 h-12'>
+            Last Name
+            <input
+              type='text'
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+              className='w-64 p-2'
+            />
+          </label>
+          {errors.lastName && <p>{errors.lastName}</p>}
+          <label className='flex gap-4 justify-end py-2 h-12'>
+            Password
+            <input
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className='w-64 p-2'
+            />
+          </label>
+          {errors.password && <p>{errors.password}</p>}
+          <label className='flex gap-4 justify-end py-2 h-12'>
+            Confirm Password
+            <input
+              type='password'
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              className='w-64 p-2'
+            />
+          </label>
+          {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+          <button
+            type='submit'
+            className='bg-secondary w-24 mx-auto my-4 h-12 hover:bg-secondaryLight'
+          >
+            Sign Up
+          </button>
+        </form>
+      </section>
+    </div>
   );
 }
 

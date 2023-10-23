@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-black;
+}
+
+.hidden {
+  display: none;
+}
+.profile-dropdown {
+  @apply absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20;
+}
+/* .profile-dropdown {
+  position: absolute;
+  right: 0;
+  z-index: 20;
+  background-color: white;
+  width: 150px;
+} */
