@@ -38,7 +38,7 @@ const LoginForm = () => {
       );
     };
   return (
-    <div className='flex flex-col mx-auto pt-12 pb-16 text-center mt-8  text-white border border-collapse rounded-sm w-1/2 bg-dark'>
+    <div className='flex flex-col mx-auto pt-12 pb-16 text-center mt-8  text-white border border-collapse rounded-sm w-1/2'>
       <h1 className='text-3xl'>Log In</h1>
       <form
         onSubmit={handleSubmit}
