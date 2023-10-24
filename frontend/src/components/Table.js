@@ -3,7 +3,7 @@ import React from 'react'
 const Table = ({ columns, rows }) => {
   return (
     <section className='text-white w-5/6 mx-auto pt-4'>
-      <table className='mx-auto'>
+      <table className='mx-auto w-full'>
         <thead>
           <tr className='text-white text-center'>
             {columns.map((column) => (
