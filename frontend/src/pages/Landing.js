@@ -1,5 +1,4 @@
-import React from 'react'
-import Table from '../components/Table'
+import React from 'react';
 
 
 
@@ -10,8 +9,7 @@ const Landing = () => {
             <h1 className="text-3xl text-center py-4">Landing</h1>
         </div>
         <div>
-            <p className="text-center">This is the landing page</p>
-            
+            <p className="text-center">This is the landing page</p>   
         </div>
     </section>
   )
