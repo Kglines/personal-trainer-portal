@@ -1,4 +1,7 @@
 import React from 'react'
+import Table from '../components/Table'
+
+
 
 const Landing = () => {
   return (
@@ -8,6 +11,7 @@ const Landing = () => {
         </div>
         <div>
             <p className="text-center">This is the landing page</p>
+            
         </div>
     </section>
   )
