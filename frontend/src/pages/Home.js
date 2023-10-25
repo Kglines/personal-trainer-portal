@@ -4,13 +4,12 @@ import { useSelector } from 'react-redux';
 
 const announcementHeaders = ['Date', 'Announcement'];
 const announcements = [
-  ['2023-10-01', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-  ['2023-10-02', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-  ['2023-10-03', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-  ['2023-10-04', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-  ['2023-10-05', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-  ['2023-10-06', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-  ['2023-11-07', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
+  { date: '2021-10-01', announcement: 'This is an announcement for the first' },
+  { date: '2021-10-02', announcement: 'This is an announcement for the second' },
+  { date: '2021-10-03', announcement: 'This is an announcement for the third' },
+  { date: '2021-10-04', announcement: 'This is an announcement for the fourth' },
+  { date: '2021-10-05', announcement: 'This is an announcement for the fifth' },
+  { date: '2021-10-06', announcement: 'This is an announcement for the sixth' },
 ]
 
 const today = new Date().toLocaleString('default', { month: 'short', year: 'numeric' });
@@ -23,7 +22,10 @@ const Home = () => {
     <section className='text-white w-5/6 mx-auto text-center pt-4'>
       <h1 className='text-4xl'>Welcome {currentUser.username}!</h1>
       <p>Here are your announcements for the month:</p>
-      <Table rows={announcements} columns={announcementHeaders} />
+      {/* {announcements.map((announcement, idx) => (
+        <Table key={idx} columns={Object.keys(announcement)} rows={Object.values(announcement)} />
+      ))} */}
+      <Table columns={announcements.map(announcement => Object.keys(announcement))} rows={announcements.map(announcement => Object.values(announcement))} />
       <p>{today}</p>
     </section>
   );
