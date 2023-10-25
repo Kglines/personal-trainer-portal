@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from '../components/Table';
+import AnnouncementTable from '../components/AnnouncementTable';
 import { useSelector } from 'react-redux';
 
 const announcementHeaders = ['Date', 'Announcement'];
@@ -22,11 +22,7 @@ const Home = () => {
     <section className='text-white w-5/6 mx-auto text-center pt-4'>
       <h1 className='text-4xl'>Welcome {currentUser.username}!</h1>
       <p>Here are your announcements for the month:</p>
-      {/* {announcements.map((announcement, idx) => (
-        <Table key={idx} columns={Object.keys(announcement)} rows={Object.values(announcement)} />
-      ))} */}
-      {/* <Table columns={announcements.map(announcement => Object.keys(announcement))} rows={announcements.map(announcement => Object.values(announcement))} /> */}
-      <Table headers={announcementHeaders} data={announcements} />
+      <AnnouncementTable announcements={announcements} />
       <p>{today}</p>
     </section>
   );
