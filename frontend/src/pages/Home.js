@@ -25,7 +25,8 @@ const Home = () => {
       {/* {announcements.map((announcement, idx) => (
         <Table key={idx} columns={Object.keys(announcement)} rows={Object.values(announcement)} />
       ))} */}
-      <Table columns={announcements.map(announcement => Object.keys(announcement))} rows={announcements.map(announcement => Object.values(announcement))} />
+      {/* <Table columns={announcements.map(announcement => Object.keys(announcement))} rows={announcements.map(announcement => Object.values(announcement))} /> */}
+      <Table headers={announcementHeaders} data={announcements} />
       <p>{today}</p>
     </section>
   );
