@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import SignupForm from './components/SignupForm';
 import Landing from './pages/Landing';
+import Clients from './pages/Clients';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/clients" element={<Clients />} />
           <Route path="/" element={<Landing />} />
         </Routes>
       )}
