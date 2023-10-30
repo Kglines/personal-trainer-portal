@@ -10,6 +10,7 @@ import SignupForm from './components/SignupForm';
 import Landing from './pages/Landing';
 import Clients from './pages/Clients';
 import Maintenance from './pages/Maintenance';
+import Trainers from './pages/Trainers';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/clients" element={<Clients />} />
+          <Route path="/trainers" element={<Trainers />} />
           <Route path="/maintenance" element={<Maintenance />} />
           <Route path="/" element={<Landing />} />
         </Routes>

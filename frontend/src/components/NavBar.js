@@ -49,6 +49,13 @@ function Navigation({ isLoaded }) {
           >
             Maintenance
           </NavLink>
+          {sessionUser.isAdmin && <NavLink
+            exact
+            to='/trainers'
+            className='text-white hover:text-secondary hover:underline active:text-secondary active:underline focus:text-secondary focus:underline'
+          >
+            Trainers
+          </NavLink>}
         </li>
         <li className='text-white'>
           <ProfileButton user={sessionUser} />
