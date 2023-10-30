@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as sessionActions from '../store/session';
@@ -8,29 +8,11 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
-  // const ulRef = useRef();
 
   const openMenu = () => {
-    // if (showMenu) return;
     setShowMenu(!showMenu);
-    // console.log('openMenu **** ', showMenu);
   };
 
-  // useEffect(() => {
-  //   if (!showMenu) return;
-  //   console.log('closeMenu **** ', showMenu);
-
-  //   const closeMenu = () => {
-  //     setShowMenu(false);
-  //     // if (!ulRef.current.contains(e.target)) {
-  //     //   setShowMenu(false);
-  //     // }
-  //   };
-
-  //   document.addEventListener('click', closeMenu);
-
-  //   return () => document.removeEventListener('click', closeMenu);
-  // }, [showMenu]);
 
   const logout = (e) => {
     e.preventDefault();
@@ -49,13 +31,10 @@ function ProfileButton({ user }) {
       <button onClick={openMenu}>
         {user.profileImg ? <img src={user.profileImg} alt='profile' className='w-8 h-8 rounded-full flex mx-4 mt-1' /> : <i className='fas fa-user-circle mx-8' />
         }
-        {/* <i className='fas fa-user-circle mx-8' /> */}
       </button>
       {showMenu && (
         <ul
           className={ulClassName}
-          // className='profile-dropdown'
-          // ref={ulRef}
         >
           <li className='py-2'>
             <strong>Username: </strong> {user.username}

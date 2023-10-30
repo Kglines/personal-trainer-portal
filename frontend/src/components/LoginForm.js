@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as sessionActions from '../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -54,9 +54,6 @@ const LoginForm = () => {
               required
               className='border-2 border-black rounded-md bg-light px-2 mx-2 text-black'
             />
-            {/* {errors && errors?.map(error => (
-              <p key={error}>{error}</p>
-            ))} */}
           </label>
         </div>
         <div className='flex justify-end'>
