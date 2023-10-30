@@ -60,28 +60,6 @@ function SignupForm() {
           className='flex flex-col justify-end text-right'
         >
           <label className='flex gap-4 justify-end py-2 h-12'>
-            Email
-            <input
-              type='text'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className='w-64 p-2'
-            />
-          </label>
-          {errors.email && <p>{errors.email}</p>}
-          <label className='flex gap-4 justify-end py-2 h-12'>
-            Username
-            <input
-              type='text'
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              className='w-64 p-2'
-            />
-          </label>
-          {errors.username && <p>{errors.username}</p>}
-          <label className='flex gap-4 justify-end py-2 h-12'>
             First Name
             <input
               type='text'
@@ -103,6 +81,30 @@ function SignupForm() {
             />
           </label>
           {errors.lastName && <p>{errors.lastName}</p>}
+
+          <label className='flex gap-4 justify-end py-2 h-12'>
+            Username
+            <input
+              type='text'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className='w-64 p-2'
+            />
+          </label>
+          {errors.username && <p>{errors.username}</p>}
+          <label className='flex gap-4 justify-end py-2 h-12'>
+            Email
+            <input
+              type='text'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className='w-64 p-2'
+            />
+          </label>
+          {errors.email && <p>{errors.email}</p>}
+
           <label className='flex gap-4 justify-end py-2 h-12'>
             Password
             <input

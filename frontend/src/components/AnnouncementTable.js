@@ -3,7 +3,7 @@ import React from 'react'
 const AnnouncementTable = ({ announcements }) => {
   return (
     <section className='w-full mx-auto'>
-      <table className="w-5/6 mx-auto text-lg">
+      <table className="w-5/6 mx-auto text-lg table-auto">
         <thead>
           <tr>
             <th className="border border-white p-2">Date</th>

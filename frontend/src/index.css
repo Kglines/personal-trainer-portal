@@ -9,13 +9,32 @@ body {
 .hidden {
   display: none;
 }
-.profile-dropdown {
-  @apply absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20;
-}
 /* .profile-dropdown {
+  @apply absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20;
+} */
+.profile-dropdown {
   position: absolute;
-  right: 0;
+  right: 10;
   z-index: 20;
   background-color: white;
-  width: 150px;
-} */
+  color: black;
+  width: 275px;
+  /* height: 200px; */
+}
+/* .profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    right: -130%;
+    margin-top: 35%;
+    padding-top: 50px;
+    list-style: none;
+    color: white;
+    height: 8vh;
+    background-color: #333;
+    width: 150px;
+    z-index: 5;
+    font-size: 20px;
+    padding: 1%;
+    text-align: center;
+ } */
