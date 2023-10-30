@@ -52,7 +52,7 @@ const LoginForm = () => {
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
               required
-              className='border-2 border-black rounded-md bg-light px-2 mx-2'
+              className='border-2 border-black rounded-md bg-light px-2 mx-2 text-black'
             />
             {/* {errors && errors?.map(error => (
               <p key={error}>{error}</p>
@@ -67,7 +67,7 @@ const LoginForm = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className='border-2 border-black rounded-md bg-light px-2 mx-2'
+              className='border-2 border-black rounded-md bg-light px-2 mx-2 text-black'
             />
           </label>
         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Trainers = () => {
   return (
-    <div>Trainers</div>
+    <section className="w-4/5 mx-auto text-white">Trainers</section>
   )
 }
 
