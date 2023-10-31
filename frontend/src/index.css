@@ -38,3 +38,6 @@ body {
     padding: 1%;
     text-align: center;
  } */
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}

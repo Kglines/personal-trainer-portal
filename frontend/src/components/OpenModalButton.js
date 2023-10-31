@@ -1,5 +1,5 @@
 import React from 'react';
-import { useModal } from '../../context/Modal';
+import { useModal } from '../context/Modal';
 
 function OpenModalButton({
   modalComponent, // component to render inside the modal
@@ -15,7 +15,11 @@ function OpenModalButton({
     setModalContent(modalComponent);
   };
 
-  return <button onClick={onClick}>{buttonText}</button>;
+  return (
+    <button onClick={onClick} className='bg-secondary text-white px-2 py-1 rounded-sm m-4 hover:bg-secondaryLight'>
+      {buttonText}
+    </button>
+  );
 }
 
 export default OpenModalButton;

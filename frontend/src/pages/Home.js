@@ -1,6 +1,8 @@
 import React from 'react'
 import AnnouncementTable from '../components/AnnouncementTable';
 import { useSelector } from 'react-redux';
+import OpenModalButton from '../components/OpenModalButton';
+import NewAnnouncementForm from '../forms/NewAnnouncementForm';
 
 const announcementHeaders = ['Date', 'Announcement'];
 const announcements = [
@@ -21,9 +23,12 @@ const Home = () => {
   return (
     <section className='text-white w-4/5 mx-auto text-center pt-4'>
       <h1 className='text-4xl'>Welcome {currentUser.username}!</h1>
-      <p>Here are your announcements for the month:</p>
+      {currentUser.isAdmin && (
+        <OpenModalButton buttonText="+ Announcement" modalComponent={<NewAnnouncementForm />} />
+      )}
+      <p className='py-2'>Here are your announcements for the month:</p>
       <AnnouncementTable announcements={announcements} />
-      <p>{today}</p>
+      <p className='py-2'>{today}</p>
     </section>
   );
 }
