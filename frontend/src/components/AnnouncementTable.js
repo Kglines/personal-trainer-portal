@@ -5,7 +5,7 @@ const AnnouncementTable = ({ announcements }) => {
     <section className='w-full mx-auto'>
       <table className="w-5/6 mx-auto text-lg table-auto">
         <thead>
-          <tr>
+          <tr className='bg-dark'>
             <th className="border border-white p-2">Date</th>
             <th className="border border-white p-2">Announcement</th>
           </tr>
