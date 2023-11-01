@@ -102,7 +102,7 @@ const announcementsReducer = (state = initialState, action) => {
             newState = action.payload
             return newState;
         case CREATE_ANNOUNCEMENT:
-            newState[action.payload.id] = action.payload;
+            newState = { ...state, [action.payload.id]: action.payload }
             return newState;
         case EDIT_ANNOUNCEMENT:
             newState[action.payload.id] = action.payload;

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { createAnnouncementThunk } from '../store/announcement';
 
 const NewAnnouncementForm = ({ onClose }) => {
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
 
     const [date, setDate] = useState('');
     const [body, setBody] = useState('');
@@ -13,10 +14,11 @@ const NewAnnouncementForm = ({ onClose }) => {
         e.preventDefault();
 
         const payload = {
+            userId: sessionUser.id,
             date,
             body
         }
-        
+        console.log('Announcement Payload ==== ', payload)
         dispatch(createAnnouncementThunk(payload))
             .then(() => onClose())
             .catch((res) => {

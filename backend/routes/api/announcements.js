@@ -8,8 +8,8 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { date, announcement } = req.body;
-    const newAnnouncement = await Announcement.create({ date, announcement });
+    const { date, body, userId } = req.body;
+    const newAnnouncement = await Announcement.create({ date, body, userId });
     return res.json(newAnnouncement);
 });
 

@@ -14,14 +14,14 @@ const Home = () => {
   const {closeModal} = useModal();
   const currentUser = useSelector(state => state.session.user);
   const announcements = Object.values(useSelector((state) => state.announcements));
-console.log('ANNOUNCEMENTS === ', announcements);
+// console.log('ANNOUNCEMENTS === ', announcements);
 
 const thisMonthsAnnouncements = announcements.filter(announcement => {
-  console.log('ANNOUNCEMENT DATE === ', announcement.date)
+  // console.log('ANNOUNCEMENT DATE === ', announcement.date)
   // const announcementMonth = new Date(announcement.date).getMonth() + 1;
   const announcementMonth = announcement.date.slice(5, 7);
-  console.log('ANNOUNCEMENT MONTH === ', announcementMonth);
-  console.log((new Date().getMonth() + 1).toString());
+  // console.log('ANNOUNCEMENT MONTH === ', announcementMonth);
+  // console.log((new Date().getMonth() + 1).toString());
   return announcementMonth === (new Date().getMonth() + 1).toString();
 });
 
@@ -37,7 +37,7 @@ const thisMonthsAnnouncements = announcements.filter(announcement => {
   // }, [announcements]);
 
   useEffect(() => {
-    console.log('GETTING ANNOUNCEMENTS')
+    // console.log('GETTING ANNOUNCEMENTS')
     dispatch(getAnnouncementsThunk());
   }, [dispatch]);
 
