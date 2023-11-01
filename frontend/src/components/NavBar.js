@@ -22,28 +22,28 @@ function Navigation({ isLoaded }) {
       <ul className='flex flex-1 justify-between'>
         <li className='flex gap-4'>
           <NavLink
-            exact
+            exact="true"
             to='/home'
             className='text-white hover:text-secondary hover:underline focus:text-secondary focus:underline'
           >
             Home
           </NavLink>
           <NavLink
-            exact
+            exact="true"
             to='/clients'
             className='text-white hover:text-secondary hover:underline active:text-secondary active:underline focus:text-secondary focus:underline'
           >
             Clients
           </NavLink>
           <NavLink
-            exact
+            exact="true"
             to='/maintenance'
             className='text-white hover:text-secondary hover:underline active:text-secondary active:underline focus:text-secondary focus:underline'
           >
             Maintenance
           </NavLink>
           {sessionUser.isAdmin && <NavLink
-            exact
+            exact="true"
             to='/trainers'
             className='text-white hover:text-secondary hover:underline active:text-secondary active:underline focus:text-secondary focus:underline'
           >

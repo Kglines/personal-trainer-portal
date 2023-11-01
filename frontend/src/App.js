@@ -25,13 +25,13 @@ function App() {
       <NavBar isLoaded={isLoaded} />
       {isLoaded && (
         <Routes>
-          <Route path="/signup" element={<SignupForm />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/clients" element={<Clients />} />
-          <Route path="/trainers" element={<Trainers />} />
-          <Route path="/maintenance" element={<Maintenance />} />
-          <Route path="/" element={<Landing />} />
+          <Route path='/signup' element={<SignupForm />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/clients' element={<Clients />} />
+          <Route path='/trainers' element={<Trainers />} />
+          <Route path='/maintenance' element={<Maintenance />} />
+          <Route path='/' element={<Landing />} />
         </Routes>
       )}
     </React.Fragment>

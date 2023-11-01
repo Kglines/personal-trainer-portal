@@ -13,9 +13,9 @@ const AnnouncementTable = ({ announcements }) => {
         <tbody>
           {announcements.map((announcement, idx) => (
             <tr key={idx} className="even:bg-dark">
-              <td className='border border-white p-2'>{announcement.date}</td>
+              <td className='border border-white p-2'>{announcement.date.slice(5, 10)}</td>
               <td className='border border-white p-2'>
-                {announcement.announcement}
+                {announcement.body}
               </td>
             </tr>
           ))}

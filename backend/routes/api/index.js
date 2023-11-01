@@ -4,12 +4,14 @@ const { User } = require('../../db/models');
 const { restoreUser } = require('../../utils/auth.js');
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js')
+const announcementsRouter = require('./announcements.js')
 
 router.use(restoreUser);
 
 // ************************* Routes *************************
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
+router.use('/announcements', announcementsRouter);
 
 // ************************* Test Middleware *************************
 // GET /api/set-token-cookie
