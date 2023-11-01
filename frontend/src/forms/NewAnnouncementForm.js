@@ -32,10 +32,24 @@ const NewAnnouncementForm = ({ onClose }) => {
         <div className='px-4 py-2 mt-2'>
             <form className='flex flex-col text-white gap-4' onSubmit={onSubmit}>
                 <label htmlFor="date" className='text-white'>Date:
-                    <input type="date" name="date" id="date" className='bg-dark text-white px-1 mx-2' />
+                    <input 
+                        value={date} 
+                        onChange={e => setDate(e.target.value)} 
+                        type="date" 
+                        name="date" 
+                        id="date" 
+                        className='bg-dark text-white px-1 mx-2' />
                 </label>
                 <label htmlFor="announcement" className='flex flex-col'>Announcement:
-                    <textarea name="announcement" id="announcement" cols="30" rows="10" className='bg-dark py-1 px-2 my-1'></textarea>
+                    <textarea 
+                        value={body} 
+                        onChange={e => setBody(e.target.value)} 
+                        name="announcement" 
+                        id="announcement" 
+                        cols="30" 
+                        rows="10" 
+                        className='bg-dark py-1 px-2 my-1'
+                        placeholder='New Announcement here...'></textarea>
                 </label>
                 <button type="submit" className='bg-secondary hover:bg-secondaryLight h-8'>Add</button>
             </form>
