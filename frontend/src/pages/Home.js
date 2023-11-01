@@ -6,17 +6,6 @@ import NewAnnouncementForm from '../forms/NewAnnouncementForm';
 import { getAnnouncementsThunk } from '../store/announcement';
 import { useModal } from '../context/Modal';
 
-// const announcementHeaders = ['Date', 'Announcement'];
-// const announcements = [
-//   { date: '2021-10-01', announcement: 'This is an announcement for the first' },
-//   { date: '2021-10-02', announcement: 'This is an announcement for the second' },
-//   { date: '2021-10-03', announcement: 'This is an announcement for the third' },
-//   { date: '2021-10-04', announcement: 'This is an announcement for the fourth' },
-//   { date: '2021-10-05', announcement: 'This is an announcement for the fifth' },
-//   { date: '2021-10-06', announcement: 'This is an announcement for the sixth' },
-// ]
-
-
 const today = new Date().toLocaleString('default', { month: 'short', year: 'numeric' });
 console.log('TODAY === ', today)
 
