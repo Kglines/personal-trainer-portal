@@ -7,7 +7,7 @@ import { getAnnouncementsThunk } from '../store/announcement';
 import { useModal } from '../context/Modal';
 
 const today = new Date().toLocaleString('default', { month: 'short', year: 'numeric' });
-console.log('TODAY === ', today)
+// console.log('TODAY === ', today)
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const Home = () => {
     dispatch(getAnnouncementsThunk());
   }, [dispatch]);
 
-  console.log('ANNOUNCEMENTS HOME PAGE === ', announcements)
+  // console.log('ANNOUNCEMENTS HOME PAGE === ', announcements)
   return (
     <section className='text-white w-4/5 mx-auto text-center pt-4'>
       <h1 className='text-4xl'>Welcome {currentUser.username}!</h1>

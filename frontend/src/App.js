@@ -14,7 +14,6 @@ import Trainers from './pages/Trainers';
 import LeftBar from './components/LeftBar';
 
 function App() {
-
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
