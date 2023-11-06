@@ -4,6 +4,7 @@ const { Announcement } = require('../../db/models');
 
 // GET /api/announcements - Get all announcements
 router.get('/', async (req, res) => {
+    // Get all announcements
     const announcements = await Announcement.findAll();
     // Sort announcements by date
     const sortedAnnouncements = announcements.sort((a, b) => {
