@@ -11,6 +11,7 @@ import Landing from './pages/Landing';
 import Clients from './pages/Clients';
 import Maintenance from './pages/Maintenance';
 import Trainers from './pages/Trainers';
+import LeftBar from './components/LeftBar';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
   return (
     <React.Fragment>
       <NavBar isLoaded={isLoaded} />
+      <LeftBar />
       {isLoaded && (
         <Routes>
           <Route path='/signup' element={<SignupForm />} />
