@@ -27,7 +27,7 @@ const Home = () => {
 
   // console.log('ANNOUNCEMENTS HOME PAGE === ', announcements)
   return (
-    <section className='text-white w-4/5 mx-auto text-center pt-4'>
+    <section className='text-white w-4/5 mx-auto text-center pt-4 pl-48'>
       <h1 className='text-4xl'>Welcome {currentUser.username}!</h1>
       {currentUser.isAdmin && (
         <OpenModalButton buttonText="+ Announcement" modalComponent={<NewAnnouncementForm onClose={closeModal} />} />

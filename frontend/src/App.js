@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Login from './pages/Login';
@@ -9,13 +9,14 @@ import NavBar from './components/NavBar';
 import SignupForm from './components/SignupForm';
 import Landing from './pages/Landing';
 import Clients from './pages/Clients';
-import Maintenance from './pages/Maintenance';
 import Trainers from './pages/Trainers';
 import LeftBar from './components/LeftBar';
+import Machines from './pages/Machines';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const sessionUser = useSelector(state => state.session.user);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -23,7 +24,7 @@ function App() {
   return (
     <React.Fragment>
       <NavBar isLoaded={isLoaded} />
-      <LeftBar />
+      {sessionUser && <LeftBar />}
       {isLoaded && (
         <Routes>
           <Route path='/signup' element={<SignupForm />} />
@@ -31,7 +32,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/clients' element={<Clients />} />
           <Route path='/trainers' element={<Trainers />} />
-          <Route path='/maintenance' element={<Maintenance />} />
+          <Route path='/machines' element={<Machines />} />
           <Route path='/' element={<Landing />} />
         </Routes>
       )}

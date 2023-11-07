@@ -19,25 +19,8 @@ body {
   background-color: white;
   color: black;
   width: 275px;
-  /* height: 200px; */
 }
-/* .profile-dropdown {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    right: -130%;
-    margin-top: 35%;
-    padding-top: 50px;
-    list-style: none;
-    color: white;
-    height: 8vh;
-    background-color: #333;
-    width: 150px;
-    z-index: 5;
-    font-size: 20px;
-    padding: 1%;
-    text-align: center;
- } */
+
 ::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }

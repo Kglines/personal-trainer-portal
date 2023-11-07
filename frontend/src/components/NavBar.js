@@ -37,10 +37,10 @@ function Navigation({ isLoaded }) {
           </NavLink>
           <NavLink
             exact="true"
-            to='/maintenance'
+            to='/machines'
             className='text-white hover:text-secondary hover:underline active:text-secondary active:underline focus:text-secondary focus:underline'
           >
-            Maintenance
+            Machines
           </NavLink>
           {sessionUser.isAdmin && <NavLink
             exact="true"
