@@ -14,15 +14,38 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Machine.init({
-    number: DataTypes.INTEGER,
-    manufacturer: DataTypes.STRING,
-    type: DataTypes.STRING,
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    machine_img: DataTypes.STRING,
-    dateNew: DataTypes.DATE,
-    mileage: DataTypes.INTEGER,
-    hours: DataTypes.INTEGER
+    number: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    manufacturer: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    machine_img: {
+      type: DataTypes.STRING
+    },
+    dateNew: {
+      type: DataTypes.DATE
+    },
+    mileage: {
+      type: DataTypes.INTEGER
+    },
+    hours: {
+      type: DataTypes.INTEGER
+    }
   }, {
     sequelize,
     modelName: 'Machine',
