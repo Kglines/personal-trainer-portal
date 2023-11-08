@@ -1,62 +1,64 @@
 import { csrfFetch } from "./csrf";
 
 // ******************** Action Variables ********************
-const GET_MACHINES = 'machines/getMachines';
+const GET_MACHINES = 'machines/get';
 const GET_MACHINE = 'machines/getMachine';
-const ADD_MACHINE = 'machines/addMachine';
-const UPDATE_MACHINE = 'machines/updateMachine';
-const DELETE_MACHINE = 'machines/deleteMachine';
+const ADD_MACHINE = 'machines/add';
+const UPDATE_MACHINE = 'machines/update';
+const DELETE_MACHINE = 'machines/delete';
 
 // ******************** Action Creators ********************
 const getMachines = (machines) => ({
     type: GET_MACHINES,
-    machines
+    payload: machines
 });
 
-const getMachine = (machine) => ({
+const getOneMachine = (machine) => ({
     type: GET_MACHINE,
-    machine
+    payload: machine
 });
 
 const addMachine = (machine) => ({
     type: ADD_MACHINE,
-    machine
+    payload: machine
 });
 
 const updateMachine = (machine) => ({
     type: UPDATE_MACHINE,
-    machine
+    payload: machine
 });
 
 const deleteMachine = (machine) => ({
     type: DELETE_MACHINE,
-    machine
+    payload: machine
 });
 
 // ******************** Thunks ********************
-export const fetchMachines = () => async (dispatch) => {
+export const fetchMachinesThunk = () => async (dispatch) => {
+    console.log('FETCH MACHINES THUNK')
     const res = await csrfFetch('/api/machines');
-
+console.log('RES === ', res)
     if(res.ok){
         const machines = await res.json();
+        console.log('MACHINES IF RES IS OK === ', machines   );
         dispatch(getMachines(machines));
         return machines
     }
     return res;
 }
 
-export const fetchMachine = (id) => async (dispatch) => {
+export const fetchMachineThunk = (id) => async (dispatch) => {
     const res = await csrfFetch(`/api/machines/${id}`);
 
     if(res.ok){
         const machine = await res.json();
-        dispatch(getMachine(machine));
+        dispatch(getOneMachine(machine));
         return machine
     }
     return res;
 }
 
-export const createMachine = (machine) => async (dispatch) => {
+export const createMachineThunk = (machine) => async (dispatch) => {
     const res = await csrfFetch('/api/machines', {
         method: 'POST',
         body: JSON.stringify(machine)
@@ -70,7 +72,7 @@ export const createMachine = (machine) => async (dispatch) => {
     return res;
 }
 
-export const editMachine = (machine) => async (dispatch) => {
+export const editMachineThunk = (machine) => async (dispatch) => {
     const res = await csrfFetch(`/api/machines/${machine.id}`, {
         method: 'PUT',
         body: JSON.stringify(machine)
@@ -84,7 +86,7 @@ export const editMachine = (machine) => async (dispatch) => {
     return res;
 }
 
-export const removeMachine = (id) => async (dispatch) => {
+export const removeMachineThunk = (id) => async (dispatch) => {
     const res = await csrfFetch(`/api/machines/${id}`, {
         method: 'DELETE'
     });
@@ -104,9 +106,6 @@ const machinesReducer = (state = initialState, action) => {
     let newState = { ...state };
     switch (action.type) {
         case GET_MACHINES:
-            // newState = action.payload.forEach(announcement => {
-            //     newState[announcement.id] = announcement;
-            // });
             newState = action.payload
             return newState;
         case GET_MACHINE:

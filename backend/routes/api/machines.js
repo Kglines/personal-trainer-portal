@@ -5,7 +5,8 @@ const { Machine } = require('../../db/models');
 // ********************* Get Machines *********************
 router.get('/', async (req, res) => {
   const machines = await Machine.findAll();
-  res.json(machines);
+  // console.log('MACHINES === ', machines)
+  return res.json(machines);
 });
 
 // ********************* Get Machine *********************
