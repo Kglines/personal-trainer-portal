@@ -129,3 +129,94 @@ information.
       }
     }
     ```
+
+### Sign Up a User
+
+Creates a new user, logs them in as the current user, and returns the current
+user's information.
+
+* Require Authentication: false
+* Request
+  * Method: POST
+  * URL: /signup
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "firstName": "John",
+      "lastName": "Smith",
+      "username": "JohnSmith",
+      "email": "john.smith@gmail.com",
+      "password": "secret password"
+    }
+    ```
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "username": "JohnSmith",
+      "email": "john.smith@gmail.com",
+      "token": ""
+    }
+    ```
+
+* Error response: User already exists with the specified email
+  * Status Code: 403
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "User already exists",
+      "statusCode": 403,
+      "errors": {
+        "email": "User with that email already exists"
+      }
+    }
+    ```
+
+* Error response: User already exists with the specified username
+  * Status Code: 403
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "User already exists",
+      "statusCode": 403,
+      "errors": {
+        "username": "User with that username already exists"
+      }
+    }
+    ```
+
+* Error response: Body validation errors
+  * Status Code: 400
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Validation error",
+      "statusCode": 400,
+      "errors": {
+        "email": "Invalid email",
+        "username": "Username is required",
+        "firstName": "First Name is required",
+        "lastName": "Last Name is required"
+      }
+    }
+    ```
