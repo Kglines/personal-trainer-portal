@@ -24,7 +24,6 @@ function App() {
   return (
     <React.Fragment>
       <NavBar isLoaded={isLoaded} />
-      {sessionUser && <LeftBar />}
       {isLoaded && (
         <Routes>
           <Route path='/signup' element={<SignupForm />} />

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import MachinesTable from '../components/MachinesTable';
 import { fetchMachinesThunk } from '../store/machine';
 import Loader from '../components/Loader';
+import LeftBar from '../components/LeftBar';
+import SearchBar from '../components/SearchBar';
 
 const Machines = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,13 +20,24 @@ const Machines = () => {
     setIsLoading(false);
   }, [dispatch]);
 
+  const newMachine = {
+    buttonText: '+ Machine',
+    modalComponent: <div>Machine Form</div>
+  }
+
   return (
     <section className='text-white w-4/5 mx-auto text-center pt-4 pl-48'>
       <div>
-        <h1 className='text-4xl'>Machines</h1>
+        <LeftBar button={newMachine} />
       </div>
       <div>
-        {isLoading ? <Loader /> : <MachinesTable machines={machines} />}
+        <div>
+          <h1 className='text-4xl'>Machines</h1>
+          <SearchBar />
+        </div>
+        <div>
+          {isLoading ? <Loader /> : <MachinesTable machines={machines} />}
+        </div>
       </div>
     </section>
   );

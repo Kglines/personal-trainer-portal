@@ -1,14 +1,20 @@
 import React from 'react'
 import ClientTable from '../components/ClientTable'
+import LeftBar from '../components/LeftBar';
 
 const Clients = () => {
   return (
     <section className='text-white w-4/5 mx-auto text-center pt-4 pl-48'>
       <div>
-        <h1 className='text-4xl'>Clients</h1>
+        <LeftBar />
       </div>
       <div>
-        <ClientTable />
+        <div>
+          <h1 className='text-4xl'>Clients</h1>
+        </div>
+        <div>
+          <ClientTable />
+        </div>
       </div>
     </section>
   );

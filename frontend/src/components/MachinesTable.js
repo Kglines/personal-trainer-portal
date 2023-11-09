@@ -32,11 +32,14 @@ const MachinesTable = ({ machines }) => {
                   to={`/machines/${machine.number}`}
                   className='hover:text-primary'
                 >
-                  {machine.name}
+                  {machine?.name}
                 </Link>
               </td>
-              <td className='border border-white p-2'>{machine.type}</td>
-              <td className='border border-white p-2'>{machine.image}</td>
+              <td className='border border-white p-2'>{machine?.type}</td>
+              {/* <td className='border border-white p-2'>{machine.image}</td> */}
+              <td className='border border-white p-2'>
+                <img src={machine?.machine_img} alt={machine?.name} className='w-16 h-12 mx-auto' />
+              </td>
               <td className='border border-white p-2'>{machine.mileage}</td>
               <td className='border border-white p-2'>{machine.hours}</td>
             </tr>
