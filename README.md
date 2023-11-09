@@ -284,3 +284,35 @@ Returns one of the machines for a club.
                 ]
             }
         ```
+
+### Edit A Machine
+Edits one of the machines for a club.
+
+* Require Authentication: false
+* Request:
+    * Method: PUT
+    * URL: /machines/:id
+    * BodyL none
+* Success Response
+    * Status Code: 200
+    * Headers:
+        * Content-Type: application/json
+    * Body:
+        ```json
+            {
+                "Machines": [
+                    {
+                        "id": 1,
+                        "number": 1,
+                        "manufacturer": "Precor",
+                        "type": "Cardio",
+                        "name": "TRM 885",
+                        "description": "Treadmill",
+                        "machine_img": "https://www.precor.com/sites/www.precor.com/files/asset-images/product/TRM885_2017.png",
+                        "dateNew": "2023-11-01",
+                        "mileage": 25,
+                        "hours": 5,
+                    }
+                ]
+            }
+        ```
