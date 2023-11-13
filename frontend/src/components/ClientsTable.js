@@ -6,10 +6,16 @@ const ClientsTable = () => {
       <table className='w-5/6 mx-auto text-lg table-auto'>
         <thead>
           <tr className='bg-dark'>
-            <th className='border border-grey p-2'>Name</th>
-            <th className='border border-grey p-2'>Name</th>
+            <th className='p-2'>Name</th>
+            <th className='p-2'>Name</th>
           </tr>
         </thead>
+        <tbody>
+          <tr className='even:bg-dark'>
+            <td className='p-2'>Name</td>
+            <td className='p-2'>Name</td>
+          </tr>
+        </tbody>
       </table>
     </section>
   );

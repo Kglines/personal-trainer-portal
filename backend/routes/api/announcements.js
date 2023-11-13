@@ -6,6 +6,7 @@ const { Announcement } = require('../../db/models');
 router.get('/', async (req, res) => {
     // Get all announcements
     const announcements = await Announcement.findAll();
+
     // Sort announcements by date
     const sortedAnnouncements = announcements.sort((a, b) => {
         return a.date - b.date;
@@ -17,6 +18,7 @@ router.get('/', async (req, res) => {
         return announcementMonth === (new Date().getMonth() + 1);
         }
     );
+    
     return res.json(monthlyAnnouncements);
 });
 
