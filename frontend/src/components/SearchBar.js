@@ -5,12 +5,13 @@ const SearchBar = () => {
     const [searchInput, setSearchInput] = useState('');
     const [filteredData, setFilteredData] = useState([]);
     const [data, setData] = useState([]);
+    const [machines, setMachines] = useState([]);
 console.log('DATA === ', data)
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch('/api/machines')
             const data = await res.json().catch((err) => console.log(err));
-            setData(data);
+            setMachines(data);
         }
         fetchData();
     }, [])
@@ -55,7 +56,7 @@ console.log('DATA === ', data)
         </div>
       </div>
       {filteredData?.length !== 0 && (
-        <div className='data-result w-full min-h-min p-4 max-h-96 bg-offWhite overflow-hidden overflow-y-auto absolute z-50'>
+        <div className='data-result w-96 min-h-min p-4 max-h-96 bg-offWhite overflow-hidden overflow-y-auto mx-auto z-50'>
           {filteredData?.map((data) => (
             <NavLink
               key={data?.id}
