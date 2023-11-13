@@ -2,15 +2,17 @@ import React from 'react'
 
 const ClientsTable = () => {
   return (
-    <table>
+    <section className='w-full mx-auto'>
+      <table className='w-5/6 mx-auto text-lg table-auto'>
         <thead>
-            <tr>
-                <th>Name</th>
-                <th>Name</th>
-            </tr>
+          <tr className='bg-dark'>
+            <th className='border border-grey p-2'>Name</th>
+            <th className='border border-grey p-2'>Name</th>
+          </tr>
         </thead>
-    </table>
-  )
+      </table>
+    </section>
+  );
 }
 
 export default ClientsTable

@@ -3,7 +3,7 @@ import LeftBar from '../components/LeftBar'
 
 const Trainers = () => {
   return (
-    <section className='text-white w-4/5 mx-auto text-center pt-4 pl-48'>
+    <section className='text-offWhite w-4/5 mx-auto text-center pt-4 pl-48'>
       <div>
         <LeftBar />
       </div>

@@ -20,13 +20,13 @@ const Machines = () => {
     setIsLoading(false);
   }, [dispatch]);
 
-  const newMachine = {
-    buttonText: '+ Machine',
-    modalComponent: <div>Machine Form</div>
-  }
-
+  // const newMachine = {
+  //   buttonText: '+ Machine',
+  //   modalComponent: <div>Machine Form</div>
+  // }
+const newMachine = '+ Machine'
   return (
-    <section className='text-white w-4/5 mx-auto text-center pt-4 pl-48'>
+    <section className='text-offWhite w-4/5 mx-auto text-center pt-4 pl-48'>
       <div>
         <LeftBar button={newMachine} />
       </div>

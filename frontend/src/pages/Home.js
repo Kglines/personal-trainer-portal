@@ -26,11 +26,14 @@ const Home = () => {
     dispatch(getAnnouncementsThunk());
   }, [dispatch]);
 
+  const announcementButton = '+ Announcement'
+  const links = ['Birthdays', 'Anniversaries']
+
   // console.log('ANNOUNCEMENTS HOME PAGE === ', announcements)
   return (
-    <section className='text-white w-4/5 mx-auto text-center pt-4 pl-48'>
+    <section className='text-offWhite w-4/5 mx-auto text-center pt-4 pl-48'>
       <div>
-        <LeftBar />
+        <LeftBar button={announcementButton} links={links} />
       </div>
       <div>
         <h1 className='text-4xl'>Welcome {currentUser.username}!</h1>
