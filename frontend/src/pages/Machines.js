@@ -7,12 +7,37 @@ import LeftBar from '../components/LeftBar';
 import SearchBar from '../components/SearchBar';
 
 const Machines = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [keyword, setKeyword] = useState([]);
   const dispatch = useDispatch();
   const machines = Object.values(useSelector((state) => state.machines))
 
+  const fetchMachines = async () => {
+    try {
+      const response = (await fetch('/api/machines')).json();
+      const sortedRes = response.sort((machine, nextMachine) => (machine.description < nextMachine.description ? 1 : -1 ))
+  
+      setFilteredData(sortedRes);
+      setData(sortedRes);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  const updateKeyword = (keyword) => {
+    const filtered = filteredData.filter(machine => {
+      return `${machine.description} ${machine.number}`.toLowerCase().includes(keyword.toLowerCase())
+    })
+    setKeyword(keyword)
+    setData(filtered)
+  }
+
   useEffect(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
     dispatch(fetchMachinesThunk())
     // setTimeout(() => {
     //   setIsLoading(false);
@@ -33,7 +58,8 @@ const newMachine = '+ Machine'
       <div>
         <div>
           <h1 className='text-4xl'>Machines</h1>
-          <SearchBar />
+          <SearchBar keyword={keyword} onChange={updateKeyword} />
+          
         </div>
         <div>
           {isLoading ? <Loader /> : <MachinesTable machines={machines} />}
