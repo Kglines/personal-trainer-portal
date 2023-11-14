@@ -10,6 +10,7 @@ const MachinesTable = ({ machines }) => {
           <tr className='bg-dark'>
             <th className='border border-dark p-2'>Number</th>
             <th className='border border-dark p-2'>Description</th>
+            <th className='border border-dark p-2'>Manufacturer</th>
             <th className='border border-dark p-2'>Name</th>
             <th className='border border-dark p-2'>Type</th>
             <th className='border border-dark p-2'>Image</th>
@@ -34,6 +35,14 @@ const MachinesTable = ({ machines }) => {
                   className='hover:text-primary'
                 >
                   {machine.description}
+                </Link>
+              </td>
+              <td className='p-2'>
+                <Link
+                  to={`/machines/${machine.number}`}
+                  className='hover:text-primary'
+                >
+                  {machine.manufacturer}
                 </Link>
               </td>
               <td className='p-2'>
