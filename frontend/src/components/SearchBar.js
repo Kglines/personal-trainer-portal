@@ -7,7 +7,7 @@ const SearchBar = ({ keyword, update }) => {
       <input
         key='search-bar'
         value={keyword}
-        placeholder={'search machines...'}
+        placeholder={'search machine number...'}
         onChange={(e) => update(e.target.value)}
         className="w-96 h-10 px-5 pr-16 text-lg bg-white text-black border-2 focus:outline-none"
       />

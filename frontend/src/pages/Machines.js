@@ -68,16 +68,16 @@ const newMachine = '+ Machine'
           <SearchBar keyword={keyword} update={updateKeyword} />
           {error && <div>{error}</div>}
         </div>
-        <div className="bg-white w-80 mx-auto z-20 absolute right-80">
+        {/* <div className="bg-white w-80 mx-auto z-20 absolute right-80">
           {data?.map((machine) => (
             <div key={machine.id} className="bg-white text-black">
               <h2>{machine.description}</h2>
               <h2>{machine.number}</h2>
             </div>
           ))}
-        </div>
+        </div> */}
         <div>
-          {isLoading ? <Loader /> : <MachinesTable machines={machines} />}
+          {isLoading ? <Loader /> : <MachinesTable machines={data} />}
         </div>
       </div>
     </section>
