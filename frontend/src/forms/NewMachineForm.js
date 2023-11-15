@@ -39,50 +39,63 @@ const NewMachineForm = ({ onClose }) => {
     }
 
   return (
-    <section>
-        <div>
-            <h1>New Machine</h1>
-        </div>
-        <div>
-            <form onSubmit={onSubmit}>
-                <label htmlFor='number'>number
-                    <input 
-                        value={number} 
-                        onChange={e => setNumber(e.target.value)} 
-                        type="number"
-                        name="name"
-                        id="name"
-                        className="text-white bg-dark px-1 mx-2"
-                    />
-                </label>
-                <label>manufacturer
-                    <input />
-                </label>
-                <label>type
-                    <input />
-                </label>
-                <label>name
-                    <input />
-                </label>
-                <label>description
-                    <input />
-                </label>
-                <label>image
-                    <input />
-                </label>
-                <label>date new
-                    <input />
-                </label>
-                <label>mileage
-                    <input />
-                </label>
-                <label>hours
-                    <input />
-                </label>
-            </form>
-        </div>
+    <section className='flex flex-col bg-black text-white w-96'>
+      <div className='bg-primary w-full rounded-sm'>
+        <h1 className='text-3xl text-center p-2'>New Machine</h1>
+        <i
+          className='fas fa-times text-2xl text-right p-2 right-0 top-0 absolute hover:cursor-pointer hover:rotate-90 transition ease-in-out'
+          onClick={onClose}
+        ></i>
+      </div>
+      <div className='px-4 py-2 mt-2'>
+        <form onSubmit={onSubmit}>
+          <label htmlFor='number'>
+            number
+            <input
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
+              type='number'
+              name='name'
+              id='name'
+              className='text-white bg-dark px-1 mx-2'
+            />
+          </label>
+          <label>
+            manufacturer
+            <input />
+          </label>
+          <label>
+            type
+            <input />
+          </label>
+          <label>
+            name
+            <input />
+          </label>
+          <label>
+            description
+            <input />
+          </label>
+          <label>
+            image
+            <input />
+          </label>
+          <label>
+            date new
+            <input />
+          </label>
+          <label>
+            mileage
+            <input />
+          </label>
+          <label>
+            hours
+            <input />
+          </label>
+        </form>
+      </div>
     </section>
-  )
+  );
 }
 
 export default NewMachineForm
