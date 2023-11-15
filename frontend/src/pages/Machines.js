@@ -5,10 +5,12 @@ import { fetchMachinesThunk } from '../store/machine';
 import Loader from '../components/Loader';
 import LeftBar from '../components/LeftBar';
 import SearchBar from '../components/SearchBar';
+import NewMachineForm from '../forms/NewMachineForm';
+import { useModal } from '../context/Modal';
 
 const Machines = () => {
-  // const [machines, setMachines] = useState([]); 
-  // console.log('machines ==== ', machines)
+  const { closeModal } = useModal();
+  
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -60,7 +62,7 @@ const newMachine = '+ Machine'
   return (
     <section className='text-offWhite w-4/5 mx-auto text-center pt-4 pl-48'>
       <div>
-        <LeftBar button={newMachine} />
+        <LeftBar button={newMachine} component={<NewMachineForm onClose={closeModal} />} />
       </div>
       <div>
         <div>

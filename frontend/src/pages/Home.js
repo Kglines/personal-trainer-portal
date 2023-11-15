@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <section className='text-offWhite w-4/5 mx-auto text-center pt-4 pl-48'>
       <div>
-        <LeftBar button={announcementButton} links={links} />
+        <LeftBar button={announcementButton} links={links} component={<NewAnnouncementForm onClose={closeModal} />} />
       </div>
       <div>
         <h1 className='text-4xl'>Welcome {currentUser.username}!</h1>

@@ -4,7 +4,7 @@ import NewAnnouncementForm from '../forms/NewAnnouncementForm';
 import { useModal } from '../context/Modal';
 import { useSelector } from 'react-redux';
 
-const LeftBar = ({ button, links }) => {
+const LeftBar = ({ button, links, component }) => {
     const { closeModal } = useModal();
 
     console.log('BUTTON === ', button)
@@ -16,7 +16,8 @@ const LeftBar = ({ button, links }) => {
         {/* <li className='my-4'>New Announcement</li> */}
         {sessionUser.isAdmin && <OpenModalButton
           buttonText={button}
-          modalComponent={<NewAnnouncementForm onClose={closeModal} />}
+          // modalComponent={<NewAnnouncementForm onClose={closeModal} />}
+          modalComponent={component}
         />}
         {links && links.map(link => (
           <li className='my-4 pl-6' key={link}>{link}</li>
