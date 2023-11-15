@@ -48,7 +48,7 @@ const NewMachineForm = ({ onClose }) => {
         ></i>
       </div>
       <div className='px-4 py-2 mt-2'>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className='flex flex-col text-white gap-4'>
           <label className='text-white' htmlFor='number'>
             number
             <input
