@@ -47,8 +47,8 @@ const NewMachineForm = ({ onClose }) => {
           onClick={onClose}
         ></i>
       </div>
-      <div className='px-4 py-2 mt-2'>
-        <form onSubmit={onSubmit} className='flex flex-col text-white gap-4'>
+      <div className='px-4 py-2 mt-2 border border-dark'>
+        <form onSubmit={onSubmit} className='flex flex-col text-white gap-4 text-right'>
           <label className='text-white' htmlFor='number'>
             number
             <input
@@ -57,41 +57,44 @@ const NewMachineForm = ({ onClose }) => {
               type='number'
               name='name'
               id='name'
-              className='text-white bg-dark px-1 mx-2'
+              className='text-white bg-dark px-1 mx-2 w-2/3'
             />
           </label>
           <label className='text-white'>
             manufacturer
-            <input className='bg-dark text-white px-1 mx-2' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
           </label>
           <label className='text-white'>
             type
-            <input className='bg-dark text-white px-1 mx-2' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
           </label>
           <label>
             name
-            <input className='bg-dark text-white px-1 mx-2' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
           </label>
           <label>
             description
-            <input className='bg-dark text-white px-1 mx-2' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
           </label>
           <label>
             image
-            <input className='bg-dark text-white px-1 mx-2' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
           </label>
           <label>
             date new
-            <input className='bg-dark text-white px-1 mx-2' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
           </label>
           <label>
             mileage
-            <input className='bg-dark text-white px-1 mx-2' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
           </label>
           <label>
             hours
-            <input className='bg-dark text-white px-1 mx-2' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
           </label>
+          <button type='submit' className='bg-secondary hover:bg-secondaryLight h-8'>
+            Add
+            </button>
         </form>
       </div>
     </section>
