@@ -49,7 +49,7 @@ const NewMachineForm = ({ onClose }) => {
       </div>
       <div className='px-4 py-2 mt-2'>
         <form onSubmit={onSubmit}>
-          <label htmlFor='number'>
+          <label className='text-white' htmlFor='number'>
             number
             <input
               value={number}
@@ -60,37 +60,37 @@ const NewMachineForm = ({ onClose }) => {
               className='text-white bg-dark px-1 mx-2'
             />
           </label>
-          <label>
+          <label className='text-white'>
             manufacturer
-            <input />
+            <input className='bg-dark text-white px-1 mx-2' />
           </label>
-          <label>
+          <label className='text-white'>
             type
-            <input />
+            <input className='bg-dark text-white px-1 mx-2' />
           </label>
           <label>
             name
-            <input />
+            <input className='bg-dark text-white px-1 mx-2' />
           </label>
           <label>
             description
-            <input />
+            <input className='bg-dark text-white px-1 mx-2' />
           </label>
           <label>
             image
-            <input />
+            <input className='bg-dark text-white px-1 mx-2' />
           </label>
           <label>
             date new
-            <input />
+            <input className='bg-dark text-white px-1 mx-2' />
           </label>
           <label>
             mileage
-            <input />
+            <input className='bg-dark text-white px-1 mx-2' />
           </label>
           <label>
             hours
-            <input />
+            <input className='bg-dark text-white px-1 mx-2' />
           </label>
         </form>
       </div>
