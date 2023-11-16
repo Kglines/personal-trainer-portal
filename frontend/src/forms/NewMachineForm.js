@@ -58,39 +58,40 @@ const NewMachineForm = ({ onClose }) => {
               name='name'
               id='name'
               className='text-white bg-dark px-1 mx-2 w-2/3'
+              placeholder='424...'
             />
           </label>
           <label className='text-white'>
             manufacturer
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Precor...' />
           </label>
           <label className='text-white'>
             type
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Cardio...' />
           </label>
           <label>
             name
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='TRM 885...' />
           </label>
           <label>
             description
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Treadmill...' />
           </label>
           <label>
             image
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Machine Image...' />
           </label>
           <label>
             date new
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Installation Date...' type='date...' />
           </label>
           <label>
             mileage
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='250...' />
           </label>
           <label>
             hours
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' />
+            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='22...' />
           </label>
           <button type='submit' className='bg-secondary hover:bg-secondaryLight h-8'>
             Add

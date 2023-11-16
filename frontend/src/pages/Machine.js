@@ -2,7 +2,7 @@ import React from 'react'
 
 const Machine = () => {
   return (
-    <section>Machine</section>
+    <section className="text-white">Machine</section>
   )
 }
 

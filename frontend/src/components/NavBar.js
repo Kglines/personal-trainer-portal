@@ -24,7 +24,8 @@ function Navigation({ isLoaded }) {
           <NavLink
             exact="true"
             to='/home'
-            className='text-white hover:text-secondary hover:underline focus:text-secondary focus:underline'
+            className='text-white hover:text-secondary hover:underline focus:text-secondary focus:underline active:text-secondary active:underline'
+            
           >
             Home
           </NavLink>
