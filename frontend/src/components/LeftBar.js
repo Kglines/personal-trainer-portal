@@ -3,8 +3,9 @@ import OpenModalButton from './OpenModalButton';
 import NewAnnouncementForm from '../forms/NewAnnouncementForm';
 import { useModal } from '../context/Modal';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const LeftBar = ({ button, links, component }) => {
+const LeftBar = ({ button, component, links }) => {
     const { closeModal } = useModal();
 
     console.log('BUTTON === ', button)
@@ -19,8 +20,10 @@ const LeftBar = ({ button, links, component }) => {
           // modalComponent={<NewAnnouncementForm onClose={closeModal} />}
           modalComponent={component}
         />}
-        {links && links.map(link => (
-          <li className='my-4 pl-6' key={link}>{link}</li>
+        {links?.map(link => (
+          <Link to={`/${link}`} key={link}>
+            <li className='my-4 pl-6'>{link}</li>
+          </Link>
         ))}
         {/* <li className='my-4 pl-6'>Birthdays</li>
         <li className='my-4 pl-6'>Anniversaries</li> */}

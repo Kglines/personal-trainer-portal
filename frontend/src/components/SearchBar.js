@@ -9,7 +9,7 @@ const SearchBar = ({ keyword, update }) => {
         value={keyword}
         placeholder={'search machine number...'}
         onChange={(e) => update(e.target.value)}
-        className="w-96 h-10 px-5 pr-16 text-lg bg-white text-black border-2 focus:outline-none"
+        className="w-96 h-10 px-5 my-12 pr-16 text-lg bg-white text-black border-2 focus:outline-none"
       />
     </section>
   );

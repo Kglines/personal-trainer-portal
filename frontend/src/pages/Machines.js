@@ -66,7 +66,7 @@ const newMachine = '+ Machine'
       </div>
       <div>
         <div>
-          <h1 className='text-4xl'>Machines</h1>
+          <h1 className='text-4xl p-4'>Machines</h1>
           <SearchBar keyword={keyword} update={updateKeyword} />
           {error && <div>{error}</div>}
         </div>
