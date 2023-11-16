@@ -58,11 +58,13 @@ const Machines = () => {
   //   buttonText: '+ Machine',
   //   modalComponent: <div>Machine Form</div>
   // }
+
+  const machineLinks = ['Maintenance Log', 'Report A Problem',]
 const newMachine = '+ Machine'
   return (
     <section className='text-offWhite w-4/5 mx-auto text-center pt-4 pl-48'>
       <div>
-        <LeftBar button={newMachine} component={<NewMachineForm onClose={closeModal} />} />
+        <LeftBar button={newMachine} component={<NewMachineForm onClose={closeModal} />} links={machineLinks} />
       </div>
       <div>
         <div>
