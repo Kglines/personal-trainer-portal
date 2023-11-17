@@ -36,7 +36,7 @@ const Machines = () => {
 
   const updateKeyword = (keyword) => {
     const filtered = filteredData.filter(machine => {
-      return `${machine.description} ${machine.number} ${machine.manufacturer}`.toLowerCase().includes(keyword.toLowerCase())
+      return `${machine.description} ${machine.number} ${machine.manufacturer}`.trim().toLowerCase().includes(keyword.toLowerCase())
     })
     console.log('filtered === ', filtered)
     setKeyword(keyword)
