@@ -59,7 +59,7 @@ const Machines = () => {
   //   modalComponent: <div>Machine Form</div>
   // }
 
-  const machineLinks = ['Maintenance Log', 'Report A Problem',]
+  const machineLinks = ['Maintenance Log', 'Report A Problem', 'allmachines']
 const newMachine = '+ Machine'
   return (
     <section className='text-offWhite w-4/5 mx-auto text-center pt-4 pl-48'>

@@ -35,12 +35,12 @@ const deleteMachine = (machine) => ({
 
 // ******************** Thunks ********************
 export const fetchMachinesThunk = () => async (dispatch) => {
-    console.log('FETCH MACHINES THUNK')
+    // console.log('FETCH MACHINES THUNK')
     const res = await csrfFetch('/api/machines');
-console.log('RES === ', res)
+// console.log('RES === ', res)
     if(res.ok){
         const machines = await res.json();
-        console.log('MACHINES IF RES IS OK === ', machines   );
+        // console.log('MACHINES IF RES IS OK === ', machines   );
         dispatch(getMachines(machines));
         return machines
     }
@@ -49,9 +49,10 @@ console.log('RES === ', res)
 
 export const fetchMachineThunk = (id) => async (dispatch) => {
     const res = await csrfFetch(`/api/machines/${id}`);
-
+console.log('Get Machine Thunk RES === ', res)
     if(res.ok){
         const machine = await res.json();
+        console.log('MACHINE IN THUNK === ', machine)
         dispatch(getOneMachine(machine));
         return machine
     }
@@ -110,6 +111,7 @@ const machinesReducer = (state = initialState, action) => {
             return newState;
         case GET_MACHINE:
             newState = action.payload;
+            console.log('GET_MACHINE REDUCER === ', newState)
             return newState;
         case ADD_MACHINE:
             newState = { ...state, [action.payload.id]: action.payload }

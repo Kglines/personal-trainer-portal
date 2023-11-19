@@ -13,6 +13,7 @@ import Trainers from './pages/Trainers';
 import LeftBar from './components/LeftBar';
 import Machines from './pages/Machines';
 import Machine from './pages/Machine';
+import AllMachines from './pages/AllMachines';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
           <Route path='/trainers' element={<Trainers />} />
           <Route path='/machines' element={<Machines />} />
           <Route path='/machines/:machineId' element={<Machine />} />
+          <Route path='/allmachines' element={<AllMachines />} />
           <Route path='/' element={<Landing />} />
         </Routes>
       )}

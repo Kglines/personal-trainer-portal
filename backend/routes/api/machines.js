@@ -10,9 +10,15 @@ router.get('/', async (req, res) => {
 });
 
 // ********************* Get Machine *********************
-router.get('/:id', async (req, res) => {
-  const machine = await Machine.findByPk(req.params.id);
-  res.json(machine);
+router.get('/:machineId', async (req, res) => {
+  const { machineId } = req.params;
+  const machine = await Machine.findOne({
+    where: {
+      number: machineId 
+    }
+  });
+  // console.log('************* MACHINE *************', machine, machineId)
+  return res.json(machine);
 });
 
 // ********************* Create Machine *********************
