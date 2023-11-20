@@ -14,7 +14,11 @@ const Home = () => {
   const dispatch = useDispatch();
   const {closeModal} = useModal();
   const currentUser = useSelector(state => state.session.user);
-  const announcements = Object.values(useSelector((state) => state.announcements));
+  const announcements = Object.values(useSelector((state) => state.announcements)).sort((a, b) => {
+    return a.date - b.date;
+  }
+  );
+  console.log('ANNOUNCEMENTS === ', announcements)
 
 // const thisMonthsAnnouncements = announcements.filter(announcement => {
 //   const announcementMonth = announcement.date.slice(5, 7);
