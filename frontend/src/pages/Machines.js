@@ -53,7 +53,7 @@ const Machines = () => {
     //   setIsLoading(false);
     // }, 5000);
     // setIsLoading(false);
-  }, [dispatch]);
+  }, [dispatch, fetchMachines]);
 
   // const newMachine = {
   //   buttonText: '+ Machine',
