@@ -21,7 +21,8 @@ const Machines = () => {
 
   const fetchMachines = async () => {
     try {
-      const response = await (await fetch('/api/machines')).json();
+      // const response = await (await fetch('/api/machines')).json();
+      const response = await machines;
       const sortedRes = response.sort((machine, nextMachine) => (machine.number > nextMachine.number ? 1 : -1 ))
       console.log('response === ', sortedRes)
   
