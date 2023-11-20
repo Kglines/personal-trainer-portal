@@ -5,6 +5,7 @@ const SearchBar = ({ keyword, update }) => {
   return (
     <section>
       <input
+        autoFocus
         key='search-bar'
         value={keyword}
         placeholder={'search machine number...'}
