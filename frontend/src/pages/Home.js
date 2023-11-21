@@ -42,7 +42,7 @@ const Home = () => {
       <div>
         <h1 className='text-4xl'>Welcome {currentUser.username}!</h1>
         {currentUser.isAdmin && (
-          <OpenModalButton buttonText="+ Announcement" modalComponent={<NewAnnouncementForm onClose={closeModal} />} />
+          <OpenModalButton buttonText="+ Announcement" buttonColor='secondary' modalComponent={<NewAnnouncementForm onClose={closeModal} />} />
         )}
         <p className='py-2'>Here are your announcements for the month:</p>
         <AnnouncementTable announcements={announcements} user={currentUser} />

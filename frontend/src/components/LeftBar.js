@@ -17,6 +17,7 @@ const LeftBar = ({ button, component, links }) => {
         {/* <li className='my-4'>New Announcement</li> */}
         {sessionUser.isAdmin && <OpenModalButton
           buttonText={button}
+          buttonColor='secondary'
           // modalComponent={<NewAnnouncementForm onClose={closeModal} />}
           modalComponent={component}
         />}
