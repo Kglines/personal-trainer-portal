@@ -21,10 +21,9 @@ const Machines = () => {
 
   const fetchMachines = async () => {
     try {
-      // const response = await (await fetch('/api/machines')).json();
-      const response = await machines;
+      const response = await (await fetch('/api/machines')).json();
       const sortedRes = response.sort((machine, nextMachine) => (machine.number > nextMachine.number ? 1 : -1 ))
-      console.log('response === ', sortedRes)
+      // console.log('response === ', sortedRes)
   
       setFilteredData(sortedRes);
       // setMachines(sortedRes);
@@ -53,7 +52,7 @@ const Machines = () => {
     //   setIsLoading(false);
     // }, 5000);
     // setIsLoading(false);
-  }, [dispatch, fetchMachines]);
+  }, [dispatch]);
 
   // const newMachine = {
   //   buttonText: '+ Machine',
