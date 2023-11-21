@@ -8,6 +8,9 @@ const AnnouncementTable = ({ announcements }) => {
           <tr className='bg-dark'>
             <th className="p-2">Date</th>
             <th className="p-2">Announcement</th>
+            <th className='p-2'>
+              Edit
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -16,6 +19,10 @@ const AnnouncementTable = ({ announcements }) => {
               <td className='p-2'>{announcement.date.slice(5, 10)}</td>
               <td className='p-2'>
                 {announcement.body}
+              </td>
+              <td>
+                <i className='fa fa-pencil m-1 text-offWhite hover:cursor-pointer'></i>
+                <i className='fa fa-trash m-1 text-primary hover:cursor-pointer'></i>
               </td>
             </tr>
           ))}
