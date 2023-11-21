@@ -45,7 +45,7 @@ const Home = () => {
           <OpenModalButton buttonText="+ Announcement" modalComponent={<NewAnnouncementForm onClose={closeModal} />} />
         )}
         <p className='py-2'>Here are your announcements for the month:</p>
-        <AnnouncementTable announcements={announcements} />
+        <AnnouncementTable announcements={announcements} user={currentUser} />
         <p className='py-2'>{today}</p>
       </div>
     </section>
