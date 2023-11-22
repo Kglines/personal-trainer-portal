@@ -1,6 +1,7 @@
 import React from 'react'
 
-const EditAnnouncement = () => {
+const EditAnnouncement = ({ announcement }) => {
+  console.log('Edit Announcement ==== ', announcement)
   return (
     <section>
         <div>

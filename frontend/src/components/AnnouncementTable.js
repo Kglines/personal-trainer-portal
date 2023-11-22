@@ -21,7 +21,7 @@ const AnnouncementTable = ({ announcements, user }) => {
               <td className='p-2'>{announcement.body}</td>
               {user.isAdmin && (
                 <td>
-                  <OpenModalButton buttonColor='none' buttonText={<i className='fa fa-pencil text-white'></i>} modalComponent={<EditAnnouncement />} />
+                  <OpenModalButton buttonColor='none' buttonText={<i className='fa fa-pencil text-white'></i>} modalComponent={<EditAnnouncement announcement={announcement} />} />
                   <OpenModalButton buttonColor='none' buttonText={<i className='fa fa-trash text-white'></i>} modalComponent={<DeleteItem item={announcement.id} />} />
                 </td>
               )}
