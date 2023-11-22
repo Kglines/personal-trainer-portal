@@ -4,7 +4,7 @@ import { editAnnouncementThunk } from '../store/announcement';
 import { useModal } from '../context/Modal';;
 
 const EditAnnouncement = ({ announcement }) => {
-  console.log('Edit Announcement ==== ', announcement)
+  // console.log('Edit Announcement ==== ', announcement)
 
   const dispatch = useDispatch();
   
