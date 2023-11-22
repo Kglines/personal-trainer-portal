@@ -1,6 +1,7 @@
 import React from 'react'
 import OpenModalButton from './OpenModalButton';
 import EditAnnouncement from '../forms/EditAnnouncement';
+import DeleteItem from './DeleteItem';
 
 const AnnouncementTable = ({ announcements, user }) => {
   return (
@@ -21,7 +22,7 @@ const AnnouncementTable = ({ announcements, user }) => {
               {user.isAdmin && (
                 <td>
                   <OpenModalButton buttonColor='none' buttonText={<i className='fa fa-pencil text-white'></i>} modalComponent={<EditAnnouncement />} />
-                  <OpenModalButton buttonColor='none' buttonText={<i className='fa fa-trash text-white'></i>} />
+                  <OpenModalButton buttonColor='none' buttonText={<i className='fa fa-trash text-white'></i>} modalComponent={<DeleteItem item={announcement.id} />} />
                 </td>
               )}
             </tr>

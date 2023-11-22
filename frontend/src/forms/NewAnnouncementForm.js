@@ -53,7 +53,7 @@ const NewAnnouncementForm = ({ onClose }) => {
                         className='bg-dark py-1 px-2 my-1'
                         placeholder='New Announcement here...'></textarea>
                 </label>
-                <button type="submit" className='bg-secondary hover:bg-secondaryLight h-8'>Add</button>
+                <button type="submit" className='bg-secondary hover:bg-secondaryLight h-8 disabled:bg-dark' disabled={!body || !date}>Add</button>
             </form>
         </div>
     </section>
