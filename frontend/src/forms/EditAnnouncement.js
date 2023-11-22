@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { editAnnouncementThunk } from '../store/announcement';
+import { editAnnouncementThunk, getAnnouncements, getAnnouncementsThunk } from '../store/announcement';
 import { useModal } from '../context/Modal';;
 
 const EditAnnouncement = ({ announcement }) => {
@@ -18,12 +18,14 @@ const EditAnnouncement = ({ announcement }) => {
       e.preventDefault();
 
       const payload = {
+        id: announcement.id,
           date,
           body
       }
       console.log('Announcement Payload ==== ', payload)
       dispatch(editAnnouncementThunk(payload))
           .then(() => closeModal())
+          .then(() => getAnnouncementsThunk())
           .catch((res) => {
               if (res.data && res.data.errors) setErrors(res.data.errors);
           });

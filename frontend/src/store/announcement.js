@@ -63,6 +63,7 @@ export const createAnnouncementThunk = (announcement) => async (dispatch) => {
 }
 
 export const editAnnouncementThunk = (announcement) => async (dispatch) => {
+    console.log('Edit Announcement Thunk ==== ', announcement)
     const res = await csrfFetch(`/api/announcements/${announcement.id}`, {
         method: 'PUT',
         body: JSON.stringify(announcement)
@@ -105,7 +106,7 @@ const announcementsReducer = (state = initialState, action) => {
             newState = { ...state, [action.payload.id]: action.payload }
             return newState;
         case EDIT_ANNOUNCEMENT:
-            newState[action.payload.id] = action.payload;
+            newState[action.payload] = action.payload;
             return newState;
         case DELETE_ANNOUNCEMENT:
             delete newState[action.payload];
