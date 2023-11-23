@@ -68,9 +68,11 @@ export const editAnnouncementThunk = (announcement) => async (dispatch) => {
         method: 'PUT',
         body: JSON.stringify(announcement)
     });
+    console.log('Edit Announcement Thunk Res ==== ', res)
 
     if(res.ok){
         const updatedAnnouncement = await res.json();
+        console.log('Edit Announcement Thunk Updated Announcement ==== ', updatedAnnouncement)
         dispatch(editAnnouncement(updatedAnnouncement));
         return updatedAnnouncement;
     }
@@ -107,6 +109,8 @@ const announcementsReducer = (state = initialState, action) => {
             return newState;
         case EDIT_ANNOUNCEMENT:
             newState[action.payload] = action.payload;
+            console.log('Edit Announcement Reducer ==== ', newState)
+            // newState = action.payload;
             return newState;
         case DELETE_ANNOUNCEMENT:
             delete newState[action.payload];
