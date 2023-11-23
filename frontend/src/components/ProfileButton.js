@@ -43,7 +43,7 @@ function ProfileButton({ user }) {
             <strong>Name: </strong> {user.firstName} {user.lastName}
           </li>
           <li className='py-2'><strong>Email: </strong> {user.email}</li>
-          <li className='py-2'><strong>Messages</strong>1 New Message</li>
+          <li className='py-2'><strong>Messages: </strong>1 New Message</li>
           <li className='py-2 text-center'>
             <button
               onClick={logout}
