@@ -57,7 +57,6 @@ const EditAnnouncement = ({ announcement }) => {
             cols='30'
             rows='10'
             className='bg-dark py-1 px-2 my-1'
-            placeholder='New Announcement here...'
           ></textarea>
         </label>
         <button
