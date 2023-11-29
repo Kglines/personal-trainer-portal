@@ -20,17 +20,6 @@ const Home = () => {
   );
   console.log('ANNOUNCEMENTS ON HOME PAGE === ', announcements)
 
-// const thisMonthsAnnouncements = announcements.filter(announcement => {
-//   const announcementMonth = announcement.date.slice(5, 7);
-//   return announcementMonth === (new Date().getMonth() + 1).toString();
-// });
-
-  const allAnnouncements = useMemo(() => {
-    dispatch(getAnnouncementsThunk());
-  }, [dispatch])
-
-  console.log('ALL ANNOUNCEMENTS === ', allAnnouncements)
-
   useEffect(() => {
     dispatch(getAnnouncementsThunk());
   }, [dispatch]);

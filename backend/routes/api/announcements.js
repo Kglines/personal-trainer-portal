@@ -41,9 +41,10 @@ router.put('/:announcementId', async (req, res) => {
     const { date, body, id } = req.body;
     
     const announcement = await Announcement.findByPk(id);
-
+console.log('************************* ANNOUNCEMENT === ', announcement)
     if(announcement){
         await announcement.update({ date, body });
+        console.log('************************* UPDATED ANNOUNCEMENT === ', announcement)
         res.json(announcement);
     } else {
         const error = new Error('Announcement not found');
