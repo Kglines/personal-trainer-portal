@@ -25,6 +25,7 @@ const EditAnnouncement = ({ announcement }) => {
       console.log('Announcement Payload ==== ', payload)
       dispatch(editAnnouncementThunk(payload))
           .then(() => getAnnouncementsThunk())
+          // .then(() => getAnnouncementsThunk())
           .then(() => closeModal())
           .catch((res) => {
               if (res.data && res.data.errors) setErrors(res.data.errors);

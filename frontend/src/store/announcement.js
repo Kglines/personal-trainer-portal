@@ -22,6 +22,7 @@ export const createAnnouncement = (announcement) => {
 }
 
 export const editAnnouncement = (announcement) => {
+    console.log('Edit Announcement Action ==== ', announcement)
   return {
     type: EDIT_ANNOUNCEMENT,
     payload: announcement
@@ -108,7 +109,8 @@ const announcementsReducer = (state = initialState, action) => {
             newState = { ...state, [action.payload.id]: action.payload }
             return newState;
         case EDIT_ANNOUNCEMENT:
-            newState[action.payload] = action.payload;
+            // newState[action.payload.id] = action.payload;
+            newState = { ...state, [action.payload.id]: action.payload }
             console.log('Edit Announcement Reducer ==== ', newState)
             // newState = action.payload;
             return newState;

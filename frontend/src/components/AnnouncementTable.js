@@ -4,6 +4,7 @@ import EditAnnouncement from '../forms/EditAnnouncement';
 import DeleteItem from './DeleteItem';
 
 const AnnouncementTable = ({ announcements, user }) => {
+  console.log('Announcements Table Announcements ==== ', announcements)
   return (
     <section className='w-full mx-auto'>
       <table className='w-5/6 mx-auto text-lg table-auto rounded-md'>

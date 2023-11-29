@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import AnnouncementTable from '../components/AnnouncementTable';
 import { useDispatch, useSelector } from 'react-redux';
 import OpenModalButton from '../components/OpenModalButton';
@@ -18,13 +18,18 @@ const Home = () => {
     return a.date - b.date;
   }
   );
-  console.log('ANNOUNCEMENTS === ', announcements)
+  console.log('ANNOUNCEMENTS ON HOME PAGE === ', announcements)
 
 // const thisMonthsAnnouncements = announcements.filter(announcement => {
 //   const announcementMonth = announcement.date.slice(5, 7);
 //   return announcementMonth === (new Date().getMonth() + 1).toString();
 // });
 
+  const allAnnouncements = useMemo(() => {
+    dispatch(getAnnouncementsThunk());
+  }, [dispatch])
+
+  console.log('ALL ANNOUNCEMENTS === ', allAnnouncements)
 
   useEffect(() => {
     dispatch(getAnnouncementsThunk());

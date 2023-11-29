@@ -41,7 +41,9 @@ router.put('/:id', async (req, res) => {
     const { date, body, id } = req.body;
     // const announcementId = req.params.id;
     const announcementToUpdate = await Announcement.findByPk(id);
-    const updatedAnnouncement = await announcementToUpdate.update({ date, body });
+    console.log('************************** Announcement to Update ===== ', announcementToUpdate)
+    const updatedAnnouncement = await announcementToUpdate.update({ date, body, id });
+    console.log('************************** Updated Announcement ===== ', updatedAnnouncement)
     return res.json(updatedAnnouncement);
 });
 
