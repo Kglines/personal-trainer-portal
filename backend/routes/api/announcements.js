@@ -39,12 +39,17 @@ router.post('/', async (req, res) => {
 // PUT /api/announcements/:id - Update an announcement
 router.put('/:id', async (req, res) => {
     const { date, body, id } = req.body;
-    // const announcementId = req.params.id;
-    const announcementToUpdate = await Announcement.findByPk(id);
-    console.log('************************** Announcement to Update ===== ', announcementToUpdate)
-    const updatedAnnouncement = await announcementToUpdate.update({ date, body, id });
-    console.log('************************** Updated Announcement ===== ', updatedAnnouncement)
-    return res.json(updatedAnnouncement);
+    
+    const announcement = await Announcement.findByPk(id);
+
+    if(announcement){
+        await announcement.update({ date, body });
+        res.json(announcement);
+    } else {
+        const error = new Error('Announcement not found');
+        error.status = 404;
+        throw error;
+    }
 });
 
 // DELETE /api/announcements/:id - Delete an announcement
