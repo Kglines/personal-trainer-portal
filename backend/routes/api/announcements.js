@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT /api/announcements/:id - Update an announcement
-router.put('/:id', async (req, res) => {
+router.put('/:announcementId', async (req, res) => {
     const { date, body, id } = req.body;
     
     const announcement = await Announcement.findByPk(id);
