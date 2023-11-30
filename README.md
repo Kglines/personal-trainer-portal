@@ -278,7 +278,101 @@ Returns one of the announcements for a month.
             }
         ```
 
+### Create Announcements
+Creates an Announcement
 
+* Require Authentication: true
+* Request:
+    * Method: POST
+    * URL: /announcements
+    * Body:
+      ```json
+          {
+            "id": 5,
+            "userId": 2,
+            "date": "2023-12-05",
+            "body": "Today is the fifth of December. Let's GO!!!"
+          }
+      ```
+* Success Response
+    * Status Code: 200
+    * Headers:
+        * Content-Type: application/json
+    * Body:
+        ```json
+            {
+                "Announcement": [
+                    {
+                        "id": 5,
+                        "userId": 2,
+                        "date": "2023-12-05",
+                        "body": "Today is the fifth of December. Let's GO!!!"
+                    }
+                ]
+            }
+        ```
+
+### Edit an Announcement
+Edits an Announcement for a month
+
+* Require Authentication: true
+* Request:
+    * Method: PUT
+    * URL: /announcements/:announcementId
+    * Body:
+    ```json
+        {
+          "id": 5,
+          "userId": 2,
+          "date": "2023-12-05",
+          "body": "Today is the fifth of December. Let's GO!!! Have a great day!"
+        }
+    ```
+* Success Response
+    * Status Code: 200
+    * Headers:
+        * Content-Type: application/json
+    * Body:
+        ```json
+            {
+                "Announcement": [
+                    {
+                        "id": 5,
+                        "userId": 2,
+                        "date": "2023-12-05",
+                        "body": "Today is the fifth of December. Let's GO!!! Have a great day!"
+                    }
+                ]
+            }
+        ```
+
+
+### Delete an Announcement
+Deletes one Announcement for a month.
+
+* Require Authentication: true
+* Request:
+    * Method: DELETE
+    * URL: /announcements/:id
+    * Body: none
+* Success Response
+    * Status Code: 200
+    * Headers:
+        * Content-Type: application/json
+    * Body:
+        ```json
+            {
+                "Announcement": [
+                    {
+                        "id": 5,
+                        "userid": 2,
+                        "date": "2023-12-05",
+                        "body": "Today is the fifth of December. Let's GO!!! Have a great day!"
+                    }
+                ]
+            }
+        ```
+********************
 ### GET all Machines
 Returns all the machines for a club.
 
@@ -465,3 +559,4 @@ Deletes one of the machines for a club.
                 ]
             }
         ```
+*******************
