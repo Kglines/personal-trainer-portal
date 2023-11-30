@@ -220,6 +220,64 @@ user's information.
       }
     }
     ```
+### GET all Announcements
+Return all announcements for a month.
+
+* Require Authentication: true
+* Request: 
+    * Method: GET
+    * URL: /home
+    * Body: none
+* Success Response
+    * Status Code: 200
+    * Headers:
+        * Content-Type: application/json
+    * Body:
+        ```json
+            {
+              "Announcements": [
+                {
+                  "id": 1,
+                  "userId": 2,
+                  "date": "2023-12-01",
+                  "Body": "Today is the first of December. Have a great day!"
+                },
+                {
+                  "id": 2,
+                  "userId": 2,
+                  "date": "2023-12-02",
+                  "Body": "Today is the second of December. Have a great day!"
+                },
+              ]
+            }
+        ```
+
+### GET one Announcement
+Returns one of the announcements for a month.
+
+* Require Authentication: true
+* Request:
+    * Method: GET
+    * URL: /announcements/:id
+    * BodyL none
+* Success Response
+    * Status Code: 200
+    * Headers:
+        * Content-Type: application/json
+    * Body:
+        ```json
+            {
+                "Announcement": [
+                    {
+                        "id": 1,
+                        "date": "2023-12-01",
+                        "userId": 2,
+                        "body": "Today is the first of December. Have a great day!"
+                    }
+                ]
+            }
+        ```
+
 
 ### GET all Machines
 Returns all the machines for a club.
@@ -228,7 +286,7 @@ Returns all the machines for a club.
 * Request:
     * Method: GET
     * URL: /machines
-    * BodyL none
+    * Body: none
 * Success Response
     * Status Code: 200
     * Headers:
