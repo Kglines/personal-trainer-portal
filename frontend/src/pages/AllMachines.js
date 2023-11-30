@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import MachinesTable from '../components/MachinesTable'
+import MachinesTable from '../components/Machines/MachinesTable'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMachinesThunk } from '../store/machine';
 

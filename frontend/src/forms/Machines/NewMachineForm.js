@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { createMachineThunk } from '../store/machine';
+import { createMachineThunk } from '../../store/machine';
 
 const NewMachineForm = ({ onClose }) => {
     const dispatch = useDispatch();

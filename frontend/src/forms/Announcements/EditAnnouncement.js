@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { editAnnouncementThunk, getAnnouncements, getAnnouncementsThunk } from '../store/announcement';
-import { useModal } from '../context/Modal';;
+import {
+  editAnnouncementThunk,
+  getAnnouncements,
+  getAnnouncementsThunk,
+} from '../../store/announcement';
+import { useModal } from '../../context/Modal';
 
 const EditAnnouncement = ({ announcement }) => {
   // console.log('Edit Announcement ==== ', announcement)
-
   const dispatch = useDispatch();
-  
+
   const { closeModal } = useModal();
 
   const [date, setDate] = useState(announcement.date);
@@ -15,22 +18,23 @@ const EditAnnouncement = ({ announcement }) => {
   const [errors, setErrors] = useState([]);
 
   const onSubmit = (e) => {
-      e.preventDefault();
+    e.preventDefault();
 
-      const payload = {
-        id: announcement.id,
-          date,
-          body
-      }
-      console.log('Announcement Payload ==== ', payload)
-      dispatch(editAnnouncementThunk(payload))
-          .then(() => getAnnouncementsThunk())
-          // .then(() => getAnnouncementsThunk())
-          .then(() => closeModal())
-          .catch((res) => {
-              if (res.data && res.data.errors) setErrors(res.data.errors);
-          });
-  }
+    const payload = {
+      id: announcement.id,
+      date,
+      body,
+    };
+    console.log('Announcement Payload ==== ', payload);
+    dispatch(editAnnouncementThunk(payload))
+      .then(() => {
+        dispatch(getAnnouncementsThunk())
+      })
+      .then(() => closeModal())
+      .catch((res) => {
+        if (res.data && res.data.errors) setErrors(res.data.errors);
+      });
+  };
   return (
     <section>
       <div>
@@ -70,6 +74,6 @@ const EditAnnouncement = ({ announcement }) => {
       </form>
     </section>
   );
-}
+};
 
-export default EditAnnouncement
+export default EditAnnouncement;

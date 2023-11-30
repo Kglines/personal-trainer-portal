@@ -1,5 +1,5 @@
 import React from 'react'
-import ClientsTable from '../components/ClientsTable'
+import ClientsTable from '../components/Clients/ClientsTable'
 import LeftBar from '../components/LeftBar';
 
 const Clients = () => {

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MachinesTable from '../components/MachinesTable';
+import MachinesTable from '../components/Machines/MachinesTable';
 import { fetchMachinesThunk } from '../store/machine';
 import Loader from '../components/Loader';
 import LeftBar from '../components/LeftBar';
 import SearchBar from '../components/SearchBar';
-import NewMachineForm from '../forms/NewMachineForm';
+import NewMachineForm from '../forms/Machines/NewMachineForm';
 import { useModal } from '../context/Modal';
 
 const Machines = () => {
