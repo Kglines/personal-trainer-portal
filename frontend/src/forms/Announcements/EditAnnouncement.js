@@ -25,7 +25,7 @@ const EditAnnouncement = ({ announcement }) => {
       date,
       body,
     };
-    console.log('Announcement Payload ==== ', payload);
+    
     dispatch(editAnnouncementThunk(payload))
       .then(() => {
         return dispatch(getAnnouncementsThunk())

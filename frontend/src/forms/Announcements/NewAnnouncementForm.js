@@ -18,7 +18,7 @@ const NewAnnouncementForm = ({ onClose }) => {
       date,
       body,
     };
-    console.log('Announcement Payload ==== ', payload);
+    
     dispatch(createAnnouncementThunk(payload))
       .then(() => getAnnouncementsThunk())
       .then(() => onClose())

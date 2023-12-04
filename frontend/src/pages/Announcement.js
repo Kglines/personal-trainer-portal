@@ -7,7 +7,6 @@ const Announcement = () => {
     const { announcementId } = useParams();
     const dispatch = useDispatch();
 const idNum = Number(announcementId)
-    console.log('ANNOUNCEMENT ID === ', Number(announcementId))
 
     const announcement = useSelector(state => state.announcements)  
 
@@ -15,7 +14,6 @@ const idNum = Number(announcementId)
         dispatch(getOneAnnouncementThunk(idNum))
     }, [dispatch, idNum])
 
-    console.log('ANNOUNCEMENT === ', announcement) 
   return (
     <section className='text-offWhite w-3/5 mx-auto text-center pt-4'>
       <div>

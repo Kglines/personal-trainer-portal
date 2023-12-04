@@ -30,7 +30,7 @@ const NewMachineForm = ({ onClose }) => {
             mileage,
             hours
         }
-        console.log('Machine Payload ==== ', payload)
+       
         return dispatch(createMachineThunk(payload))
             .then(() => fetchMachinesThunk())
             .then(() => onClose())

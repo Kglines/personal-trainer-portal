@@ -38,7 +38,7 @@ const EditMachineForm = ({ machineId, onClose }) => {
       mileage,
       hours: Number(hours),
     };
-    console.log('Machine Payload ==== ', payload);
+    
     dispatch(editMachineThunk(payload))
       .then(() => {
         dispatch(fetchMachineThunk(machine?.id));
@@ -50,7 +50,7 @@ const EditMachineForm = ({ machineId, onClose }) => {
       });
   };
 
-  console.log('errors === ', errors);
+  // console.log('errors === ', errors);
 
   return (
     <section className='flex flex-col bg-black text-white w-96'>

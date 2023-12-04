@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const MachinesTable = ({ machines }) => {
-  // console.log('MACHINES === ', machines)
   return (
     <section className='w-full mx-auto'>
       <table className='w-5/6 mx-auto text-lg table-auto'>

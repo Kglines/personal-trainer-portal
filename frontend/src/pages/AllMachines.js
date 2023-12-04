@@ -11,7 +11,6 @@ const AllMachines = () => {
         dispatch(fetchMachinesThunk())
     }, [dispatch])
 
-    console.log('machines === ', machines)
   return (
     <section className='text-offWhite w-4/5 mx-auto text-center pt-4'>
       <div>

@@ -6,7 +6,6 @@ const { requireAuth } = require('../../utils/auth');
 // ********************* Get Machines *********************
 router.get('/', requireAuth, async (req, res) => {
   const machines = await Machine.findAll();
-  // console.log('MACHINES === ', machines)
   return res.json(machines);
 });
 
@@ -32,9 +31,7 @@ router.post('/', requireAuth, async (req, res) => {
 // ********************* Update Machine *********************
 router.put('/:id', requireAuth, async (req, res) => {
   const machine = await Machine.findByPk(req.params.id);
-  console.log('MACHINE IN ROUTE === ', machine)
   await machine.update(req.body);
-  console.log('MACHINE IN ROUTE AFTER UPDATE === ', machine)
   res.json(machine);
 });
 

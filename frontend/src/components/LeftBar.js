@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 const LeftBar = ({ button, component, links }) => {
   const { closeModal } = useModal();
 
-  console.log('BUTTON === ', button);
   const sessionUser = useSelector((state) => state.session.user);
 
   return (
