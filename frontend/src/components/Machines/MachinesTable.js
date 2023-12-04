@@ -23,10 +23,10 @@ const MachinesTable = ({ machines }) => {
             <tr key={idx} className='even:bg-dark'>
               <td className='p-2'>
                 <Link
-                  to={`/machines/${machine?.number}`}
+                  to={`/machines/${machine?.id}`}
                   className='hover:text-primary'
                 >
-                  {machine?.id}
+                  {machine?.number}
                 </Link>
               </td>
               <td className='p-2'>

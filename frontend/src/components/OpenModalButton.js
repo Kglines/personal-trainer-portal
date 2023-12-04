@@ -17,7 +17,7 @@ function OpenModalButton({
   };
 
   return (
-    <button onClick={onClick} className={`bg-${buttonColor} text-white px-2 py-1 rounded-sm m-1 hover:bg-secondaryLight`}>
+    <button onClick={onClick} className={`bg-${buttonColor} text-white px-2 py-1 rounded-sm m-1 hover:bg-${buttonColor}Light`}>
       {buttonText}
     </button>
   );
