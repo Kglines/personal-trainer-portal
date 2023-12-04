@@ -48,6 +48,8 @@ export const fetchMachinesThunk = () => async (dispatch) => {
 }
 
 export const fetchMachineThunk = (id) => async (dispatch) => {
+    console.log('ID IN THUNK === ', id)
+    const machineId = parseInt(id);
     const res = await csrfFetch(`/api/machines/${id}`);
 console.log('Get Machine Thunk RES === ', res)
     if(res.ok){
@@ -78,9 +80,10 @@ export const editMachineThunk = (machine) => async (dispatch) => {
         method: 'PUT',
         body: JSON.stringify(machine)
     });
-
+console.log('EDIT MACHINE THUNK RES === ', res)
     if(res.ok){
         const updatedMachine = await res.json();
+        console.log('UPDATED MACHINE IN THUNK === ', updatedMachine)
         dispatch(updateMachine(updatedMachine));
         return updatedMachine;
     }

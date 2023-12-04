@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { createMachineThunk } from '../../store/machine';
+import { createMachineThunk, fetchMachinesThunk } from '../../store/machine';
 
 const NewMachineForm = ({ onClose }) => {
     const dispatch = useDispatch();
@@ -30,7 +30,9 @@ const NewMachineForm = ({ onClose }) => {
             mileage,
             hours
         }
-        dispatch(createMachineThunk(payload))
+        console.log('Machine Payload ==== ', payload)
+        return dispatch(createMachineThunk(payload))
+            .then(() => fetchMachinesThunk())
             .then(() => onClose())
             .catch((res) => {
                 if (res.data && res.data.errors) setErrors(res.data.errors);
@@ -63,35 +65,35 @@ const NewMachineForm = ({ onClose }) => {
           </label>
           <label className='text-white'>
             manufacturer
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Precor...' />
+            <input type='text' value={manufacturer} onChange={e => setManufacturer(e.target.value)} className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Precor...' />
           </label>
           <label className='text-white'>
             type
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Cardio...' />
+            <input type='text' value={type} onChange={e => setType(e.target.value)} className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Cardio...' />
           </label>
           <label>
             name
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='TRM 885...' />
+            <input type='text' value={name} onChange={e => setName(e.target.value)} className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='TRM 885...' />
           </label>
           <label>
             description
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Treadmill...' />
+            <input type='text' value={description} onChange={e => setDescription(e.target.value)} className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Treadmill...' />
           </label>
           <label>
             image
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Machine Image...' />
+            <input type='text' value={image} onChange={e => setImage(e.target.value)} className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Machine Image...' />
           </label>
           <label>
             date new
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Installation Date...' type='date...' />
+            <input type='date' value={dateNew} onChange={e => setDateNew(e.target.value)} className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='Installation Date...' />
           </label>
           <label>
             mileage
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='250...' />
+            <input type='number' value={mileage} onChange={e => setMileage(e.target.value)} className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='250...' />
           </label>
           <label>
             hours
-            <input className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='22...' />
+            <input type='number' value={hours} onChange={e => setHours(e.target.value)} className='bg-dark text-white px-1 mx-2 w-2/3' placeholder='22...' />
           </label>
           <button type='submit' className='bg-secondary hover:bg-secondaryLight h-8'>
             Add

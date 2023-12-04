@@ -7,6 +7,7 @@ import LeftBar from '../components/LeftBar';
 import SearchBar from '../components/SearchBar';
 import NewMachineForm from '../forms/Machines/NewMachineForm';
 import { useModal } from '../context/Modal';
+import OpenModalButton from '../components/OpenModalButton';
 
 const Machines = () => {
   const { closeModal } = useModal();
@@ -17,7 +18,8 @@ const Machines = () => {
   const [keyword, setKeyword] = useState([]);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const machines = Object.values(useSelector((state) => state.machines))
+  // const machines = Object.values(useSelector((state) => state.machines))
+  const user = useSelector((state) => state.session.user);
 
   const fetchMachines = async () => {
     try {
@@ -69,6 +71,7 @@ const newMachine = '+ Machine'
       <div>
         <div>
           <h1 className='text-4xl p-4'>Machines</h1>
+          {user.isAdmin && <OpenModalButton button={newMachine} buttonColor={'secondary'} buttonText={'New Machine'} modalComponent={<NewMachineForm onClose={closeModal} />} />}
           <SearchBar keyword={keyword} update={updateKeyword} />
           {error && <div>{error}</div>}
         </div>

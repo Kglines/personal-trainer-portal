@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 // ********************** Action Types ********************** //
 const GET_ANNOUNCEMENTS = 'announcements/get';
+const GET_ONE_ANNOUNCEMENT = 'announcements/getOne';
 const CREATE_ANNOUNCEMENT = 'announcements/create';
 const EDIT_ANNOUNCEMENT = 'announcements/edit';
 const DELETE_ANNOUNCEMENT = 'announcements/delete';
@@ -12,6 +13,13 @@ export const getAnnouncements = (announcements) => {
     type: GET_ANNOUNCEMENTS,
     payload: announcements
   };
+}
+
+export const getOneAnnouncement = (announcement) => {
+    return {
+        type: GET_ONE_ANNOUNCEMENT,
+        payload: announcement
+    }
 }
 
 export const createAnnouncement = (announcement) => {  
@@ -45,6 +53,17 @@ export const getAnnouncementsThunk = () => async (dispatch) => {
         const announcements = await res.json();
         dispatch(getAnnouncements(announcements));
         return announcements
+    }
+    return res;
+}
+
+export const getOneAnnouncementThunk = (announcementId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/announcements/${announcementId}`);
+
+    if(res.ok){
+        const announcement = await res.json();
+        dispatch(getOneAnnouncement(announcement));
+        return announcement;
     }
     return res;
 }
@@ -104,6 +123,10 @@ const announcementsReducer = (state = initialState, action) => {
             //     newState[announcement.id] = announcement;
             // });
             newState = action.payload
+            return newState;
+        case GET_ONE_ANNOUNCEMENT:
+            newState = action.payload;
+            console.log('Get One Announcement Reducer ==== ', newState)
             return newState;
         case CREATE_ANNOUNCEMENT:
             newState = { ...state, [action.payload.id]: action.payload }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createAnnouncementThunk } from '../../store/announcement';
+import { createAnnouncementThunk, getAnnouncementsThunk } from '../../store/announcement';
 
 const NewAnnouncementForm = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -20,6 +20,7 @@ const NewAnnouncementForm = ({ onClose }) => {
     };
     console.log('Announcement Payload ==== ', payload);
     dispatch(createAnnouncementThunk(payload))
+      .then(() => getAnnouncementsThunk())
       .then(() => onClose())
       .catch((res) => {
         if (res.data && res.data.errors) setErrors(res.data.errors);
@@ -60,13 +61,14 @@ const NewAnnouncementForm = ({ onClose }) => {
               placeholder='New Announcement here...'
             ></textarea>
           </label>
-          <button
-            type='submit'
-            className='bg-secondary hover:bg-secondaryLight h-8 disabled:bg-dark'
-            disabled={!body || !date}
-          >
-            Add
-          </button>
+              <button
+                type='submit'
+                className='bg-secondary hover:bg-secondaryLight h-8 disabled:bg-dark'
+                disabled={!body || !date}
+                // href={`mailto:keithglines@yahoo.com?subject='TEST'&body=${body}`}
+              >
+                Add
+              </button>
         </form>
       </div>
     </section>

@@ -28,7 +28,7 @@ const EditAnnouncement = ({ announcement }) => {
     console.log('Announcement Payload ==== ', payload);
     dispatch(editAnnouncementThunk(payload))
       .then(() => {
-        dispatch(getAnnouncementsThunk())
+        return dispatch(getAnnouncementsThunk())
       })
       .then(() => closeModal())
       .catch((res) => {

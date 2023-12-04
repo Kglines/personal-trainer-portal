@@ -9,12 +9,17 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
   const navigate = useNavigate()
   const dispatch = useDispatch();
+  let className = document.querySelector('li')
 
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
     navigate('/');
   };
+console.log('****************************** className ******************************', className)
+  // if(className.includes('active')){
+  //   console.log('****************************** active ******************************')
+  // }
 
   let sessionLinks;
   if (sessionUser) {
@@ -25,7 +30,7 @@ function Navigation({ isLoaded }) {
             exact="true"
             to='/home'
             className='text-white hover:text-secondary hover:underline focus:text-secondary focus:underline active:text-secondary active:underline'
-            
+            // activeStyle={{ color: 'rgba(79,0,69,1)' }}
           >
             Home
           </NavLink>
@@ -93,7 +98,7 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <nav className='flex h-12 w-full bg-primary py-2 text-lg'>
+    <nav id="nav" className='flex h-12 w-full bg-primary py-2 text-lg'>
     <div className="w-4/5 mx-auto">
       <ul className='flex flex-1 justify-between'>
         {isLoaded && sessionLinks}

@@ -1,41 +1,45 @@
 const express = require('express');
 const router = express.Router();
 const { Machine } = require('../../db/models');
+const { requireAuth } = require('../../utils/auth');
 
 // ********************* Get Machines *********************
-router.get('/', async (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
   const machines = await Machine.findAll();
   // console.log('MACHINES === ', machines)
   return res.json(machines);
 });
 
 // ********************* Get Machine *********************
-router.get('/:machineId', async (req, res) => {
-  const { machineId } = req.params;
+router.get('/:id', requireAuth, async (req, res) => {
+  const { id } = req.params;
+  const machineId = parseInt(id);
   const machine = await Machine.findOne({
     where: {
-      number: machineId 
+      id: machineId
     }
   });
-  // console.log('************* MACHINE *************', machine, machineId)
+  
   return res.json(machine);
 });
 
 // ********************* Create Machine *********************
-router.post('/', async (req, res) => {
+router.post('/', requireAuth, async (req, res) => {
   const machine = await Machine.create(req.body);
   res.json(machine);
 });
 
 // ********************* Update Machine *********************
-router.put('/:id', async (req, res) => {
+router.put('/:id', requireAuth, async (req, res) => {
   const machine = await Machine.findByPk(req.params.id);
+  console.log('MACHINE IN ROUTE === ', machine)
   await machine.update(req.body);
+  console.log('MACHINE IN ROUTE AFTER UPDATE === ', machine)
   res.json(machine);
 });
 
 // ********************* Delete Machine *********************
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requireAuth, async (req, res) => {
   const machine = await Machine.findByPk(req.params.id);
   await machine.destroy();
   res.json({ message: 'Deleted Machine' });

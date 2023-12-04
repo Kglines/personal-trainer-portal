@@ -23,31 +23,31 @@ const MachinesTable = ({ machines }) => {
             <tr key={idx} className='even:bg-dark'>
               <td className='p-2'>
                 <Link
-                  to={`/machines/${machine.number}`}
+                  to={`/machines/${machine?.number}`}
                   className='hover:text-primary'
                 >
-                  {machine.number}
+                  {machine?.id}
                 </Link>
               </td>
               <td className='p-2'>
                 <Link
-                  to={`/machines/${machine.number}`}
+                  to={`/machines/${machine?.id}`}
                   className='hover:text-primary'
                 >
-                  {machine.description}
+                  {machine?.description}
                 </Link>
               </td>
               <td className='p-2'>
                 <Link
-                  to={`/machines/${machine.number}`}
+                  to={`/machines/${machine?.id}`}
                   className='hover:text-primary'
                 >
-                  {machine.manufacturer}
+                  {machine?.manufacturer}
                 </Link>
               </td>
               <td className='p-2'>
                 <Link
-                  to={`/machines/${machine.number}`}
+                  to={`/machines/${machine?.id}`}
                   className='hover:text-primary'
                 >
                   {machine?.name}
@@ -58,8 +58,8 @@ const MachinesTable = ({ machines }) => {
               <td className='p-2'>
                 <img src={machine?.machine_img} alt={machine?.name} className='w-16 h-12 mx-auto' />
               </td>
-              <td className='p-2'>{machine.mileage}</td>
-              <td className='p-2'>{machine.hours}</td>
+              <td className='p-2'>{machine?.mileage}</td>
+              <td className='p-2'>{machine?.hours}</td>
             </tr>
           ))}
         </tbody>
