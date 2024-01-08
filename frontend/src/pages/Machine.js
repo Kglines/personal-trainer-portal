@@ -44,7 +44,7 @@ const Machine = () => {
             <p>Description: {machine?.description}</p>
           </div>
           <div>
-            <p>Date New: {machine?.dateNew}</p>
+            <p>Date New: {machine?.dateNew.toString().slice(0, 10)}</p>
           </div>
           <div>
             <p>Mileage: {machine?.mileage}</p>

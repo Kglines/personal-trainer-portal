@@ -158,7 +158,7 @@ const EditMachineForm = ({ machineId, onClose }) => {
             type='submit'
             className='bg-secondary hover:bg-secondaryLight h-8'
           >
-            Edit
+            Save
           </button>
         </form>
       </div>

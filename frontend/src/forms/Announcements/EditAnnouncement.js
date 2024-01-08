@@ -36,9 +36,9 @@ const EditAnnouncement = ({ announcement }) => {
       });
   };
   return (
-    <section>
-      <div>
-        <h1>Edit Announcement</h1>
+    <section className='flex flex-col bg-black text-white w-96'>
+      <div className='bg-primary w-full rounded-sm'>
+        <h1 className='text-3xl text-center p-2'>Edit Announcement</h1>
       </div>
       <form className='flex flex-col text-white gap-4' onSubmit={onSubmit}>
         <label htmlFor='date' className='text-white'>
