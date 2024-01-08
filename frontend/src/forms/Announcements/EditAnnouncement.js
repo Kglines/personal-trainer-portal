@@ -69,7 +69,7 @@ const EditAnnouncement = ({ announcement }) => {
           className='bg-secondary hover:bg-secondaryLight h-8 disabled:bg-dark'
           disabled={!body || !date}
         >
-          Add
+          Save
         </button>
       </form>
     </section>
