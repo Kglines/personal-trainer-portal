@@ -44,4 +44,13 @@ export const deleteComment = (commentId) => {
 }
 
 // // ********************** Thunks ********************** //
+const getCommentsThunk = () => async (dispatch) => {
+    const res = await csrfFetch('/api/comments');
 
+    if(res.ok){
+        const comments = await res.json();
+        dispatch(getComments(comments));
+        return comments
+    }
+    return res;
+}
