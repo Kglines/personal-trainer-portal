@@ -7,6 +7,7 @@ const usersRouter = require('./users.js')
 const announcementsRouter = require('./announcements.js')
 const clientsRouter = require('./clients.js')
 const machinesRouter = require('./machines.js')
+const commentsRouter = require('./comments.js')
 
 router.use(restoreUser);
 
@@ -16,6 +17,7 @@ router.use('/users', usersRouter);
 router.use('/announcements', announcementsRouter);
 router.use('/clients', clientsRouter);
 router.use('/machines', machinesRouter);
+router.use('/comments', commentsRouter);
 
 // ************************* Test Middleware *************************
 // GET /api/set-token-cookie
