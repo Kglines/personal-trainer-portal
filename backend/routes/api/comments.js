@@ -9,6 +9,4 @@ router.get('/', requireAuth, async (req, res) => {
     return res.json(comments);
 })
 
-
-
 module.exports = router;
