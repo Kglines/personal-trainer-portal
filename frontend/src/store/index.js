@@ -5,12 +5,14 @@ import sessionReducer from './session';
 import announcementsReducer from './announcement';
 import clientsReducer from './client';
 import machinesReducer from './machine';
+import commentsReducer from './comment';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     announcements: announcementsReducer,
     clients: clientsReducer,
-    machines: machinesReducer
+    machines: machinesReducer,
+    comments: commentsReducer
 });
 
 let enhancer;
