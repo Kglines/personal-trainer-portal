@@ -88,4 +88,35 @@ router.get('/:announcementId/comments', requireAuth, async (req, res) => {
   return res.json(comments);
 });
 
+// Create A New Comment Associated With An Announcement
+router.post('/:announcementId/comments', requireAuth, async (req, res) => {
+  const { body, userId } = req.body;
+  const announcementId = req.params.announcementId;
+  const newComment = await Comment.create({ body, userId, announcementId });
+  return res.json(newComment);
+});
+
+// Update A Comment Associated With An Announcement
+router.put('/:announcementId/comments/:commentId', requireAuth, async (req, res) => {
+  const { body } = req.body;
+  const commentId = req.params.commentId;
+  const comment = await Comment.findByPk(commentId);
+  if (comment) {
+    await comment.update({ body });
+    res.json(comment);
+  } else {
+    const error = new Error('Comment not found');
+    error.status = 404;
+    throw error;
+  }
+});
+
+// Delete A Comment Associated With An Announcement
+router.delete('/:announcementId/comments/:commentId', requireAuth, async (req, res) => {
+  const commentId = req.params.commentId;
+  const commentToDelete = await Comment.findByPk(commentId);
+  await commentToDelete.destroy();
+  return res.json(commentToDelete);
+});
+
 module.exports = router;
