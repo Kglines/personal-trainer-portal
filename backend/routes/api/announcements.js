@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Announcement, User } = require('../../db/models');
+const { Announcement, User, Comment } = require('../../db/models');
 const nodemailer = require('nodemailer');
 const { requireAuth } = require('../../utils/auth');
 
@@ -93,6 +93,7 @@ router.post('/:announcementId/comments', requireAuth, async (req, res) => {
   const { body, userId } = req.body;
   const announcementId = req.params.announcementId;
   const newComment = await Comment.create({ body, userId, announcementId });
+  console.log('************************* NEW COMMENT === ', newComment)
   return res.json(newComment);
 });
 

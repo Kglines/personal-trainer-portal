@@ -22,7 +22,7 @@ const Home = () => {
   ).sort((a, b) => {
     return a.date - b.date;
   });
-  console.log('ANNOUNCEMENTS ON HOME PAGE === ', announcements);
+  // console.log('ANNOUNCEMENTS ON HOME PAGE === ', announcements);
 
   useEffect(() => {
     dispatch(getAnnouncementsThunk());

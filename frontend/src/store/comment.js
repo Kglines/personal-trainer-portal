@@ -44,7 +44,7 @@ export const deleteComment = (commentId) => {
 }
 
 // // ********************** Thunks ********************** //
-const getAllCommentsThunk = () => async (dispatch) => {
+export const getAllCommentsThunk = () => async (dispatch) => {
     const res = await csrfFetch('/api/comments');
 
     if(res.ok){
@@ -55,7 +55,7 @@ const getAllCommentsThunk = () => async (dispatch) => {
     return res;
 }
 
-const getAnnouncementCommentsThunk = (announcementId) => async (dispatch) => {
+export const getAnnouncementCommentsThunk = (announcementId) => async (dispatch) => {
     const res = await csrfFetch(`/api/announcements/${announcementId}/comments`);
 
     if(res.ok){
@@ -66,7 +66,7 @@ const getAnnouncementCommentsThunk = (announcementId) => async (dispatch) => {
     return res;
 }
 
-const getOneCommentThunk = (commentId) => async (dispatch) => {
+export const getOneCommentThunk = (commentId) => async (dispatch) => {
     const res = await csrfFetch(`/api/comments/${commentId}`);
 
     if(res.ok){
@@ -77,11 +77,12 @@ const getOneCommentThunk = (commentId) => async (dispatch) => {
     return res;
 }
 
-const createCommentThunk = (comment) => async (dispatch) => {
+export const createCommentThunk = (comment) => async (dispatch) => {
   const res = await csrfFetch(`/api/announcements/${comment.announcementId}/comments`, {
     method: 'POST',
     body: JSON.stringify(comment)
   });
+  console.log('COMMENT THUNK === ', res)
 
   if(res.ok){
     const newComment = await res.json();
@@ -91,7 +92,7 @@ const createCommentThunk = (comment) => async (dispatch) => {
   return res;
 }
 
-const editCommentThunk = (comment) => async (dispatch) => {
+export const editCommentThunk = (comment) => async (dispatch) => {
   const res = await csrfFetch(`/api/comments/${comment.id}`, {
     method: 'PUT',
     body: JSON.stringify(comment)
@@ -105,7 +106,7 @@ const editCommentThunk = (comment) => async (dispatch) => {
   return res;
 }
 
-const deleteCommentThunk = (commentId) => async (dispatch) => {
+export const deleteCommentThunk = (commentId) => async (dispatch) => {
   const res = await csrfFetch(`/api/comments/${commentId}`, {
     method: 'DELETE'
   });
