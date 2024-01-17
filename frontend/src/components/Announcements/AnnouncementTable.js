@@ -3,8 +3,10 @@ import OpenModalButton from '../OpenModalButton';
 import EditAnnouncement from '../../forms/Announcements/EditAnnouncement';
 import DeleteAnnouncement from './DeleteAnnouncement';
 import { NavLink } from 'react-router-dom';
+import { useModal } from '../../context/Modal';
 
 const AnnouncementTable = ({ announcements, user }) => {
+  const { closeModal } = useModal();
   return (
     <section className='w-full mx-auto'>
       <table className='w-5/6 mx-auto text-lg table-auto rounded-md'>
@@ -20,23 +22,34 @@ const AnnouncementTable = ({ announcements, user }) => {
             <tr key={idx} className='even:bg-dark'>
               <td className='p-2'>{announcement?.date?.slice(5, 10)}</td>
               <td className='p-2'>
-                <NavLink to={`/announcements/${announcement.id}`} className="hover:text-primary hover:underline">
+                <NavLink
+                  to={`/announcements/${announcement.id}`}
+                  className='hover:text-primary hover:underline'
+                >
                   {announcement?.body}
                 </NavLink>
-                </td>
+              </td>
               {user.isAdmin && (
                 <td className='flex-1'>
                   <OpenModalButton
                     buttonColor='none'
                     buttonText={<i className='fa fa-pencil text-white'></i>}
                     modalComponent={
-                      <EditAnnouncement announcement={announcement} />
+                      <EditAnnouncement
+                        closeModal={closeModal}
+                        announcement={announcement}
+                      />
                     }
                   />
                   <OpenModalButton
                     buttonColor='none'
                     buttonText={<i className='fa fa-trash text-white'></i>}
-                    modalComponent={<DeleteAnnouncement announcementId={announcement?.id} />}
+                    modalComponent={
+                      <DeleteAnnouncement
+                        closeModal={closeModal}
+                        announcementId={announcement?.id}
+                      />
+                    }
                   />
                 </td>
               )}

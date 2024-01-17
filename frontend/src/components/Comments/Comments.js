@@ -22,10 +22,10 @@ const Comments = ({ announcement, user }) => {
     dispatch(getAnnouncementCommentsThunk(announcement.id));
   }, [dispatch, announcement.id]);
 
-  console.log('COMMENTS COMPONENT Announcement === ', comments);
+//   console.log('COMMENTS COMPONENT Announcement === ', comments);
 
   return (
-    <section className='w-4/5 m-auto border border-dark flex justify-center'>
+    <section className='w-4/5 m-auto border border-dark flex flex-col justify-center'>
       <div>
         <h2 className='text-center'>Comments</h2>
       </div>

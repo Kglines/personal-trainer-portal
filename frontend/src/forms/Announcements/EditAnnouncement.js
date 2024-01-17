@@ -39,6 +39,10 @@ const EditAnnouncement = ({ announcement }) => {
     <section className='flex flex-col bg-black text-white w-96'>
       <div className='bg-primary w-full rounded-sm'>
         <h1 className='text-3xl text-center p-2'>Edit Announcement</h1>
+        <i
+          className='fas fa-times text-2xl text-right p-2 right-0 top-0 absolute hover:cursor-pointer hover:rotate-90 transition ease-in-out'
+          onClick={closeModal}
+        ></i>
       </div>
       <form className='flex flex-col text-white gap-4' onSubmit={onSubmit}>
         <label htmlFor='date' className='text-white'>

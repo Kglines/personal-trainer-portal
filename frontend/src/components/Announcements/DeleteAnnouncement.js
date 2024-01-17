@@ -1,13 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { deleteAnnouncementThunk, getAnnouncementsThunk } from '../../store/announcement';
-import { useModal } from '../../context/Modal';
 
 
-const DeleteAnnouncement = ({ announcementId }) => {
+const DeleteAnnouncement = ({ closeModal, announcementId }) => {
     const dispatch = useDispatch();
 
-    const { closeModal } = useModal();
+    
 
     const onDelete = () => {
         // delete announcement
@@ -26,6 +25,10 @@ const DeleteAnnouncement = ({ announcementId }) => {
         <h1 className='bg-primary text-white text-center text-2xl p-2'>
           Delete Announcement
         </h1>
+        <i
+          className='fas fa-times text-2xl text-right p-2 right-0 top-0 absolute hover:cursor-pointer hover:rotate-90 transition ease-in-out'
+          onClick={closeModal}
+        ></i>
       </div>
       <div>
         <p className='text-white p-4'>
