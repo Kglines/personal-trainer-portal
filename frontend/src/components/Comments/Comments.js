@@ -4,25 +4,26 @@ import { getAnnouncementCommentsThunk } from '../../store/comment';
 import { getOneAnnouncement } from '../../store/announcement';
 import { useParams } from 'react-router-dom';
 
-const Comments = ({ announcement, user }) => {
+const Comments = ({ user }) => {
   const dispatch = useDispatch();
-//   const { announcementId } = useParams();
-
-//   console.log('PARAMS === ', announcementId);
+  const { announcementId } = useParams();
+  const announcementIdInt = parseInt(announcementId);
+  console.log('PARAMS === ', typeof parseInt(announcementId));
 
 //   Get One Announcement
-//   const announcement = useSelector((state) => state.announcements);
-//   useEffect(() => {
-//     dispatch(getOneAnnouncement(announcementId));
-//   }, [dispatch, announcementId]);
+  const announcement = useSelector((state) => state.announcements);
+  useEffect(() => {
+    dispatch(getOneAnnouncement(announcementIdInt));
+  }, [dispatch, announcementIdInt]);
 
 //   Get The Comments for the Announcement
   const comments = Object.values(useSelector((state) => state.comments));
+  
   useEffect(() => {
-    dispatch(getAnnouncementCommentsThunk(announcement.id));
-  }, [dispatch, announcement.id]);
+    dispatch(getAnnouncementCommentsThunk(announcement?.id));
+  }, [dispatch, announcement?.id]);
 
-//   console.log('COMMENTS COMPONENT Announcement === ', comments);
+  console.log('COMMENTS COMPONENT Announcement === ', comments);
 
   return (
     <section className='w-4/5 m-auto border border-dark flex flex-col justify-center'>
@@ -33,13 +34,13 @@ const Comments = ({ announcement, user }) => {
         {comments?.map((comment) => (
           <div key={comment?.id} className='border border-dark m-4 p-4 flex'>
             <div>
-              <img
-                src={user.profileImg}
-                alt={user.username}
+              {/* <img
+                src={user?.profileImg}
+                alt={user?.username}
                 className='rounded-full mr-4'
                 width={40}
                 height={40}
-              />
+              /> */}
             </div>
             <div className='flex flex-col text-left'>
               <div>

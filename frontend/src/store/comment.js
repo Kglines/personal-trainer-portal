@@ -44,22 +44,23 @@ export const deleteComment = (commentId) => {
 }
 
 // // ********************** Thunks ********************** //
-export const getAllCommentsThunk = () => async (dispatch) => {
-    const res = await csrfFetch('/api/comments');
+// export const getAllCommentsThunk = () => async (dispatch) => {
+//     const res = await csrfFetch('/api/comments');
 
-    if(res.ok){
-        const comments = await res.json();
-        dispatch(getComments(comments));
-        return comments
-    }
-    return res;
-}
+//     if(res.ok){
+//         const comments = await res.json();
+//         dispatch(getComments(comments));
+//         return comments
+//     }
+//     return res;
+// }
 
 export const getAnnouncementCommentsThunk = (announcementId) => async (dispatch) => {
     const res = await csrfFetch(`/api/announcements/${announcementId}/comments`);
     console.log('GET ANNOUNCEMENT COMMENTS RES === ', res)
     if(res.ok){
         const comments = await res.json();
+        console.log('GET ANNOUNCEMENT COMMENTS INSIDE THUNK === ', comments)
         dispatch(getComments(comments));
         return comments
     }
