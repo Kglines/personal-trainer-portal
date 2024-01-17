@@ -51,10 +51,10 @@ export const fetchMachineThunk = (id) => async (dispatch) => {
     console.log('ID IN THUNK === ', id)
     const machineId = parseInt(id);
     const res = await csrfFetch(`/api/machines/${id}`);
-console.log('Get Machine Thunk RES === ', res)
+// console.log('Get Machine Thunk RES === ', res)
     if(res.ok){
         const machine = await res.json();
-        console.log('MACHINE IN THUNK === ', machine)
+        // console.log('MACHINE IN THUNK === ', machine)
         dispatch(getOneMachine(machine));
         return machine
     }
@@ -80,10 +80,10 @@ export const editMachineThunk = (machine) => async (dispatch) => {
         method: 'PUT',
         body: JSON.stringify(machine)
     });
-console.log('EDIT MACHINE THUNK RES === ', res)
+// console.log('EDIT MACHINE THUNK RES === ', res)
     if(res.ok){
         const updatedMachine = await res.json();
-        console.log('UPDATED MACHINE IN THUNK === ', updatedMachine)
+        // console.log('UPDATED MACHINE IN THUNK === ', updatedMachine)
         dispatch(updateMachine(updatedMachine));
         return updatedMachine;
     }
@@ -114,7 +114,7 @@ const machinesReducer = (state = initialState, action) => {
             return newState;
         case GET_MACHINE:
             newState = action.payload;
-            console.log('GET_MACHINE REDUCER === ', newState)
+            // console.log('GET_MACHINE REDUCER === ', newState)
             return newState;
         case ADD_MACHINE:
             newState = { ...state, [action.payload.id]: action.payload }

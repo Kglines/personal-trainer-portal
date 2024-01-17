@@ -40,7 +40,7 @@ const Machines = () => {
     const filtered = filteredData.filter(machine => {
       return `${machine.description} ${machine.number} ${machine.manufacturer}`.trim().toLowerCase().includes(keyword.toLowerCase())
     })
-    console.log('filtered === ', filtered)
+    // console.log('filtered === ', filtered)
     setKeyword(keyword)
     // setMachines(filtered)
     setData(filtered)

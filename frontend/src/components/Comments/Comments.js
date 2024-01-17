@@ -8,7 +8,7 @@ const Comments = ({ user }) => {
   const dispatch = useDispatch();
   const { announcementId } = useParams();
   const announcementIdInt = parseInt(announcementId);
-  console.log('PARAMS === ', typeof parseInt(announcementId));
+  // console.log('PARAMS === ', typeof parseInt(announcementId));
 
 //   Get One Announcement
   const announcement = useSelector((state) => state.announcements);
@@ -23,7 +23,7 @@ const Comments = ({ user }) => {
     dispatch(getAnnouncementCommentsThunk(announcement.id));
   }, [dispatch, announcement.id]);
 
-  console.log('COMMENTS COMPONENT Announcement === ', comments);
+  // console.log('COMMENTS COMPONENT Announcement === ', comments);
 
   return (
     <section className='w-4/5 m-auto border border-dark flex flex-col justify-center'>

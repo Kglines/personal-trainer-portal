@@ -32,7 +32,7 @@ router.get('/', requireAuth, async (req, res) => {
 router.get('/:id', requireAuth, async (req, res) => {
   const announcementId = req.params.id;
   const announcement = await Announcement.findByPk(announcementId);
-  console.log('ANNOUNCEMENT ID === ', announcement)
+  // console.log('ANNOUNCEMENT ID === ', announcement)
   return res.json(announcement);
 });
 
@@ -94,7 +94,7 @@ router.get('/:id/comments', requireAuth, async (req, res) => {
     });
     return res.json(comments);
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
   // console.log('******************* COMMENTS === ', comments)
   // return res.json(comments);
@@ -105,7 +105,7 @@ router.post('/:id/comments', requireAuth, async (req, res) => {
   const { body, userId } = req.body;
   const announcementId = req.params.id;
   const newComment = await Comment.create({ body, userId, announcementId });
-  console.log('************************* NEW COMMENT === ', newComment)
+  // console.log('************************* NEW COMMENT === ', newComment)
   return res.json(newComment);
 });
 

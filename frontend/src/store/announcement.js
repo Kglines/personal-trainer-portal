@@ -30,7 +30,7 @@ export const createAnnouncement = (announcement) => {
 }
 
 export const editAnnouncement = (announcement) => {
-    console.log('Edit Announcement Action ==== ', announcement)
+    // console.log('Edit Announcement Action ==== ', announcement)
   return {
     type: EDIT_ANNOUNCEMENT,
     payload: announcement
@@ -83,16 +83,16 @@ export const createAnnouncementThunk = (announcement) => async (dispatch) => {
 }
 
 export const editAnnouncementThunk = (announcement) => async (dispatch) => {
-    console.log('Edit Announcement Thunk ==== ', announcement)
+    // console.log('Edit Announcement Thunk ==== ', announcement)
     const res = await csrfFetch(`/api/announcements/${announcement.id}`, {
         method: 'PUT',
         body: JSON.stringify(announcement)
     });
-    console.log('Edit Announcement Thunk Res ==== ', res)
+    // console.log('Edit Announcement Thunk Res ==== ', res)
 
     if(res.ok){
         const updatedAnnouncement = await res.json();
-        console.log('Edit Announcement Thunk Updated Announcement ==== ', updatedAnnouncement)
+        // console.log('Edit Announcement Thunk Updated Announcement ==== ', updatedAnnouncement)
         dispatch(editAnnouncement(updatedAnnouncement));
         return updatedAnnouncement;
     }
@@ -126,7 +126,7 @@ const announcementsReducer = (state = initialState, action) => {
             return newState;
         case GET_ONE_ANNOUNCEMENT:
             newState = action.payload;
-            console.log('Get One Announcement Reducer ==== ', newState)
+            // console.log('Get One Announcement Reducer ==== ', newState)
             return newState;
         case CREATE_ANNOUNCEMENT:
             newState = { ...state, [action.payload.id]: action.payload }
@@ -134,7 +134,7 @@ const announcementsReducer = (state = initialState, action) => {
         case EDIT_ANNOUNCEMENT:
             // newState[action.payload.id] = action.payload;
             newState = { ...state, [action.payload.id]: action.payload }
-            console.log('Edit Announcement Reducer ==== ', newState)
+            // console.log('Edit Announcement Reducer ==== ', newState)
             // newState = action.payload;
             return newState;
         case DELETE_ANNOUNCEMENT:
