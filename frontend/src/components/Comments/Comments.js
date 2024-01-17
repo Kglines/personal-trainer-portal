@@ -20,8 +20,8 @@ const Comments = ({ user }) => {
   const comments = Object.values(useSelector((state) => state.comments));
   
   useEffect(() => {
-    dispatch(getAnnouncementCommentsThunk(announcement?.id));
-  }, [dispatch, announcement?.id]);
+    dispatch(getAnnouncementCommentsThunk(announcement.id));
+  }, [dispatch, announcement.id]);
 
   console.log('COMMENTS COMPONENT Announcement === ', comments);
 

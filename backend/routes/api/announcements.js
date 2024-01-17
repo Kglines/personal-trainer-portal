@@ -85,10 +85,19 @@ router.delete('/:id', requireAuth, async (req, res) => {
 // Get All Comments Associated With An Announcement
 router.get('/:id/comments', requireAuth, async (req, res) => {
   const announcementId = req.params.id;
-  const comments = await Comment.findAll({ where: { announcementId } });
+  // const comments = await Comment.findAll({ where: { announcementId } });
   // const commentCount = comments.length
-  // console.log('******************* COMMENT COUNT === ', commentCount)
-  return res.json(comments);
+  try {
+    const comments = await Comment.findAll({
+      where: { announcementId },
+      include: User,
+    });
+    return res.json(comments);
+  } catch (e) {
+    console.log(e);
+  }
+  // console.log('******************* COMMENTS === ', comments)
+  // return res.json(comments);
 });
 
 // Create A New Comment Associated With An Announcement
