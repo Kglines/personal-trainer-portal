@@ -25,7 +25,7 @@ const AnnouncementTable = ({ announcements, user }) => {
                 </NavLink>
                 </td>
               {user.isAdmin && (
-                <td className='flex'>
+                <td className='flex-1'>
                   <OpenModalButton
                     buttonColor='none'
                     buttonText={<i className='fa fa-pencil text-white'></i>}
