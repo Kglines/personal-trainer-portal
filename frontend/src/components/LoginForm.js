@@ -13,7 +13,7 @@ const LoginForm = () => {
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
-        if(!sessionUser) {
+        if(!sessionUser || sessionUser.username === null) {
             return navigate("/login")
         } else {
             return navigate("/home")
@@ -22,9 +22,9 @@ const LoginForm = () => {
     }, [navigate, sessionUser])
 
     // if (!sessionUser) {
-    //     return redirect("/login")
+    //     return navigate("/login")
     // } else {
-    //     return redirect("/");
+    //     return navigate("/home");
     // }
 
     const handleSubmit = (e) => {

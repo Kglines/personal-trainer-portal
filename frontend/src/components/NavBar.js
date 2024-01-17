@@ -13,8 +13,8 @@ function Navigation({ isLoaded }) {
 
   const logout = (e) => {
     e.preventDefault();
+    navigate('/login');
     dispatch(sessionActions.logout());
-    navigate('/');
   };
 // console.log('****************************** className ******************************', className)
   // if(className.includes('active')){

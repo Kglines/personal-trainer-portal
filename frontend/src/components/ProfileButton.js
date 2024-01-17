@@ -16,8 +16,8 @@ function ProfileButton({ user }) {
 
   const logout = (e) => {
     e.preventDefault();
+    navigate('/login');
     dispatch(sessionActions.logout());
-    navigate('/');
   };
 
   const ulClassName =

@@ -6,6 +6,7 @@ import NewAnnouncementForm from '../forms/Announcements/NewAnnouncementForm';
 import { getAnnouncementsThunk } from '../store/announcement';
 import { useModal } from '../context/Modal';
 import LeftBar from '../components/LeftBar';
+import Login from './Login';
 
 const today = new Date().toLocaleString('default', {
   month: 'short',
@@ -32,9 +33,13 @@ const Home = () => {
   const links = ['Birthdays', 'Anniversaries'];
 
   // console.log('ANNOUNCEMENTS HOME PAGE === ', announcements)
+  
   return (
+    
     <section className='text-offWhite w-4/5 mx-auto text-center pt-4 pl-48'>
-      <div>
+      {currentUser ? (
+        <div>
+          <div>
         <LeftBar
           button={announcementButton}
           links={links}
@@ -54,6 +59,11 @@ const Home = () => {
         <AnnouncementTable announcements={announcements} user={currentUser} />
         <p className='py-2'>{today}</p>
       </div>
+        </div>
+      ) : (
+        <Login />
+      )}
+      
     </section>
   );
 };

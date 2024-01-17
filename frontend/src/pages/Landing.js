@@ -1,5 +1,5 @@
 import React from 'react';
-
+import LoginForm from '../components/LoginForm';
 
 
 const Landing = () => {
@@ -9,7 +9,8 @@ const Landing = () => {
             <h1 className="text-3xl text-center py-4">Landing</h1>
         </div>
         <div>
-            <p className="text-center">This is the landing page</p>   
+            {/* <p className="text-center">This is the landing page</p>    */}
+            <LoginForm />
         </div>
     </section>
   )

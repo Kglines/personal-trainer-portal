@@ -15,11 +15,19 @@ import Machines from './pages/Machines';
 import Machine from './pages/Machine';
 import AllMachines from './pages/AllMachines';
 import Announcement from './pages/Announcement';
+import LoginForm from './components/LoginForm';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const sessionUser = useSelector(state => state.session.user);
+
+  // useEffect(() => {
+  //   if(!sessionUser || sessionUser === undefined) {
+  //     return <LoginForm />
+  //   } 
+  // }, [sessionUser])
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -27,7 +35,7 @@ function App() {
   return (
     <React.Fragment>
       <NavBar isLoaded={isLoaded} />
-      {isLoaded && (
+      {isLoaded ? (
         <Routes>
           <Route path='/signup' element={<SignupForm />} />
           <Route path='/login' element={<Login />} />
@@ -39,6 +47,10 @@ function App() {
           <Route path='/machines/:machineId' element={<Machine />} />
           <Route path='/allmachines' element={<AllMachines />} />
           <Route path='/' element={<Landing />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path='/login' element={<Login />} />
         </Routes>
       )}
     </React.Fragment>
