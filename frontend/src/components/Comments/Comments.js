@@ -1,15 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAnnouncementCommentsThunk } from '../../store/comment';
+import { getOneAnnouncement } from '../../store/announcement';
+import { useParams } from 'react-router-dom';
 
 const Comments = ({ announcement, user }) => {
   const dispatch = useDispatch();
+//   const { announcementId } = useParams();
 
+//   console.log('PARAMS === ', announcementId);
+
+//   Get One Announcement
+//   const announcement = useSelector((state) => state.announcements);
+//   useEffect(() => {
+//     dispatch(getOneAnnouncement(announcementId));
+//   }, [dispatch, announcementId]);
+
+//   Get The Comments for the Announcement
   const comments = Object.values(useSelector((state) => state.comments));
   useEffect(() => {
     dispatch(getAnnouncementCommentsThunk(announcement.id));
   }, [dispatch, announcement.id]);
-  console.log('COMMENTS COMPONENT === ', comments);
+
+  console.log('COMMENTS COMPONENT Announcement === ', comments);
+
   return (
     <section className='w-4/5 m-auto border border-dark flex justify-center'>
       <div>
@@ -29,7 +43,7 @@ const Comments = ({ announcement, user }) => {
             </div>
             <div className='flex flex-col text-left'>
               <div>
-                <p>{user.username}</p>
+                <p>{user?.username}</p>
               </div>
               <div className='ml-4'>
                 <p>{comment?.body}</p>

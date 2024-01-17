@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
     dispatch(sessionActions.logout());
     navigate('/');
   };
-console.log('****************************** className ******************************', className)
+// console.log('****************************** className ******************************', className)
   // if(className.includes('active')){
   //   console.log('****************************** active ******************************')
   // }

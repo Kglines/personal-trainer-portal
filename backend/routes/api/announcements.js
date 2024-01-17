@@ -32,6 +32,7 @@ router.get('/', requireAuth, async (req, res) => {
 router.get('/:id', requireAuth, async (req, res) => {
   const announcementId = req.params.id;
   const announcement = await Announcement.findByPk(announcementId);
+  console.log('ANNOUNCEMENT ID === ', announcement)
   return res.json(announcement);
 });
 
@@ -82,42 +83,25 @@ router.delete('/:id', requireAuth, async (req, res) => {
 
 // *******************Comment Routes*******************
 // Get All Comments Associated With An Announcement
-router.get('/:announcementId/comments', requireAuth, async (req, res) => {
-  const announcementId = req.params.announcementId;
+router.get('/:id/comments', requireAuth, async (req, res) => {
+  const announcementId = req.params.id;
   const comments = await Comment.findAll({ where: { announcementId } });
+  // const commentCount = comments.length
+  // console.log('******************* COMMENT COUNT === ', commentCount)
   return res.json(comments);
 });
 
 // Create A New Comment Associated With An Announcement
-router.post('/:announcementId/comments', requireAuth, async (req, res) => {
+router.post('/:id/comments', requireAuth, async (req, res) => {
   const { body, userId } = req.body;
-  const announcementId = req.params.announcementId;
+  const announcementId = req.params.id;
   const newComment = await Comment.create({ body, userId, announcementId });
   console.log('************************* NEW COMMENT === ', newComment)
   return res.json(newComment);
 });
 
-// Update A Comment Associated With An Announcement
-router.put('/:announcementId/comments/:commentId', requireAuth, async (req, res) => {
-  const { body } = req.body;
-  const commentId = req.params.commentId;
-  const comment = await Comment.findByPk(commentId);
-  if (comment) {
-    await comment.update({ body });
-    res.json(comment);
-  } else {
-    const error = new Error('Comment not found');
-    error.status = 404;
-    throw error;
-  }
-});
 
-// Delete A Comment Associated With An Announcement
-router.delete('/:announcementId/comments/:commentId', requireAuth, async (req, res) => {
-  const commentId = req.params.commentId;
-  const commentToDelete = await Comment.findByPk(commentId);
-  await commentToDelete.destroy();
-  return res.json(commentToDelete);
-});
+
+
 
 module.exports = router;

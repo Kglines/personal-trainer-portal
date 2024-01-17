@@ -57,7 +57,7 @@ export const getAllCommentsThunk = () => async (dispatch) => {
 
 export const getAnnouncementCommentsThunk = (announcementId) => async (dispatch) => {
     const res = await csrfFetch(`/api/announcements/${announcementId}/comments`);
-
+    console.log('GET ANNOUNCEMENT COMMENTS RES === ', res)
     if(res.ok){
         const comments = await res.json();
         dispatch(getComments(comments));
