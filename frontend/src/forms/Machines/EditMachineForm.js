@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editMachineThunk, fetchMachineThunk } from '../../store/machine';
 import { useNavigate } from 'react-router-dom';
+import { useModal } from '../../context/Modal';
 
 const EditMachineForm = ({ machineId, onClose }) => {
   const dispatch = useDispatch();
+  const { closeModal } = useModal();
+
   const machine = useSelector((state) => state.machines);
   useEffect(() => {
     dispatch(fetchMachineThunk(machineId));
@@ -56,6 +59,10 @@ const EditMachineForm = ({ machineId, onClose }) => {
     <section className='flex flex-col bg-black text-white w-96'>
       <div className='bg-primary w-full rounded-sm'>
         <h1 className='text-3xl text-center p-2'>Edit Machine</h1>
+        <i
+          className='fas fa-times text-2xl text-right p-2 right-0 top-0 absolute hover:cursor-pointer hover:rotate-90 transition ease-in-out'
+          onClick={closeModal}
+        ></i>
       </div>
       <div className='px-4 py-2 mt-2 border border-dark'>
         <form

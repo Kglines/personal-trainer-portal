@@ -21,10 +21,12 @@ router.get('/', requireAuth, async (req, res) => {
 
   // Filter announcements by month
   const monthlyAnnouncements = sortedAnnouncements.filter((announcement) => {
+    const currentMonth = new Date().getMonth() + 1;
     const announcementMonth = announcement.date.getMonth() + 1;
-    return announcementMonth === new Date().getMonth() + 1;
+    // console.log('************************ ', currentMonth, announcementMonth)
+    return announcementMonth === currentMonth;
   });
-
+// console.log('****************** Monthly Announcements === ', monthlyAnnouncements)
   return res.json(monthlyAnnouncements);
 });
 

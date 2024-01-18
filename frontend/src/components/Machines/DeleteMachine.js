@@ -21,11 +21,15 @@ const DeleteMachine = ({ machineId }) => {
   }
 
   return (
-    <section className='bg-dark w-full pb-2'>
+    <section className='bg-dark w-full pb-2 text-white'>
       <div>
         <h1 className='bg-primary text-white text-center text-2xl p-2'>
           Delete Machine
         </h1>
+        <i
+          className='fas fa-times text-2xl text-right p-2 right-0 top-0 absolute hover:cursor-pointer hover:rotate-90 transition ease-in-out'
+          onClick={closeModal}
+        ></i>
       </div>
       <div>
         <p className='text-white p-4'>
@@ -35,13 +39,13 @@ const DeleteMachine = ({ machineId }) => {
       <div className='flex justify-center gap-2'>
         <button
           className='bg-secondary text-offWhite p-2 rounded-sm hover:bg-secondaryLight'
-            onClick={() => onDelete()}
+          onClick={() => onDelete()}
         >
           Delete
         </button>
         <button
           className='bg-primary text-offWhite p-2 rounded-sm hover:bg-primaryLight'
-            onClick={() => closeModal()}
+          onClick={() => closeModal()}
         >
           Cancel
         </button>

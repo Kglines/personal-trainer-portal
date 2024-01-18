@@ -122,7 +122,8 @@ const announcementsReducer = (state = initialState, action) => {
             // newState = action.payload.forEach(announcement => {
             //     newState[announcement.id] = announcement;
             // });
-            newState = action.payload
+            // newState = action.payload
+            newState = action.payload.sort((a, b) => a.date - b.date)
             return newState;
         case GET_ONE_ANNOUNCEMENT:
             newState = action.payload;

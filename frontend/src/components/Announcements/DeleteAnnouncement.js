@@ -20,7 +20,7 @@ const DeleteAnnouncement = ({ closeModal, announcementId }) => {
     }
 
   return (
-    <section className='bg-dark w-full pb-2'>
+    <section className='bg-dark w-full pb-2 text-white'>
       <div>
         <h1 className='bg-primary text-white text-center text-2xl p-2'>
           Delete Announcement
