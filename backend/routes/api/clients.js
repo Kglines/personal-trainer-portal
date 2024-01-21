@@ -1,17 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const { Client } = require('../../db/models');
+const { Client, User } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 
 // ************************* GET *************************
 router.get('/', requireAuth, async (req, res) => {
-    const clients = await Client.findAll({
+    const user = await User.findOne({
         where: {
-            userId: req.user.id
-        },
-        orderBy: [['lastName', 'ASC']]
+            id: req.user.id
+        }
     });
-    return res.json(clients);
+    try {
+        const clients = await Client.findAll({
+            where: {
+                userId: user.id,
+            },
+            orderBy: [['lastName', 'ASC']]
+        });
+        return res.json(clients);
+    } catch (e) {
+        return res.json(e);
+    }
 });
 
 // ************************* POST *************************

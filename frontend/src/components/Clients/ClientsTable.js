@@ -1,6 +1,7 @@
 import React from 'react'
 
-const ClientsTable = () => {
+const ClientsTable = ({ clients }) => {
+  console.log('CLIENTS TABLE ===== ', Object.values(clients) )
   return (
     <section className='w-full mx-auto'>
       <table className='w-5/6 mx-auto text-lg table-auto'>
@@ -12,20 +13,19 @@ const ClientsTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className='even:bg-dark'>
-            <td className='p-2'>Keith</td>
-            <td className='p-2'>Glines</td>
-            <td className='p-2'>
-              <input type='checkbox' />
-            </td>
-          </tr>
-          <tr className='even:bg-dark'>
-            <td className='p-2'>Keith</td>
-            <td className='p-2'>Glines</td>
-            <td className='p-2'>
-              <input type='checkbox' />
-            </td>
-          </tr>
+          {Object.values(clients).map((client, idx) => (
+            <tr key={idx} className='even:bg-dark'>
+              <td className='p-2'>{client?.firstName}</td>
+              <td className='p-2'>{client?.lastName}</td>
+              <td className='p-2'>
+                {client?.isActive ? (
+                  <i className='fa-solid fa-check text-green'></i>
+                ) : (
+                  <i className='fa-regular fa-rectangle-xmark text-red'></i>
+                )}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </section>

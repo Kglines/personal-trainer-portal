@@ -10,36 +10,36 @@ const DELETE_CLIENT = 'clients/deleteClient';
 // ******************** Action Creators ********************
 const getClients = (clients) => ({
     type: GET_CLIENTS,
-    clients
+    payload: clients
 });
 
 const getClient = (client) => ({
     type: GET_CLIENT,
-    client
+    payload: client
 });
 
 const addClient = (client) => ({
     type: ADD_CLIENT,
-    client
+    payload: client
 });
 
 const updateClient = (client) => ({
     type: UPDATE_CLIENT,
-    client
+    payload: client
 });
 
 const deleteClient = (client) => ({
     type: DELETE_CLIENT,
-    client
+    payload: client
 });
 
 // ******************** Thunks ********************
 export const fetchClients = () => async (dispatch) => {
     const res = await csrfFetch('/api/clients');
-
     if(res.ok){
         const clients = await res.json();
         dispatch(getClients(clients));
+        // console.log('FETCH CLIENTS ===== ', clients)
         return clients
     }
     return res;
@@ -109,6 +109,7 @@ const clientsReducer = (state = initialState, action) => {
             //     newState[client.id] = client;
             // });
             newState = action.payload;
+            // console.log('CLIENTS REDUCER ===== ', newState)
             return newState;
         case GET_CLIENT:
             // newState[action.client.id] = action.client;

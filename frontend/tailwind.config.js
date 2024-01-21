@@ -12,6 +12,8 @@ module.exports = {
       offWhite: 'rgb(255, 255, 240)',
       grey: 'rgb(155, 155, 155)',
       light: 'rgba(255, 255, 255, 0.8)',
+      red: 'rgb(255, 0, 0)',
+      green: 'rgb(0, 255, 0)',
     },
     extend: {},
   },

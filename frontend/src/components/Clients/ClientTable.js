@@ -1,6 +1,7 @@
 import React from 'react'
 
-const ClientTable = () => {
+const ClientTable = ({ clients }) => {
+  console.log('CLIENTS CLIENTS CLIENTS ===== ', clients )
   return (
     <section className='w-full mx-auto'>
       <table className='w-5/6 mx-auto text-lg table-auto'>
