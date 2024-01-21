@@ -40,11 +40,11 @@ const Home = () => {
       {currentUser ? (
         <div>
           <div>
-        <LeftBar
+        {/* <LeftBar
           button={announcementButton}
           links={links}
           component={<NewAnnouncementForm onClose={closeModal} />}
-        />
+        /> */}
       </div>
       <div>
         <h1 className='text-4xl'>Welcome {currentUser.username}!</h1>

@@ -27,7 +27,7 @@ const DeleteMachine = ({ machineId }) => {
           Delete Machine
         </h1>
         <i
-          className='fas fa-times text-2xl text-right p-2 right-0 top-0 absolute hover:cursor-pointer hover:rotate-90 transition ease-in-out'
+          className='fas rounded-full fa-times text-2xl text-right px-2 right-2 top-3 absolute hover:cursor-pointer hover:border hover:border-collapse hover:border-grey hover:bg-grey hover:text-dark'
           onClick={closeModal}
         ></i>
       </div>

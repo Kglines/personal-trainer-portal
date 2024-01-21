@@ -33,7 +33,7 @@ const AnnouncementTable = ({ announcements, user }) => {
                 <td className='flex-1'>
                   <OpenModalButton
                     buttonColor='none'
-                    buttonText={<i className='fa fa-pencil text-white'></i>}
+                    buttonText={<i className='fa fa-pencil text-white hover:text-primary'></i>}
                     modalComponent={
                       <EditAnnouncement
                         closeModal={closeModal}
@@ -43,7 +43,7 @@ const AnnouncementTable = ({ announcements, user }) => {
                   />
                   <OpenModalButton
                     buttonColor='none'
-                    buttonText={<i className='fa fa-trash text-white'></i>}
+                    buttonText={<i className='fa fa-trash text-white hover:text-primary'></i>}
                     modalComponent={
                       <DeleteAnnouncement
                         closeModal={closeModal}

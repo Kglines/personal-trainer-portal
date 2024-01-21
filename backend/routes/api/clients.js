@@ -15,7 +15,7 @@ router.get('/', requireAuth, async (req, res) => {
             where: {
                 userId: user.id,
             },
-            orderBy: [['lastName', 'ASC']]
+            order: ['lastName']
         });
         return res.json(clients);
     } catch (e) {

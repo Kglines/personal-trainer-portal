@@ -27,11 +27,11 @@ const NewAnnouncementForm = ({ onClose }) => {
       });
   };
   return (
-    <section className='flex flex-col bg-black text-white w-96'>
+    <section className='flex flex-col bg-black text-white w-96 border border-dark'>
       <div className='bg-primary w-full rounded-sm'>
         <h1 className='text-3xl text-center p-2'>New Announcement</h1>
         <i
-          className='fas fa-times text-2xl text-right p-2 right-0 top-0 absolute hover:cursor-pointer hover:rotate-90 transition ease-in-out'
+          className='fas rounded-full fa-times text-2xl text-right px-2 right-2 top-3 absolute hover:cursor-pointer hover:border hover:border-collapse hover:border-grey hover:bg-grey hover:text-dark'
           onClick={onClose}
         ></i>
       </div>
@@ -61,14 +61,14 @@ const NewAnnouncementForm = ({ onClose }) => {
               placeholder='New Announcement here...'
             ></textarea>
           </label>
-              <button
-                type='submit'
-                className='bg-secondary hover:bg-secondaryLight h-8 disabled:bg-dark'
-                disabled={!body || !date}
-                // href={`mailto:keithglines@yahoo.com?subject='TEST'&body=${body}`}
-              >
-                Add
-              </button>
+          <button
+            type='submit'
+            className='bg-secondary hover:bg-secondaryLight h-8 disabled:bg-dark'
+            disabled={!body || !date}
+            // href={`mailto:keithglines@yahoo.com?subject='TEST'&body=${body}`}
+          >
+            Add
+          </button>
         </form>
       </div>
     </section>

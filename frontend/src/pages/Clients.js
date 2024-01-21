@@ -13,7 +13,7 @@ const Clients = () => {
   const clientButton = '+ Client';
   const clientLinks = ['report'];
 
-  // const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session.user);
   const clients = useSelector(state => state.clients);
 console.log('CLIENTS ===== ', clients)
   useEffect(() => {
@@ -21,16 +21,16 @@ console.log('CLIENTS ===== ', clients)
   }, [dispatch])
 
   return (
-    <section className='text-offWhite w-4/5 mx-auto text-center pt-4 pl-48'>
-      <div>
+    <section className='text-offWhite w-4/5 mx-auto text-center pt-4'>
+      {/* <div>
         <LeftBar button={clientButton} links={clientLinks} />
-      </div>
+      </div> */}
       <div>
-        <div>
-          <h1 className='text-4xl'>Clients</h1>
-          <OpenModalButton buttonColor='secondary' buttonText='New Client' modalComponent={<NewClientForm />} />
+        <div className='pb-4'>
+          <h1 className='text-4xl pb-4'>Clients</h1>
+          <OpenModalButton buttonColor='secondary' buttonText='+ Client' modalComponent={<NewClientForm user={sessionUser} />}/>
         </div>
-        <div>
+        <div className=''>
           <ClientsTable clients={clients} />
         </div>
       </div>

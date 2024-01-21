@@ -105,8 +105,8 @@ const clientsReducer = (state = initialState, action) => {
     switch(action.type){
         case GET_CLIENTS:
             // newState = {};
-            // action.clients.forEach(client => {
-            //     newState[client.id] = client;
+            // newState = action.payload.sort((a, b) => {
+            //     return b.firstName - a.firstName
             // });
             newState = action.payload;
             // console.log('CLIENTS REDUCER ===== ', newState)

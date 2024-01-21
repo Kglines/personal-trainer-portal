@@ -4,7 +4,7 @@ const ClientTable = ({ clients }) => {
   console.log('CLIENTS CLIENTS CLIENTS ===== ', clients )
   return (
     <section className='w-full mx-auto'>
-      <table className='w-5/6 mx-auto text-lg table-auto'>
+      {/* <table className='w-5/6 mx-auto text-lg table-auto'>
         <thead>
           <tr className='bg-dark'>
             <th className='p-2'>First Name</th>
@@ -24,7 +24,7 @@ const ClientTable = ({ clients }) => {
             <td className='p-2'>YES</td>
           </tr>
         </tbody>
-      </table>
+      </table> */}
     </section>
   );
 }
