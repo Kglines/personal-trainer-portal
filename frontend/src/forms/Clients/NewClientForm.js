@@ -53,7 +53,7 @@ const NewClientForm = ({ user }) => {
               id='firstName'
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className='bg-dark text-white px-1 mx-2'
+              className='bg-dark text-white px-1 mx-2 h-8'
             />
           </label>
           <label htmlFor='lastName' className='py-2'>
@@ -64,7 +64,7 @@ const NewClientForm = ({ user }) => {
               id='lastName'
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              className='bg-dark text-white px-1 mx-2'
+              className='bg-dark text-white px-1 mx-2 h-8'
             />
           </label>
           <label htmlFor='isActive' className='py-2'>
@@ -75,7 +75,7 @@ const NewClientForm = ({ user }) => {
               id='isActive'
               checked={isActive}
               onChange={(e) => setIsActive(e.target.checked)}
-              className='bg-dark text-white px-1 mx-2'
+              className='bg-dark text-white px-2 mx-10 w-6 h-6 hover:cursor-pointer'
             />
           </label>
           <button
