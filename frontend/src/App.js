@@ -10,12 +10,11 @@ import SignupForm from './components/SignupForm';
 import Landing from './pages/Landing';
 import Clients from './pages/Clients';
 import Trainers from './pages/Trainers';
-import LeftBar from './components/LeftBar';
 import Machines from './pages/Machines';
 import Machine from './pages/Machine';
 import AllMachines from './pages/AllMachines';
 import Announcement from './pages/Announcement';
-import LoginForm from './components/LoginForm';
+import Client from './pages/Client'
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +41,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/announcements/:announcementId' element={<Announcement />} />
           <Route path='/clients' element={<Clients />} />
+          <Route path='/clients/:clientId' element={<Client />} />
           <Route path='/trainers' element={<Trainers />} />
           <Route path='/machines' element={<Machines />} />
           <Route path='/machines/:machineId' element={<Machine />} />
