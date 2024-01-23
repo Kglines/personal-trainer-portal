@@ -15,6 +15,7 @@ import Machine from './pages/Machine';
 import AllMachines from './pages/AllMachines';
 import Announcement from './pages/Announcement';
 import Client from './pages/Client'
+import Error from './components/Error';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,17 +37,31 @@ function App() {
       <NavBar isLoaded={isLoaded} />
       {isLoaded ? (
         <Routes>
-          <Route path='/signup' element={<SignupForm />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/announcements/:announcementId' element={<Announcement />} />
-          <Route path='/clients' element={<Clients />} />
-          <Route path='/clients/:clientId' element={<Client />} />
-          <Route path='/trainers' element={<Trainers />} />
-          <Route path='/machines' element={<Machines />} />
-          <Route path='/machines/:machineId' element={<Machine />} />
-          <Route path='/allmachines' element={<AllMachines />} />
-          <Route path='/' element={<Landing />} />
+          <Route path='/signup' element={<SignupForm />} exact />
+          <Route path='/login' element={<Login />} exact />
+          <Route
+            path='/home'
+            element={<Home />}
+            exact
+          />
+          <Route
+            path='/announcements/:announcementId'
+            element={<Announcement />}
+            exact
+          />
+          <Route path='/clients' element={<Clients />} exact />
+          <Route
+            path='/clients/:clientId'
+            element={<Client />}
+            errorElement={<Error />}
+            exact
+          />
+          <Route path='/trainers' element={<Trainers />} exact />
+          <Route path='/machines' element={<Machines />} exact />
+          <Route path='/machines/:machineId' element={<Machine />} exact />
+          <Route path='/allmachines' element={<AllMachines />} exact />
+          <Route path='/' element={<Landing />} exact />
+          <Route>:Page Not Found</Route>
         </Routes>
       ) : (
         <Routes>

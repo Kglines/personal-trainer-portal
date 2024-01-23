@@ -23,6 +23,13 @@ router.get('/', requireAuth, async (req, res) => {
     }
 });
 
+// GET ONE client based on ID
+router.get('/:id', requireAuth, async (req, res) => {
+    const clientId = req.params.id;
+    const client = await Client.findByPk(clientId)
+    return res.json(client)
+})
+
 // ************************* POST *************************
 router.post('/', requireAuth, async (req, res) => {
     const { firstName, lastName, userId, isActive } = req.body;

@@ -6,6 +6,7 @@ import OpenModalButton from '../components/OpenModalButton';
 import EditMachineForm from '../forms/Machines/EditMachineForm';
 import { useModal } from '../context/Modal';
 import DeleteMachine from '../components/Machines/DeleteMachine';
+import Problems from '../forms/Problems/Problems';
 
 const Machine = () => {
   const dispatch = useDispatch();
@@ -77,6 +78,7 @@ const Machine = () => {
               />
             </div>
           )}
+          <OpenModalButton buttonColor={'primary'} buttonText={'Report A Problem'} modalComponent={<Problems closeModal={closeModal} />} />
         </div>
       </div>
     </section>
