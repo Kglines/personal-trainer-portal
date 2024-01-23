@@ -14,14 +14,25 @@ const Problems = ({ closeModal }) => {
         ></i>
       </div>
       <div className='px-4 py-2 mt-2 border border-dark'>
-        <form className='flex flex-col text-white gap-4 text-right'>
+        <form className='flex flex-col text-white gap-4 align-top'>
           <label className='text-white'>
             Machine Number:
             <input
               type='number'
               value={machineNum}
               onChange={(e) => setMachineNum(e.target.value)}
-              className='text-white bg-dark px-1 mx-2 w-2/3'
+              className='text-white bg-dark px-2 mx-4 w-1/3 text-center'
+            />
+          </label>
+          <label className='flex'>
+            Problem:
+            <textarea
+              type='text'
+              rows={4}
+              cols={30}
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
+              className='bg-dark text-white px-1 mx-2'
             />
           </label>
         </form>
