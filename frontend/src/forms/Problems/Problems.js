@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Problems = ({ closeModal }) => {
+    const [machineNum, setMachineNum] = useState(0);
+    const [body, setBody] = useState('');
+
   return (
     <section className='flex flex-col bg-black text-white w-96'>
       <div className='bg-primary w-full rounded-sm'>
@@ -11,7 +14,17 @@ const Problems = ({ closeModal }) => {
         ></i>
       </div>
       <div className='px-4 py-2 mt-2 border border-dark'>
-        <form className='flex flex-col text-white gap-4 text-right'></form>
+        <form className='flex flex-col text-white gap-4 text-right'>
+          <label className='text-white'>
+            Machine Number:
+            <input
+              type='number'
+              value={machineNum}
+              onChange={(e) => setMachineNum(e.target.value)}
+              className='text-white bg-dark px-1 mx-2 w-2/3'
+            />
+          </label>
+        </form>
       </div>
     </section>
   );
