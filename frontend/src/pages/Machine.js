@@ -78,7 +78,7 @@ const Machine = () => {
               />
             </div>
           )}
-          <OpenModalButton buttonColor={'primary'} buttonText={'Report A Problem'} modalComponent={<Problems closeModal={closeModal} />} />
+          <OpenModalButton buttonColor={'secondary'} buttonText={'Report A Problem'} modalComponent={<Problems closeModal={closeModal} machine={machine} />} />
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-const Problems = ({ closeModal }) => {
-    const [machineNum, setMachineNum] = useState(0);
+const Problems = ({ closeModal, machine }) => {
+    // const [machineNum, setMachineNum] = useState(0);
     const [body, setBody] = useState('');
 
   return (
@@ -19,13 +19,13 @@ const Problems = ({ closeModal }) => {
             Machine Number:
             <input
               type='number'
-              value={machineNum}
-              onChange={(e) => setMachineNum(e.target.value)}
+              value={machine?.number}
+            //   onChange={(e) => setMachineNum(e.target.value)}
               className='text-white bg-dark px-2 mx-4 w-1/3 text-center'
             />
           </label>
           <label className='flex'>
-            Problem:
+            Description:
             <textarea
               type='text'
               rows={4}
