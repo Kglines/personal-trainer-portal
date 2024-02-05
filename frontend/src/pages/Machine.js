@@ -29,7 +29,7 @@ const Machine = () => {
           {machine?.manufacturer} {machine?.name}
         </h1>
       </div>
-      <div className='flex justify-around'>
+      <div className='md:flex justify-around'>
         <div className=''>
           <img
             src={machine?.machine_img}

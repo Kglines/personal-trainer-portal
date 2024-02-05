@@ -9,11 +9,12 @@ const AnnouncementTable = ({ announcements, user }) => {
   const { closeModal } = useModal();
   return (
     <section className='w-full mx-auto'>
-      <table className='w-5/6 mx-auto text-lg table-auto rounded-md'>
+      <table className='md:w-5/6 mx-auto text-lg table-auto rounded-md'>
         <thead>
           <tr className='bg-dark'>
-            <th className='p-2'>Date</th>
+            <th className='p-2 w-1/5'>Date</th>
             <th className='p-2'>Announcement</th>
+            <th className='p-2'>Comments</th>
             {user.isAdmin && <th className='p-2'>Edit</th>}
           </tr>
         </thead>
@@ -29,11 +30,19 @@ const AnnouncementTable = ({ announcements, user }) => {
                   {announcement?.body}
                 </NavLink>
               </td>
+              <NavLink
+                to={`/announcements/${announcement.id}`}
+                className='hover:text-primary hover:underline'
+              >
+                <td className='p-2'>{announcement?.Comments?.length || 0}</td>
+              </NavLink>
               {user.isAdmin && (
                 <td className='flex-1'>
                   <OpenModalButton
                     buttonColor='none'
-                    buttonText={<i className='fa fa-pencil text-white hover:text-primary'></i>}
+                    buttonText={
+                      <i className='fa fa-pencil text-white hover:text-primary'></i>
+                    }
                     modalComponent={
                       <EditAnnouncement
                         closeModal={closeModal}
@@ -43,7 +52,9 @@ const AnnouncementTable = ({ announcements, user }) => {
                   />
                   <OpenModalButton
                     buttonColor='none'
-                    buttonText={<i className='fa fa-trash text-white hover:text-primary'></i>}
+                    buttonText={
+                      <i className='fa fa-trash text-white hover:text-primary'></i>
+                    }
                     modalComponent={
                       <DeleteAnnouncement
                         closeModal={closeModal}

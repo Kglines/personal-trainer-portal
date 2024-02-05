@@ -22,5 +22,38 @@ body {
 }
 
 ::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+  filter: invert(1);
 }
+
+.picker {
+  color: white;
+}
+
+.react-datepicker__month-container {
+  background-color: gray;
+}
+
+.react-datepicker__day:hover {
+  background-color: brown;
+}
+
+/* #picker {
+  grid-column: 10/10;
+  grid-row: 4/4;
+  background: black;
+
+  input {
+    font-size: 80px;
+    font-family: "Roboto Condensed";
+    font-weight: bold;
+
+    color: gray;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #E3B924;
+    &:focus {
+      outline: none;
+    }
+  }
+} */

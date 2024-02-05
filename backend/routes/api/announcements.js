@@ -12,18 +12,39 @@ const { requireAuth } = require('../../utils/auth');
 // GET /api/announcements - Get all announcements
 router.get('/', requireAuth, async (req, res) => {
   // Get all announcements
-  const announcements = await Announcement.findAll();
-
-  // Sort announcements by date
-  const sortedAnnouncements = announcements.sort((a, b) => {
-    return a.date - b.date;
+  const announcements = await Announcement.findAll({
+    include: {
+      model: Comment,
+    }
   });
 
+  // Sort announcements by date
+  const quickSort = (arr) => {
+    if (arr.length <= 1) {
+      return arr;
+    }
+    const pivot = arr[arr.length - 1];
+    const left = [];
+    const right = [];
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i].date < pivot.date) {
+        left.push(arr[i]);
+      } else {
+        right.push(arr[i]);
+      }
+    }
+    return [...quickSort(left), pivot, ...quickSort(right)];
+  }
+
+  const sortedAnnouncements = quickSort(announcements)
+  // console.log('****************** SORTED ANNOUNCEMENTS === ', sortedAnnouncements)
   // Filter announcements by month
   const monthlyAnnouncements = sortedAnnouncements.filter((announcement) => {
     const currentMonth = new Date().getMonth() + 1;
+    // console.log('****************** CURRENT MONTH === ', currentMonth)
     const announcementMonth = announcement.date.getMonth() + 1;
-    // console.log('************************ ', currentMonth, announcementMonth)
+    const announcementDay = announcement.date.getDate() + 1;
+    // console.log('************************ ', announcement.id, currentMonth, announcementMonth, announcementDay)
     return announcementMonth === currentMonth;
   });
 // console.log('****************** Monthly Announcements === ', monthlyAnnouncements)
@@ -33,8 +54,12 @@ router.get('/', requireAuth, async (req, res) => {
 // GET /api/announcements/:id - Get a single announcement by id
 router.get('/:id', requireAuth, async (req, res) => {
   const announcementId = req.params.id;
-  const announcement = await Announcement.findByPk(announcementId);
-  // console.log('ANNOUNCEMENT ID === ', announcement)
+  const announcement = await Announcement.findByPk(announcementId, {
+    include: {
+      model: Comment,
+    }
+  });
+  console.log('ANNOUNCEMENT BY ID === ', announcement)
   return res.json(announcement);
 });
 

@@ -21,7 +21,7 @@ console.log('CLIENTS ===== ', clients)
   }, [dispatch])
 
   return (
-    <section className='text-offWhite w-4/5 mx-auto text-center pt-4'>
+    <section className='text-offWhite sm:w-full md:w-4/5 mx-auto text-center pt-4'>
       {/* <div>
         <LeftBar button={clientButton} links={clientLinks} />
       </div> */}

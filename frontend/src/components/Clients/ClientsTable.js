@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ClientsTable = ({ clients }) => {
   // console.log('CLIENTS TABLE ===== ', Object.values(clients) )
   return (
-    <section className='w-2/3 mx-auto'>
+    <section className='md:w-2/3 mx-auto'>
       <table className='w-5/6 mx-auto text-lg table-auto'>
         <thead>
           <tr className='bg-dark'>

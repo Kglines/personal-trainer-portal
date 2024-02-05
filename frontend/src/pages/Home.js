@@ -23,7 +23,7 @@ const Home = () => {
   ).sort((a, b) => {
     return a.date - b.date;
   });
-  // console.log('ANNOUNCEMENTS ON HOME PAGE === ', announcements);
+  console.log('ANNOUNCEMENTS ON HOME PAGE === ', announcements);
 
   useEffect(() => {
     dispatch(getAnnouncementsThunk());
@@ -36,7 +36,7 @@ const Home = () => {
   
   return (
     
-    <section className='text-offWhite w-4/5 mx-auto text-center pt-4 pl-48'>
+    <section className='text-offWhite sm:w-full md:w-4/5 mx-auto text-center pt-4'>
       {currentUser ? (
         <div>
           <div>
@@ -46,7 +46,7 @@ const Home = () => {
           component={<NewAnnouncementForm onClose={closeModal} />}
         /> */}
       </div>
-      <div>
+      <div className=''>
         <h1 className='text-4xl'>Welcome {currentUser.username}!</h1>
         {currentUser.isAdmin && (
           <OpenModalButton

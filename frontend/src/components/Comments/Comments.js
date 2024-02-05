@@ -5,6 +5,7 @@ import { getOneAnnouncement } from '../../store/announcement';
 import { useParams } from 'react-router-dom';
 
 const Comments = ({ user }) => {
+  console.log('USER === ', user)
   const dispatch = useDispatch();
   const { announcementId } = useParams();
   const announcementIdInt = parseInt(announcementId);
@@ -33,20 +34,20 @@ const Comments = ({ user }) => {
       <div>
         {comments?.map((comment) => (
           <div key={comment?.id} className='border border-dark m-4 p-4 flex'>
-            <div>
-              {/* <img
+            <div className='flex flex-col text-left'>
+              <div className=''>
+                <p>{user?.username}</p>
+              </div>
+              <img
                 src={user?.profileImg}
                 alt={user?.username}
                 className='rounded-full mr-4'
                 width={40}
                 height={40}
-              /> */}
+              />
             </div>
-            <div className='flex flex-col text-left'>
-              <div>
-                <p>{user?.username}</p>
-              </div>
-              <div className='ml-4'>
+            <div className='text-left'>
+              <div className='ml-4 pt-6'>
                 <p>{comment?.body}</p>
               </div>
             </div>
