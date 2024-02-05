@@ -34,10 +34,10 @@ const AnnouncementTable = ({ announcements, user }) => {
                 to={`/announcements/${announcement.id}`}
                 className='hover:text-primary hover:underline'
               >
-                <td className='p-2'>{announcement?.Comments?.length || 0}</td>
+                <td className='p-2 flex flex-col h-24 md:h-14 align-middle justify-center'>{announcement?.Comments?.length || 0}</td>
               </NavLink>
               {user.isAdmin && (
-                <td className='flex-1'>
+                <td className=''>
                   <OpenModalButton
                     buttonColor='none'
                     buttonText={
