@@ -18,7 +18,7 @@ const NewAnnouncementForm = ({ onClose }) => {
 
     const payload = {
       userId: sessionUser.id,
-      date,
+      date: date.toString(),
       body,
     };
     
@@ -31,7 +31,7 @@ const NewAnnouncementForm = ({ onClose }) => {
   };
 
   const pickDate = (date) => {
-    console.log('DATE PICKED ==== ', typeof toString(date))
+    console.log('DATE PICKED ==== ', date.toString())
     setDate(date);
     // closePicker();
   }
@@ -62,12 +62,11 @@ const NewAnnouncementForm = ({ onClose }) => {
             /> */}
             <DatePicker
               value={date}
+              selected={date}
               onChange={pickDate}
               className='bg-dark text-offWhite px-1 mx-2 picker'
               id='date'
               name='date'
-              onSelect={pickDate}
-              onClickOutside={pickDate}
             />
           </label>
           <label htmlFor='announcement' className='flex flex-col'>
