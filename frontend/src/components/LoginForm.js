@@ -60,9 +60,9 @@ const LoginForm = () => {
       <div>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col mx-auto border border-secondary rounded-lg p-2 md:py-4 md:px-16 mt-4 bg-dark w-full lg:w-5/6"
+          className="flex flex-col items-end mx-auto border border-secondary rounded-lg p-2 md:py-4 md:px-16 mt-4 bg-dark w-full lg:w-5/6"
         >
-          <div className="flex justify-between gap-2">
+          <div className="flex gap-2">
             <label className="mx-auto my-2 items-center" htmlFor="credential">
               Username or Email
             </label>
@@ -76,17 +76,17 @@ const LoginForm = () => {
             />
           </div>
           {errors.credential && <p className="text-red">{errors.credential}</p>}
-          <div className="flex justify-between w-3/4 gap-4">
+          <div className="flex gap-2 mr-3">
             <label className="mx-auto my-2 items-center" htmlFor="password">
               Password
             </label>
-            <div className="flex my-auto rounded-md">
+            <div className="flex items-center my-auto rounded-md">
               <input
                 id="password"
                 type={isVisible ? "text" : "password"}
                 value={password}
                 onChange={handlePassword}
-                className="flex justify-end border-2 border-grey rounded-md px-2 h-10 text-lg text-white bg-black transition-all"
+                className="flex border-2 border-grey rounded-md px-2 h-10 text-lg text-white bg-black transition-all"
               />
               <i
                 className="border-l-light p-2.5 z-10 -ml-10 rounded-md cursor-pointer"
