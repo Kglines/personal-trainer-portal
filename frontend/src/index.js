@@ -26,7 +26,7 @@ root.render(
     <ModalProvider>
       <Provider store={store}>
         <BrowserRouter>
-          <App />
+          <App className='dark' />
           <Modal />
         </BrowserRouter>
       </Provider>

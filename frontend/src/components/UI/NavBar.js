@@ -32,7 +32,7 @@ function Navigation({ isLoaded }) {
             <NavLink
               exact='true'
               to='/home'
-              className='flex gap-2 text-white hover:text-secondary hover:underline focus:text-secondary focus:underline active:text-secondary active:underline'
+              className='flex gap-2 pl-4 text-white hover:text-light transition-colors active:text-light'
             >
               <HiOutlineHome className='text-2xl' />
               <p className='hidden md:flex'>Home</p>
@@ -40,7 +40,7 @@ function Navigation({ isLoaded }) {
             <NavLink
               exact='true'
               to='/clients'
-              className='flex gap-2 pl-4 text-white hover:text-secondary hover:underline active:text-secondary active:underline focus:text-secondary focus:underline'
+              className='flex gap-2 pl-4 text-white hover:text-light transition-colors active:text-light'
             >
               <HiOutlineUsers className='text-2xl' />
               <p className='hidden md:flex'>Clients</p>
@@ -48,7 +48,7 @@ function Navigation({ isLoaded }) {
             <NavLink
               exact='true'
               to='/machines'
-              className='flex gap-2 pl-4 text-white hover:text-secondary hover:underline active:text-secondary active:underline focus:text-secondary focus:underline'
+              className='flex gap-2 pl-4 text-white hover:text-light  active:text-light transition-colors'
             >
               <HiOutlineWrenchScrewdriver className='text-2xl' />
               <p className='hidden md:flex'>Machines</p>
@@ -57,8 +57,8 @@ function Navigation({ isLoaded }) {
               <NavLink
                 exact='true'
                 to='/trainers'
-                className='flex gap-2 pl-4 text-white hover:text-secondary hover:underline active:text-secondary active:underline focus:text-secondary focus:underline'
-              >
+                className='flex gap-2 pl-4 text-white hover:text-light transition-colors active:text-light'
+                >
                 <HiOutlineScale className='text-2xl' />
                 <p className='hidden md:flex'>Trainers</p>
               </NavLink>
@@ -84,7 +84,7 @@ function Navigation({ isLoaded }) {
           <NavLink
             exact
             to='/'
-            className='text-white hover:text-secondary hover:underline'
+            className='text-white hover:text-light'
           >
             Home
           </NavLink>
@@ -92,8 +92,8 @@ function Navigation({ isLoaded }) {
         <li className='flex gap-4 justify-between'>
           <NavLink
             to='/login'
-            className='text-white border border-secondary rounded-sm px-2 hover:bg-secondary focus:bg-secondary'
-          >
+            className='flex gap-2 pl-4 text-white hover:text-light transition-colors active:text-light'
+            >
             Log In
           </NavLink>
         </li>
@@ -104,7 +104,7 @@ function Navigation({ isLoaded }) {
   return (
     <nav
       id='nav'
-      className='md:flex h-12 w-full bg-primary py-2 text-lg'
+      className='md:flex h-12 w-full bg-gradient-to-b from-primary to-black py-2 text-lg'
     >
       <div className='w-4/5 mx-auto'>
         <ul>{isLoaded && sessionLinks}</ul>

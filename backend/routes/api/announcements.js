@@ -15,7 +15,8 @@ router.get('/', requireAuth, async (req, res) => {
   const announcements = await Announcement.findAll({
     include: {
       model: Comment,
-    }
+    },
+    order: [['date', 'ASC']]
   });
 
   // Sort announcements by date

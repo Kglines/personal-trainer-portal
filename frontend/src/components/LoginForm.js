@@ -69,7 +69,8 @@ const LoginForm = () => {
               value={credential}
               onChange={handleCredential}
               required
-              className='flex justify-between border-2 border-black rounded-md bg-light px-2 mx-2 h-10 text-lg text-black'
+              className='flex justify-between border-2 border-grey rounded-md px-2 mx-2 h-10 text-lg bg-black text-white'
+              autoFocus
             />
           </div>
           {errors.credential && <p className='text-red'>{errors.credential}</p>}
@@ -83,7 +84,7 @@ const LoginForm = () => {
               value={password}
               onChange={handlePassword}
               required
-              className='flex justify-end border-2 border-black rounded-md bg-light px-2 mx-2 h-10 text-lg text-black'
+              className='flex justify-end border-2 border-grey rounded-md bg-black px-2 mx-2 h-10 text-lg text-black'
             />
           </div>
           {errors.password && <p className='text-red'>{errors.password}</p>}
