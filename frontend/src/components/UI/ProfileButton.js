@@ -28,7 +28,10 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button 
+        // onClick={openMenu}
+        onClick={() => navigate('/profile')}
+        >
         {user.profileImg ? (
           <img
             src={user.profileImg}

@@ -20,6 +20,7 @@ import Problems from './pages/Problems';
 import Profile from './pages/Profile';
 import Trainer from './pages/Trainer';
 import Chat from './pages/Chat';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ function App() {
           <Route path='/profile' element={<Profile />} exact />
           <Route path='/chat' element={<Chat />} />
           <Route path='/' element={<Landing />} exact />
+          <Route path='/dashboard' element={<Dashboard />} exact />
           <Route>:Page Not Found</Route>
         </Routes>
       ) : (

@@ -45,6 +45,12 @@ module.exports = (sequelize, DataTypes) => {
           len: [3, 256],
           isEmail: true,
         },
+      emailVerified: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
+      
       },
       password: {
         type: DataTypes.STRING.BINARY,

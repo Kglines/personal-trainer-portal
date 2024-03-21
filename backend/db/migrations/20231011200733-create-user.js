@@ -35,6 +35,11 @@ module.exports = {
           unique: true,
           allowNull: false,
         },
+        emailVerified: {
+          type: Sequelize.BOOLEAN,
+          allowNull: false,
+          defaultValue: false,
+        },
         password: {
           type: Sequelize.STRING,
           allowNull: false,

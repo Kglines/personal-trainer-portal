@@ -32,11 +32,11 @@ function Navigation({ isLoaded }) {
           <li className='flex divide divide-x-2 pl-2 gap-4'>
             <NavLink
               exact='true'
-              to='/home'
+              to='/dashboard'
               className='flex gap-2 pl-4 text-white hover:text-light transition-colors active:text-light'
             >
               <HiOutlineHome className='text-xl mt-1' />
-              <p className='hidden md:flex'>Home</p>
+              <p className='hidden md:flex'>Dashboard</p>
             </NavLink>
             <NavLink
               exact='true'
