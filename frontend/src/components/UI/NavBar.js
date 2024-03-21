@@ -10,6 +10,7 @@ import { HiOutlineWrenchScrewdriver } from 'react-icons/hi2';
 import { HiOutlineScale } from 'react-icons/hi2';
 import { HiOutlineArrowRightOnRectangle } from 'react-icons/hi2';
 
+
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
   console.log('sessionUser === ', sessionUser)
@@ -34,7 +35,7 @@ function Navigation({ isLoaded }) {
               to='/home'
               className='flex gap-2 pl-4 text-white hover:text-light transition-colors active:text-light'
             >
-              <HiOutlineHome className='text-2xl' />
+              <HiOutlineHome className='text-xl mt-1' />
               <p className='hidden md:flex'>Home</p>
             </NavLink>
             <NavLink
@@ -42,7 +43,7 @@ function Navigation({ isLoaded }) {
               to='/clients'
               className='flex gap-2 pl-4 text-white hover:text-light transition-colors active:text-light'
             >
-              <HiOutlineUsers className='text-2xl' />
+              <HiOutlineUsers className='text-xl mt-1' />
               <p className='hidden md:flex'>Clients</p>
             </NavLink>
             <NavLink
@@ -50,7 +51,7 @@ function Navigation({ isLoaded }) {
               to='/machines'
               className='flex gap-2 pl-4 text-white hover:text-light  active:text-light transition-colors'
             >
-              <HiOutlineWrenchScrewdriver className='text-2xl' />
+              <HiOutlineWrenchScrewdriver className='text-xl mt-1' />
               <p className='hidden md:flex'>Machines</p>
             </NavLink>
             {sessionUser.role === 'admin' && (
@@ -59,7 +60,7 @@ function Navigation({ isLoaded }) {
                 to='/trainers'
                 className='flex gap-2 pl-4 text-white hover:text-light transition-colors active:text-light'
                 >
-                <HiOutlineScale className='text-2xl' />
+                <HiOutlineScale className='text-xl mt-1' />
                 <p className='hidden md:flex'>Trainers</p>
               </NavLink>
             )}
