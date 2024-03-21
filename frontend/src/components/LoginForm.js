@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import * as sessionActions from '../store/session';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import * as sessionActions from "../store/session";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { HiOutlineEye } from "react-icons/hi";
+import { HiOutlineEyeOff } from "react-icons/hi";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const sessionUser = useSelector((state) => state.session.user);
-  const [credential, setCredential] = useState('');
-  const [password, setPassword] = useState('');
+  const [credential, setCredential] = useState("");
+  const [password, setPassword] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
     if (!sessionUser || sessionUser.username === null) {
-      return navigate('/login');
+      return navigate("/login");
     } else {
-      return navigate('/home');
+      return navigate("/home");
     }
   }, [navigate, sessionUser]);
 
@@ -32,7 +35,7 @@ const LoginForm = () => {
       setErrors({});
       setPassword(e.target.value);
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,11 +48,11 @@ const LoginForm = () => {
     );
   };
 
-  console.log('Errors === ', errors)
+  console.log("Errors === ", errors);
   return (
-    <section className='flex flex-col items-center mx-auto text-center text-white border border-white rounded-lg px-1 py-2 md:py-4 md:w-3/4 lg:w-1/2'>
-      <div className='mx-auto'>
-        <h1 className='text-2xl md:text-3xl mx-auto mb-4 w-3/4'>
+    <section className="flex flex-col items-center mx-auto my-16 text-center text-white border border-white rounded-lg px-1 py-2 md:py-4 md:w-3/4 lg:w-1/2">
+      <div className="mx-auto">
+        <h1 className="text-2xl md:text-3xl mx-auto mb-4 w-3/4">
           Welcome to the <strong>HAC</strong> Personal Trainer Portal
         </h1>
         <h2>Please log in to continue</h2>
@@ -57,40 +60,46 @@ const LoginForm = () => {
       <div>
         <form
           onSubmit={handleSubmit}
-          className='flex flex-col mx-auto border border-secondary rounded-lg p-2 md:py-4 md:px-8 mt-4 bg-dark w-full lg:w-4/5'
+          className="flex flex-col mx-auto border border-secondary rounded-lg p-2 md:py-4 md:px-16 mt-4 bg-dark w-full lg:w-5/6"
         >
-          <div className='flex justify-between w-3/4'>
-            <label className='mx-auto my-2 items-center' htmlFor='credential'>
+          <div className="flex justify-between gap-2">
+            <label className="mx-auto my-2 items-center" htmlFor="credential">
               Username or Email
             </label>
             <input
-              type='text'
-              id='credential'
+              type="text"
+              id="credential"
               value={credential}
               onChange={handleCredential}
-              required
-              className='flex justify-between border-2 border-grey rounded-md px-2 mx-2 h-10 text-lg bg-black text-white'
+              className="flex justify-between border-2 border-grey rounded-md px-2 mx-2 h-10 text-lg bg-black text-white"
               autoFocus
             />
           </div>
-          {errors.credential && <p className='text-red'>{errors.credential}</p>}
-          <div className='flex justify-between w-3/4'>
-            <label className='mx-auto my-2 items-center' htmlFor='password'>
+          {errors.credential && <p className="text-red">{errors.credential}</p>}
+          <div className="flex justify-between w-3/4 gap-4">
+            <label className="mx-auto my-2 items-center" htmlFor="password">
               Password
             </label>
-            <input
-              id='password'
-              type='password'
-              value={password}
-              onChange={handlePassword}
-              required
-              className='flex justify-end border-2 border-grey rounded-md bg-black px-2 mx-2 h-10 text-lg text-black'
-            />
+            <div className="flex my-auto rounded-md">
+              <input
+                id="password"
+                type={isVisible ? "text" : "password"}
+                value={password}
+                onChange={handlePassword}
+                className="flex justify-end border-2 border-grey rounded-md px-2 h-10 text-lg text-white bg-black transition-all"
+              />
+              <i
+                className="border-l-light p-2.5 z-10 -ml-10 rounded-md cursor-pointer"
+                onClick={() => setIsVisible((prev) => !prev)}
+              >
+                {isVisible ? <HiOutlineEyeOff /> : <HiOutlineEye />}
+              </i>
+            </div>
           </div>
-          {errors.password && <p className='text-red'>{errors.password}</p>}
+          {errors.password && <p className="text-red">{errors.password}</p>}
           <button
-            type='submit'
-            className='bg-secondary hover:bg-secondaryLight text-white shadow-sm px-2 py-2 m-4 mx-auto rounded-md  w-5/6'
+            type="submit"
+            className="bg-secondary hover:bg-secondaryLight text-white shadow-sm px-2 py-2 m-4 mx-auto rounded-md  w-5/6"
           >
             Log In
           </button>
