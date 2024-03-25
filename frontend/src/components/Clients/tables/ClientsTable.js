@@ -22,9 +22,16 @@ const ClientsTable = ({ clients }) => {
               </Link>
               <td className='p-2'>
                 {client?.isActive ? (
-                  <i className='fa-solid fa-check text-green'></i>
+                  <div>
+                    {/* <i className='fa-solid fa-check text-green'></i> */}
+                  <p className='text-sm text-green border border-green w-1/2 mx-auto'>Active</p>
+                  </div>
+                  
                 ) : (
-                  <i className='fa-regular fa-rectangle-xmark text-red'></i>
+                  <div>
+                    {/* <i className='fa-regular fa-rectangle-xmark text-red'></i> */}
+<p className='text-sm text-red border border-red w-1/2 mx-auto'>Inactive</p>
+                  </div>
                 )}
               </td>
             </tr>

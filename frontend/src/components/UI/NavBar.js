@@ -9,6 +9,8 @@ import { HiOutlineUsers } from 'react-icons/hi2';
 import { HiOutlineWrenchScrewdriver } from 'react-icons/hi2';
 import { HiOutlineScale } from 'react-icons/hi2';
 import { HiOutlineArrowRightOnRectangle } from 'react-icons/hi2';
+import { HiOutlineTemplate } from "react-icons/hi";
+
 
 
 function Navigation({ isLoaded }) {
@@ -35,8 +37,16 @@ function Navigation({ isLoaded }) {
               to='/dashboard'
               className='flex gap-2 pl-4 text-white hover:text-light transition-colors active:text-light'
             >
-              <HiOutlineHome className='text-xl mt-1' />
+              <HiOutlineTemplate className='text-xl mt-1' />
               <p className='hidden md:flex'>Dashboard</p>
+            </NavLink>
+            <NavLink
+              exact='true'
+              to='/home'
+              className='flex gap-2 pl-4 text-white hover:text-light transition-colors active:text-light'
+            >
+              <HiOutlineHome className='text-xl mt-1' />
+              <p className='hidden md:flex'>Home</p>
             </NavLink>
             <NavLink
               exact='true'
