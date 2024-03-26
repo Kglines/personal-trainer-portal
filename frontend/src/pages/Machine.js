@@ -55,7 +55,7 @@ const Machine = () => {
           <div>
             <p>Hours: {machine?.hours}</p>
           </div>
-          {user?.isAdmin && (
+          {user?.role === "admin" && (
             <div>
               <OpenModalButton
                 buttonColor={'secondary'}

@@ -49,6 +49,8 @@ export const deleteAnnouncement = (announcementId) => {
 export const getAnnouncementsThunk = () => async (dispatch) => {
     const res = await csrfFetch('/api/announcements');
 
+    // console.log('Get Announcements Thunk Res ==== ', res)
+
     if(res.ok){
         const announcements = await res.json();
         dispatch(getAnnouncements(announcements));

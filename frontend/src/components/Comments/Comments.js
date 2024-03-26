@@ -34,9 +34,10 @@ const Comments = ({ user }) => {
       <div>
         {comments?.map((comment) => (
           <div key={comment?.id} className='border border-dark m-4 p-2 flex'>
-            <div className='flex flex-col text-left'>
+            <div className='flex flex-col text-left w-96'>
               <div className='text-light'>
-                <p>{comment?.User?.username}</p>
+                <p>{comment?.User?.firstName}</p>
+                <p>{comment?.User?.lastName}</p>
               </div>
               <img
                 src={user?.profileImg}
@@ -48,6 +49,7 @@ const Comments = ({ user }) => {
             </div>
             <div className='text-left'>
               <div className='ml-4 pt-6'>
+                {/* <p>{user?.username}</p> */}
                 <p>{comment?.body}</p>
               </div>
             </div>

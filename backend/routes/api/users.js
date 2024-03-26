@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth.js');
-const { User } = require('../../db/models');
+const { User, Comment, Problems, Client } = require('../../db/models');
 const { validateSignup } = require('../../utils/validation.js');
 const router = express.Router();
 
@@ -21,9 +21,20 @@ router.get(
     requireAuth,
     async (req, res) => {
         const { id } = req.params;
-        const user = await User.findByPk(id);
-        console.log('user === ', user)
-        return res.json(user);
+        try {
+            const user = await User.findByPk(id, {
+                include: {
+                    model: Comment,
+                    model: Client
+                },
+            
+            });
+            console.log('user === ', user)
+            return res.json(user);
+            
+        } catch (error) {
+            console.log('ERROR === ', error)
+        }
     }
 )
 

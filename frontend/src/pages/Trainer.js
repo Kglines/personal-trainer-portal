@@ -7,7 +7,7 @@ const Trainer = () => {
   const { trainerId } = useParams();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.users);
-  console.log('user === ', parseInt(trainerId));
+  console.log('user === ', user);
   useEffect(() => {
     dispatch(fetchOneUserThunk(parseInt(trainerId)));
   }, [dispatch, trainerId]);

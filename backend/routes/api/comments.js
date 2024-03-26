@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { Announcement } = require('../../db/models');
+const { Comment } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 
-// Get All Announcements
+// Get All Comments
 router.get('/', requireAuth, async (req, res) => {
   const comments = await Comment.findAll();
   return res.json(comments);

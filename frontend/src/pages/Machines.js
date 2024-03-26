@@ -96,7 +96,7 @@ const newMachine = '+ Machine'
       <div>
         <div>
           <h1 className='text-4xl p-4'>Machines</h1>
-          {user.isAdmin && (
+          {user.role === "admin" && (
             <OpenModalButton
               button={newMachine}
               buttonColor={'secondary'}
