@@ -14,11 +14,11 @@ const Announcement = () => {
   // console.log('ERRORS in ANNOUNCEMENT COMP === ', errors)
 
   const dispatch = useDispatch();
-  const idNum = Number(announcementId);
+  const idNum = parseInt(announcementId);
 
   const announcement = useSelector((state) => state.announcements);
 
-  // console.log('ANNOUNCEMENT in ANNOUNCEMENT COMPONENT === ', announcement)
+  console.log('ANNOUNCEMENT in ANNOUNCEMENT COMPONENT === ', announcement)
   const currentUser = useSelector(state => state.session.user);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Announcement = () => {
         <h1 className='text-4xl pb-4'>Announcement</h1>
       </div>
       <div className='m-4 border bg-dark border-dark px-4 py-8 rounded-md'>
-        <h2 className='text-2xl '>{announcement.body}</h2>
+        <h2 className='text-2xl '>{announcement?.body}</h2>
       </div>
       <div className='my-6'>
         <OpenModalButton buttonColor='secondary' buttonText='+ Comment' modalComponent={<NewCommentForm closeModal={closeModal} announcement={announcement} user={currentUser} />} />

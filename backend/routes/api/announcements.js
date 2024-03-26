@@ -58,22 +58,19 @@ router.get("/", requireAuth, async (req, res) => {
 router.get("/:id", requireAuth, async (req, res) => {
   const { id } = req.params;
   const announcementId = parseInt(id);
-  console.log(
-    "***************** ANNOUNCEMENT BY ID === ",
-    typeof announcementId,
-    announcementId,
-    typeof id,
-    id
-  );
+  // console.log(
+  //   "***************** ANNOUNCEMENT BY ID === ",
+  //   typeof announcementId,
+  //   announcementId,
+  //   typeof id,
+  //   id
+  // );
 
   try {
-    const announcement = await Announcement.findOne({
-      where: { 
-          id: announcementId
-         },
+    const announcement = await Announcement.findByPk(announcementId, {
       include: {
-        model: Comment,
-      },
+        model: Comment
+      }
     });
     console.log(
       "***************** ANNOUNCEMENT BY ID ANNOUNCEMENT === ",
@@ -122,11 +119,13 @@ router.delete("/:id", requireAuth, async (req, res) => {
 // router.get('/:id/comments', requireAuth, async (req, res, next) => {
 //   const announcementIdParams = req.params.id;
 //   const announcementId = parseInt(announcementIdParams);
-//   console.log('***************** announcement ID === ', typeof announcementId)
+//   console.log('***************** announcement ID === ', typeof announcementId, announcementId)
 //   try {
 //     const comments = await Comment.findAll({
 //       where: { announcementId: announcementId },
-//       include: User,
+//       include: {
+//         model: User
+//       },
 //     });
 //     console.log('****************** Comments === ', comments)
 //     return res.json(comments);

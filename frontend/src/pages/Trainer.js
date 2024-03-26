@@ -38,27 +38,27 @@ const Trainer = () => {
       </section>
       <section>
         <div>
-          <h2>Clients({user.Clients.length})</h2>
+          <h2>Clients({user?.Clients?.length})</h2>
 
         </div>
         <div>
-          {user?.Clients.map(client => (
-            <div key={client.id} className="flex gap-2">
-                <p>{client.firstName}</p>
-                <p>{client.lastName}</p>
+          {user?.Clients?.map(client => (
+            <div key={client?.id} className="flex gap-2">
+                <p>{client?.firstName}</p>
+                <p>{client?.lastName}</p>
               </div>
           ))}
         </div>
       </section>
       <section className="flex flex-col mx-auto">
         <div>
-          <h2 className="flex">Comments(<p className="">{user.Comments.length}</p>)</h2>
+          <h2 className="flex">Comments(<p className="">{user?.Comments?.length}</p>)</h2>
             
         </div>
         <div>
           {user?.Comments?.map(comment => (
             <div key={comment?.id} className="flex gap-2">
-                <p>{comment.body}</p>
+                <p>{comment?.body}</p>
               </div>
           ))}
         </div>

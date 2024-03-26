@@ -57,10 +57,10 @@ export const deleteComment = (commentId) => {
 
 export const getAnnouncementCommentsThunk = (announcementId) => async (dispatch) => {
     const res = await csrfFetch(`/api/announcements/${announcementId}/comments`);
-    // console.log('GET ANNOUNCEMENT COMMENTS RES === ', res)
+    console.log('GET ANNOUNCEMENT COMMENTS RES === ', res)
     if(res.ok){
         const comments = await res.json();
-        // console.log('GET ANNOUNCEMENT COMMENTS INSIDE THUNK === ', comments)
+        console.log('GET ANNOUNCEMENT COMMENTS INSIDE THUNK === ', comments)
         dispatch(getComments(comments));
         return comments
     }

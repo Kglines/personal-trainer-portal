@@ -65,6 +65,7 @@ export const getOneAnnouncementThunk = (announcementId) => async (dispatch) => {
     if(res.ok){
         const announcement = await res.json();
         dispatch(getOneAnnouncement(announcement));
+        console.log('Get One Announcement Thunk ==== ', announcement)
         return announcement;
     }
     return res;
@@ -129,7 +130,7 @@ const announcementsReducer = (state = initialState, action) => {
             return newState;
         case GET_ONE_ANNOUNCEMENT:
             newState = action.payload;
-            // console.log('Get One Announcement Reducer ==== ', newState)
+            console.log('Get One Announcement Reducer ==== ', newState)
             return newState;
         case CREATE_ANNOUNCEMENT:
             newState = { ...state, [action.payload.id]: action.payload }
