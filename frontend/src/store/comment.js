@@ -43,17 +43,18 @@ export const deleteComment = (commentId) => {
   };
 }
 
-// // ********************** Thunks ********************** //
-// export const getAllCommentsThunk = () => async (dispatch) => {
-//     const res = await csrfFetch('/api/comments');
+// ********************** Thunks ********************** //
+export const getAllCommentsThunk = (announcementId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/announcements/${announcementId}/comments`);
 
-//     if(res.ok){
-//         const comments = await res.json();
-//         dispatch(getComments(comments));
-//         return comments
-//     }
-//     return res;
-// }
+    if(res.ok){
+        const comments = await res.json();
+        dispatch(getComments(comments));
+        console.log('GET ALL COMMENTS THUNK === ', comments)
+        return comments
+    }
+    return res;
+}
 
 export const getAnnouncementCommentsThunk = (announcementId) => async (dispatch) => {
     const res = await csrfFetch(`/api/announcements/${announcementId}/comments`);

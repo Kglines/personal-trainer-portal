@@ -116,24 +116,24 @@ router.delete("/:id", requireAuth, async (req, res) => {
 
 // *******************Comment Routes*******************
 // Get All Comments Associated With An Announcement
-// router.get('/:id/comments', requireAuth, async (req, res, next) => {
-//   const announcementIdParams = req.params.id;
-//   const announcementId = parseInt(announcementIdParams);
-//   console.log('***************** announcement ID === ', typeof announcementId, announcementId)
-//   try {
-//     const comments = await Comment.findAll({
-//       where: { announcementId: announcementId },
-//       include: {
-//         model: User
-//       },
-//     });
-//     console.log('****************** Comments === ', comments)
-//     return res.json(comments);
-//   } catch (e) {
-//     next(e)
-//     console.log('********************* Here is the ERROR === ', e)
-//   }
-// });
+router.get('/:id/comments', requireAuth, async (req, res, next) => {
+  const announcementIdParams = req.params.id;
+  const announcementId = parseInt(announcementIdParams);
+  console.log('***************** announcement ID === ', typeof announcementId, announcementId)
+  try {
+    const comments = await Comment.findAll({
+      where: { announcementId: announcementId },
+      include: {
+        model: User
+      },
+    });
+    console.log('****************** Comments === ', comments)
+    return res.json(comments);
+  } catch (e) {
+    next(e)
+    console.log('********************* Here is the ERROR === ', e)
+  }
+});
 
 // Create A New Comment Associated With An Announcement
 router.post("/:id/comments", requireAuth, async (req, res) => {
