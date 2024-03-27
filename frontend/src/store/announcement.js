@@ -61,7 +61,7 @@ export const getAnnouncementsThunk = () => async (dispatch) => {
 
 export const getOneAnnouncementThunk = (announcementId) => async (dispatch) => {
     const res = await csrfFetch(`/api/announcements/${announcementId}`);
-
+console.log('Get One Announcement Thunk Res ==== ', res)
     if(res.ok){
         const announcement = await res.json();
         dispatch(getOneAnnouncement(announcement));
