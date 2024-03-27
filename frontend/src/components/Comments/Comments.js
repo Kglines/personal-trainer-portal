@@ -2,6 +2,8 @@ import React from 'react';
 
 const Comments = ({ user, announcement }) => {
 
+  
+
   return (
     <section className='w-4/5 m-auto border-dark flex flex-col justify-center'>
       <div>

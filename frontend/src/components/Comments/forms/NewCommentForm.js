@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createCommentThunk } from '../../../store/comment';
+import { getOneAnnouncementThunk } from '../../../store/announcement';
 
 const NewCommentForm = ({ closeModal, announcement, user }) => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const NewCommentForm = ({ closeModal, announcement, user }) => {
 
     dispatch(createCommentThunk(payload))
         .then(() => setBody(''))
+        .then(() => dispatch(getOneAnnouncementThunk(announcement?.id)))
         .then(() => closeModal())
         .catch((res) => {
             if (res.data && res.data.errors)
