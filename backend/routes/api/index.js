@@ -10,6 +10,8 @@ const machinesRouter = require('./machines.js')
 const commentsRouter = require('./comments.js')
 const problemsRouter = require('./problems.js')
 const chatRouter = require('./chat.js')
+const monthlyClientReportRouter = require('./monthlyClientReports.js');
+const monthlyClientReportDetailRouter = require('./monthlyClientReportDetails.js');
 
 router.use(restoreUser);
 
@@ -22,6 +24,8 @@ router.use('/machines', machinesRouter);
 router.use('/comments', commentsRouter);
 router.use('/problems', problemsRouter);
 router.use('/chat', chatRouter);
+router.use('/monthly-client-reports', monthlyClientReportRouter);
+router.use('/monthly-client-report-detail', monthlyClientReportDetailRouter);
 
 // ************************* Test Middleware *************************
 // GET /api/set-token-cookie

@@ -8,7 +8,7 @@ const Trainer = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.users);
 
-  console.log('user in Trainer Page === ', user);
+  // console.log('user in Trainer Page === ', user);
 
   useEffect(() => {
     dispatch(fetchOneUserThunk(parseInt(trainerId)));
