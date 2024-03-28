@@ -15,13 +15,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      reportId: {
+      monthlyClientReportId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'MonthlyClientReports'
+        },
+        onDelet: 'CASCADE'
       },
       clientId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'Clients'
+        },
+        onDelet: 'CASCADE'
       },
       notes: {
         type: Sequelize.STRING
