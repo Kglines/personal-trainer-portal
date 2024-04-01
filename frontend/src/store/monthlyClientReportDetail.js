@@ -136,4 +136,5 @@ const monthlyClientReportDetailReducer = (state = initialState, action) => {
     }
 }
 
+export default monthlyClientReportDetailReducer;
 

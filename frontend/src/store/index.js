@@ -9,6 +9,7 @@ import commentsReducer from './comment';
 import problemReducer from './problem';
 import usersReducer from './user';
 import monthlyClientReportReducer from './monthlyClientReport';
+import monthlyClientReportDetailReducer from './monthlyClientReportDetail';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     comments: commentsReducer,
     problems: problemReducer,
     users: usersReducer,
-    monthlyClientReports: monthlyClientReportReducer
+    monthlyClientReports: monthlyClientReportReducer,
+    monthlyClientReportDetails: monthlyClientReportDetailReducer,
 });
 
 let enhancer;
