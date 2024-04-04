@@ -1,8 +1,19 @@
 const express = require('express');
 const router = express.Router();
+const nodemailer = require('nodemailer');
 
 const { MonthlyClientReport, MonthlyClientReportDetail } = require('../../db/models');
 const { requireAuth } = require("../../utils/auth");
+
+const transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false, // Use `true` for port 465, `false` for all other ports
+    auth: {
+      user: "maddison53@ethereal.email",
+      pass: "jn7jnAPss4f63QBp6D",
+    },
+  });
 
 // ************************** Get Monthly Client Reports **************************
 router.get('/', requireAuth,  async (req, res) => {
