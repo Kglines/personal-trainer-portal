@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 const Dashboard = () => {
   const announcements = useSelector(state => state.announcements)
+  const clients = useSelector(state => state.clients)
   return (
     <main>
       <div>
@@ -13,6 +14,9 @@ const Dashboard = () => {
           <h4>Announcements</h4>
           <div>
             {announcements.length} announcements this month.
+          </div>
+          <div>
+            {clients.length}
           </div>
         </div>
       </div>
