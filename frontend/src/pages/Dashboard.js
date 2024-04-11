@@ -1,9 +1,10 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
-  const announcements = useSelector(state => state.announcements)
-  const clients = useSelector(state => state.clients)
+  const announcements = useSelector((state) => state.announcements);
+  const clients = useSelector((state) => state.clients);
+  const monthyReports = useSelector((state) => state.mothlyClientReport);
   return (
     <main>
       <div>
@@ -12,16 +13,15 @@ const Dashboard = () => {
       <div>
         <div>
           <h4>Announcements</h4>
-          <div>
-            {announcements.length} announcements this month.
-          </div>
-          <div>
-            {clients.length}
-          </div>
+          <div>{announcements.length} announcements this month.</div>
+        </div>
+        <div>
+    <h4>Monthly Reports</h4>
+        <div>{clients.length}</div>
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
